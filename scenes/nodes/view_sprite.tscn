@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvbvmhpeqm05y"]
+
+[ext_resource type="Script" uid="uid://bv8121axtbpuh" path="res://scripts/nodes/view_sprite.gd" id="1_ie7yt"]
+[ext_resource type="Shader" uid="uid://dqmvfwrp47tkm" path="res://shaders/view_sprite.gdshader" id="2_332sf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_332sf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_g2els"]
+
+[node name="ViewSprite" type="Node3D"]
+script = ExtResource("1_ie7yt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("ShaderMaterial_qlg0r")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_g2els")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf28l0rslub3a"]
+
+[ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="1_nlnr2"]
+
+[node name="TestWeapon" type="Control"]
+layout_mode = 3
+anchor_right = 0.277778
+anchor_bottom = 0.37037
+offset_bottom = 1.52588e-05
+metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [0.0, 320.0, 160.0]
+metadata/_edit_horizontal_guides_ = [240.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.346875
+anchor_top = 0.754167
+anchor_right = 0.678125
+anchor_bottom = 1.11667
+texture = ExtResource("1_nlnr2")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
