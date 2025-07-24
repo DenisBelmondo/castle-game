@@ -25,7 +25,19 @@ operation = 2
 flip_faces = true
 size = Vector3(1, 0.2, 1)
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -4)
+operation = 2
+flip_faces = true
+size = Vector3(1, 0.4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -5)
+operation = 2
+flip_faces = true
+size = Vector3(1, 0.6, 1)
+
 [node name="Player" parent="." instance=ExtResource("2_2s55i")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
