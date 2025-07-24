@@ -47,6 +47,7 @@ func _get_property_list() -> Array[Dictionary]:
 	]
 
 
+# [TODO]: ceiling crap
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
