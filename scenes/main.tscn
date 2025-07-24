@@ -5,5 +5,4 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
-
-[node name="TestMap" parent="." instance=ExtResource("1_o5qli")]
+current_scene = ExtResource("1_o5qli")

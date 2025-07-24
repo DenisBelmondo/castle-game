@@ -7,7 +7,7 @@ shader_type spatial;
 render_mode cull_disabled, depth_draw_always, depth_test_disabled, skip_vertex_transform;
 
 uniform sampler2D screen_texture : hint_screen_texture;
-uniform sampler2D albedo_texture : source_color;
+uniform sampler2D albedo_texture : filter_nearest, source_color;
 
 mat4 orthographic(float left, float right, float bottom, float top, float near, float far) {
 	mat4 ortho = mat4(0.0);

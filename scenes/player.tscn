@@ -1,34 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://boigngi4wgtav"]
+[gd_scene load_steps=8 format=3 uid="uid://boigngi4wgtav"]
 
 [ext_resource type="Script" uid="uid://2vy5avxs45yj" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://cvbvmhpeqm05y" path="res://scenes/nodes/view_sprite.tscn" id="2_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bppjg1p87iohb" path="res://scripts/character.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://cv4lm3m1adnbs" path="res://scripts/character_movement_state.gd" id="2_qhqgy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ybdod"]
 height = 1.0
 radius = 0.25
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("body", "outer_head", "inner_head")]
-wall_min_slide_angle = 0.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_3vyb7"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qhqgy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dqkch"]
+top_radius = 0.0
+bottom_radius = 1.0
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("character", "outer_head", "inner_head")]
 script = ExtResource("1_3vyb7")
-body = NodePath(".")
-outer_head = NodePath("OuterHead")
-inner_head = NodePath("OuterHead/InnerHead")
+character = NodePath("Character")
+outer_head = NodePath("Character/OuterHead")
+inner_head = NodePath("Character/OuterHead/InnerHead")
 walk_speed = 1.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Character" type="CharacterBody3D" parent="." node_paths=PackedStringArray("body", "_movement_state")]
+wall_min_slide_angle = 0.0
+script = ExtResource("2_g2els")
+body = NodePath(".")
+_movement_state = NodePath("CharacterMovementState")
+
+[node name="CharacterMovementState" type="Node" parent="Character"]
+script = ExtResource("2_qhqgy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_ybdod")
 
-[node name="OuterHead" type="Node3D" parent="."]
+[node name="OuterHead" type="Node3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="InnerHead" type="Node3D" parent="OuterHead"]
+[node name="InnerHead" type="Node3D" parent="Character/OuterHead"]
 
-[node name="Camera3D" type="Camera3D" parent="OuterHead/InnerHead"]
-near = 0.001
+[node name="EditorOnly" type="Node3D" parent="Character" groups=["only_visible_in_editor"]]
 
-[node name="ViewSprite" parent="OuterHead/InnerHead/Camera3D" instance=ExtResource("2_qhqgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 0)
-texture = ExtResource("3_qhqgy")
-pixel_size = 0.004
+[node name="Body" type="MeshInstance3D" parent="Character/EditorOnly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3vyb7")
+skeleton = NodePath("../..")
+
+[node name="Gizmo" type="MeshInstance3D" parent="Character/EditorOnly"]
+transform = Transform3D(0.125, 0, 0, 0, -5.46392e-09, 0.125, 0, -0.125, -5.46392e-09, 0, 0.5, -0.4)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qhqgy")
+
+[node name="ArrowHead" type="MeshInstance3D" parent="Character/EditorOnly/Gizmo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_dqkch")
+skeleton = NodePath("../..")
