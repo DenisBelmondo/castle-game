@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ogrprg0ooci3"]
+
+[ext_resource type="Script" uid="uid://ifsr5akisa7r" path="res://scripts/hitscan_attack.gd" id="1_iu0pf"]
+
+[node name="Hitscan" type="Node3D"]
+script = ExtResource("1_iu0pf")
+hit = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://scripts/resources/hit.gd"))
+
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -16)

@@ -32,7 +32,10 @@ static func _get_collision_surface_types(collision: KinematicCollision3D, up: Ve
 	for i in collision.get_collision_count():
 		var n := collision.get_normal(i)
 
+		@warning_ignore('int_as_enum_without_cast')
 		st |= int(normal_is_floor(n, up, max_floor_angle)) * SurfaceType.FLOOR
+
+		@warning_ignore('int_as_enum_without_cast')
 		st |= int(normal_is_ceiling(n, up, max_floor_angle)) * SurfaceType.CEILING
 
 	return st

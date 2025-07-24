@@ -10,7 +10,7 @@ enum AutoIntegrationMode {
 }
 
 
-const CharacterMovementState := preload('res://scripts/character_movement_state.gd')
+const CharacterMovementResult := preload('res://scripts/character_movement_result.gd')
 
 @export_category('References')
 @export var body: CharacterBody3D
@@ -32,7 +32,7 @@ var _movement_state: Variant
 var linear_velocity: Vector3
 var free_fall_velocity: Vector3
 
-var movement_state: CharacterMovementState:
+var movement_result: CharacterMovementResult:
 	get: return _movement_state
 
 
@@ -52,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	var final_velocity: Vector3
+	var final_velocity := Vector3.ZERO
 
 	if auto_integration_mode & AutoIntegrationMode.LINEAR_VELOCITY:
 		final_velocity += linear_velocity
@@ -61,11 +61,11 @@ func _physics_process(_delta: float) -> void:
 		free_fall_velocity = -body.global_basis.y * gravitational_acceleration
 		final_velocity += free_fall_velocity
 
-	movement_state.character_move_and_step(body, final_velocity, step_height, body.floor_max_angle)
-	linear_velocity = movement_state.linear_velocity
+	movement_result.character_move_and_step(body, final_velocity, step_height, body.floor_max_angle)
+	linear_velocity = movement_result.linear_velocity
 
 	if not is_equal_approx(free_fall_velocity.length_squared(), 0):
 		free_fall_velocity = linear_velocity.project(free_fall_velocity.normalized())
 
-	if movement_state.is_on_floor:
+	if movement_result.is_on_floor:
 		linear_velocity = linear_velocity.lerp(Vector3.ZERO, default_floor_friction)
