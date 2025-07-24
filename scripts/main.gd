@@ -37,13 +37,18 @@ static func set_up_view_weapon(view_weapon: ViewWeapon) -> void:
 static func set_up_player(player_info: PlayerInfo) -> void:
 	var camera := Camera3D.new()
 	var shotgun := V_SHOTGUN_SCENE.instantiate()
-	var remote_transform := RemoteInterpolatedTransformer.new()
+	var head_to_camera_rt := RemoteInterpolatedTransformer.new()
+	var weapon_to_camera_rt := RemoteInterpolatedTransformer.new()
 
-	player_info.player.inner_head.add_child.call_deferred(remote_transform)
+	head_to_camera_rt.target_physics_interpolation_mode = PHYSICS_INTERPOLATION_MODE_OFF
+	weapon_to_camera_rt.target_physics_interpolation_mode = PHYSICS_INTERPOLATION_MODE_OFF
+	player_info.player.inner_head.add_child.call_deferred(head_to_camera_rt)
 	player_info.player.inner_head.add_child.call_deferred(camera)
-	remote_transform.set_target.call_deferred(camera)
-	camera.make_current.call_deferred()
+	head_to_camera_rt.set_target.call_deferred(camera)
+	camera.add_child.call_deferred(weapon_to_camera_rt)
 	camera.add_child.call_deferred(shotgun)
+	weapon_to_camera_rt.set_target.call_deferred(shotgun)
+	camera.make_current.call_deferred()
 	player_info.set.call_deferred(&'current_view_weapon', shotgun)
 	player_info.player.get_tree().physics_frame.connect(func () -> void:
 		shotgun.bob_animation_tree[&'parameters/blend_position'] = player_info.player.movement_axes.length_squared())

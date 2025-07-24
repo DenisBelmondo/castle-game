@@ -231,7 +231,7 @@ script = ExtResource("2_tmn6a")
 [node name="EditorPreviewCamera" type="Camera3D" parent="ViewWeapon"]
 
 [node name="RestTransform" type="Node3D" parent="ViewWeapon"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
 
 [node name="BobTransform" type="Node3D" parent="ViewWeapon/RestTransform"]
 

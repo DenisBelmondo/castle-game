@@ -28,3 +28,4 @@ size = Vector3(1, 0.2, 1)
 [node name="Player" parent="." instance=ExtResource("2_2s55i")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
