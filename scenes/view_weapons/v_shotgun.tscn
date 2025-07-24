@@ -135,7 +135,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7uca5"]
-resource_name = "shoot"
+resource_name = "attack_primary"
 length = 1.10001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -216,7 +216,7 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7uca5"]
 _data = {
 &"RESET": SubResource("Animation_qh4lp"),
-&"shoot": SubResource("Animation_7uca5")
+&"attack_primary": SubResource("Animation_7uca5")
 }
 
 [node name="VShotgun" type="Node3D" node_paths=PackedStringArray("view_weapon", "animation_player", "bob_animation_tree")]
@@ -228,7 +228,7 @@ bob_animation_tree = NodePath("ViewWeapon/RestTransform/BobTransform/BobAnimatio
 [node name="ViewWeapon" type="Node3D" parent="."]
 script = ExtResource("2_tmn6a")
 
-[node name="EditorPreviewCamera" type="Camera3D" parent="ViewWeapon"]
+[node name="EditorPreviewCamera" type="Camera3D" parent="ViewWeapon" groups=["only_visible_in_editor"]]
 
 [node name="RestTransform" type="Node3D" parent="ViewWeapon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
