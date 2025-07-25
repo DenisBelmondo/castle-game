@@ -1,5 +1,5 @@
 @tool
-extends Object
+extends Node
 
 
 const Health := preload('health.gd')
@@ -15,12 +15,6 @@ var amount: float = 100:
 		var old_value := amount
 		amount = value
 		updated.emit(amount, old_value)
-
-var _node_self: Node
-
-
-static func get_from(node: Node) -> Health:
-	return node.get_meta(&'health')
 
 
 func _get_property_list() -> Array[Dictionary]:
@@ -39,16 +33,16 @@ func _get_property_list() -> Array[Dictionary]:
 	]
 
 
-func _init() -> void:
-	var me := self as Object
+static func get_from(node: Node) -> Health:
+	if node.has_meta(&'health'):
+		return node.get_meta(&'health')
 
-	if me is Node:
-		_node_self = me
+	return null
 
 
 func _enter_tree() -> void:
 	if not is_instance_valid(target):
-		target = _node_self.get_parent()
+		target = get_parent()
 
 	attach_to(target)
 
@@ -64,14 +58,15 @@ func attach_to(node: Node) -> void:
 
 func detach_from(node: Node) -> void:
 	if not Engine.is_editor_hint():
-		node.remove_meta(&'health')
+		if node.has_meta(&'health'):
+			node.remove_meta(&'health')
 
 
-func heal(p_amount: float) -> void:
+func heal(p_amount: float, user_data: Variant = null) -> void:
 	amount += p_amount
-	healed.emit(p_amount, null)
+	healed.emit(p_amount, user_data)
 
 
-func damage(p_amount: float) -> void:
+func damage(p_amount: float, user_data: Variant = null) -> void:
 	amount -= p_amount
-	damaged.emit(p_amount, null)
+	damaged.emit(p_amount, user_data)

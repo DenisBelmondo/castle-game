@@ -2,8 +2,9 @@ extends Node
 
 
 const CastleGame := preload('res://scripts/castle_game.gd')
-const Game := preload('game.gd')
+const GameMode := preload('game_mode.gd')
 const GroupNames := preload('res://scripts/group_names.gd')
+const Health := preload('res://scripts/health.gd')
 const Player := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
 const Util := preload('res://scripts/util.gd')
@@ -61,6 +62,9 @@ func _on_node_added(node: Node) -> void:
 	if node.is_in_group(GroupNames.ONLY_VISIBLE_IN_EDITOR):
 		node.visible = false
 		node.queue_free()
+		return
 
-	if node is Player:
+	var object: Object = node
+
+	if object is Player:
 		_set_up_player(node)
