@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://do8cl11ouq6dt"]
+
+[sub_resource type="Curve" id="Curve_s7wuf"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eq45k"]
+curve = SubResource("Curve_s7wuf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jenyr"]
+direction = Vector3(1, 0, -1)
+initial_velocity_max = 5.0
+alpha_curve = SubResource("CurveTexture_eq45k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqrpb"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.784314, 0, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_6jwa3"]
+material = SubResource("StandardMaterial3D_pqrpb")
+size = Vector2(0.0313, 0.0313)
+
+[node name="SparkPuff" type="GPUParticles3D"]
+cast_shadow = 0
+emitting = false
+amount = 4
+interp_to_end = 1.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jenyr")
+draw_pass_1 = SubResource("QuadMesh_6jwa3")
