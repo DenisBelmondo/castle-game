@@ -249,6 +249,7 @@ script = ExtResource("2_7ocdu")
 
 [node name="PhysicsQuery" type="Node3D" parent="ShotgunAttack"]
 script = ExtResource("4_a5cxh")
+exclude = []
 
 [node name="EditorPreviewCamera" type="Camera3D" parent="." groups=["only_visible_in_editor"]]
 

@@ -18,7 +18,7 @@ extends Node3D
 
 func _ready() -> void:
 	RenderingServer.frame_pre_draw.connect(func () -> void:
-		mesh_material_override.set_shader_parameter.call_deferred(&'albedo_texture', texture)
+		mesh_material_override.set_shader_parameter(&'albedo_texture', texture)
 		_recalculate())
 
 
