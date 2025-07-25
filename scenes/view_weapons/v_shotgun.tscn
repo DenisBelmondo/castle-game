@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmakw0lhp380b"]
+[gd_scene load_steps=19 format=3 uid="uid://bmakw0lhp380b"]
 
 [ext_resource type="Script" uid="uid://cdqsawpapbfjd" path="res://scripts/view_weapons/castle_game_view_weapon.gd" id="1_00rgd"]
 [ext_resource type="PackedScene" uid="uid://cvbvmhpeqm05y" path="res://scenes/nodes/view_sprite.tscn" id="1_rmjr7"]
 [ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="2_1imhk"]
+[ext_resource type="Script" uid="uid://dw7uu4frkt657" path="res://scripts/shotgun_attack.gd" id="2_7ocdu"]
 [ext_resource type="Script" uid="uid://dpad1n2xdit3c" path="res://scripts/view_weapon.gd" id="2_tmn6a"]
 [ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="4_2ohk5"]
+[ext_resource type="Script" uid="uid://4mpl82xkg48o" path="res://scripts/physics_query.gd" id="4_a5cxh"]
 [ext_resource type="Texture2D" uid="uid://din2ae5tcrql7" path="res://textures/v_super_shotgun_1.png" id="4_qh4lp"]
 [ext_resource type="AudioStream" uid="uid://bktmhqlfhno3a" path="res://audio/sounds/shotgun.wav" id="5_7uca5"]
 
@@ -212,6 +214,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0.75, 0.75, 0.75), Vector3(1, 1, 1)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../../ShotgunAttack")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7uca5"]
 _data = {
@@ -222,52 +238,58 @@ _data = {
 [node name="VShotgun" type="Node3D" node_paths=PackedStringArray("view_weapon", "animation_player", "bob_animation_tree")]
 script = ExtResource("1_00rgd")
 view_weapon = NodePath("ViewWeapon")
-animation_player = NodePath("ViewWeapon/AnimationPlayer")
-bob_animation_tree = NodePath("ViewWeapon/RestTransform/BobTransform/BobAnimationTree")
+animation_player = NodePath("AnimationPlayer")
+bob_animation_tree = NodePath("RestTransform/BobTransform/BobAnimationTree")
 
 [node name="ViewWeapon" type="Node3D" parent="."]
 script = ExtResource("2_tmn6a")
 
-[node name="EditorPreviewCamera" type="Camera3D" parent="ViewWeapon" groups=["only_visible_in_editor"]]
+[node name="ShotgunAttack" type="Node3D" parent="."]
+script = ExtResource("2_7ocdu")
 
-[node name="RestTransform" type="Node3D" parent="ViewWeapon"]
+[node name="PhysicsQuery" type="Node3D" parent="ShotgunAttack"]
+script = ExtResource("4_a5cxh")
+
+[node name="EditorPreviewCamera" type="Camera3D" parent="." groups=["only_visible_in_editor"]]
+
+[node name="RestTransform" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
 
-[node name="BobTransform" type="Node3D" parent="ViewWeapon/RestTransform"]
+[node name="BobTransform" type="Node3D" parent="RestTransform"]
 
-[node name="ViewSprite" parent="ViewWeapon/RestTransform/BobTransform" instance=ExtResource("1_rmjr7")]
+[node name="ViewSprite" parent="RestTransform/BobTransform" instance=ExtResource("1_rmjr7")]
 texture = ExtResource("2_1imhk")
 pixel_size = 0.0038
 
-[node name="MuzzleFlashSprite" parent="ViewWeapon/RestTransform/BobTransform/ViewSprite" instance=ExtResource("1_rmjr7")]
+[node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" instance=ExtResource("1_rmjr7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.155, -1)
 visible = false
 texture = ExtResource("4_2ohk5")
 pixel_size = 0.0038
 
-[node name="BobAnimationPlayer" type="AnimationPlayer" parent="ViewWeapon/RestTransform/BobTransform"]
+[node name="BobAnimationPlayer" type="AnimationPlayer" parent="RestTransform/BobTransform"]
 libraries = {
 &"": SubResource("AnimationLibrary_00rgd")
 }
 autoplay = "bob"
 
-[node name="BobAnimationTree" type="AnimationTree" parent="ViewWeapon/RestTransform/BobTransform"]
+[node name="BobAnimationTree" type="AnimationTree" parent="RestTransform/BobTransform"]
 tree_root = SubResource("AnimationNodeBlendSpace1D_1imhk")
 anim_player = NodePath("../BobAnimationPlayer")
 parameters/blend_position = 0.0
 
-[node name="SpringArm3D" type="SpringArm3D" parent="ViewWeapon"]
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 
-[node name="MuzzleFlashLight" type="OmniLight3D" parent="ViewWeapon/SpringArm3D"]
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
 visible = false
 shadow_enabled = true
 omni_attenuation = 2.0
 
-[node name="WeaponAudio" type="AudioStreamPlayer3D" parent="ViewWeapon"]
+[node name="WeaponAudio" type="AudioStreamPlayer3D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ViewWeapon"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../RestTransform/BobTransform/ViewSprite")
 libraries = {
 &"": SubResource("AnimationLibrary_7uca5")

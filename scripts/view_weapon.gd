@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 
 signal primary_attack_event
