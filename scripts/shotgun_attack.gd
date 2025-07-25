@@ -1,10 +1,11 @@
 extends Node3D
 
 
-const CastleGame := preload('res://scripts/castle_game.gd')
 const Health := preload('res://scripts/health.gd')
 const PhysicsQuery := preload('res://scripts/physics_query.gd')
 const Util := preload('res://scripts/util.gd')
+
+signal intersections_detected(intersections: Array)
 
 @onready var physics_query: PhysicsQuery = $PhysicsQuery
 
@@ -25,10 +26,18 @@ func _ready() -> void:
 
 
 func shoot() -> void:
-	for d in physics_query.get_intersection_results():
-		var o: Object = d.collider
-		var health = Health.get_from(o)
+	var intersection_result = physics_query.get_intersection_results().front()
 
-		if is_instance_valid(health):
-			health = health as Health
-			health.damage(50)
+	if intersection_result is not Dictionary:
+		return
+
+	intersection_result = intersection_result as Dictionary
+
+	var o: Object = intersection_result.collider
+	var health = Health.get_from(o)
+
+	if is_instance_valid(health):
+		health = health as Health
+		health.damage(50)
+
+	intersections_detected.emit([ intersection_result ])

@@ -7,6 +7,7 @@ const GroupNames := preload('res://scripts/group_names.gd')
 const Health := preload('res://scripts/health.gd')
 const Player := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
+const ShotgunAttack := preload('res://scripts/shotgun_attack.gd')
 const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapon.gd')
 
@@ -68,3 +69,18 @@ func _on_node_added(node: Node) -> void:
 
 	if object is Player:
 		_set_up_player(node)
+	elif object is ShotgunAttack:
+		object.intersections_detected.connect(_on_attack_intersections_detected)
+
+
+func _on_attack_intersections_detected(intersections: Array) -> void:
+	for i in intersections:
+		var puff: Node3D = preload('res://scenes/effects/spark_puff.tscn').instantiate()
+
+		if &'position' in i:
+			_current_scene.add_child.call_deferred(puff)
+			puff.set.call_deferred(&'global_position', i.position)
+			puff.set.call_deferred(&'emitting', true)
+
+			if &'normal' in i:
+				puff.look_at.call_deferred(i.position + i.normal)
