@@ -51,7 +51,7 @@ func shoot() -> void:
 
 		if is_instance_valid(health):
 			health = health as Health
-			health.damage(30)
+			health.damage(25 * randi_range(1, 3))
 			#continue
 
 		var puff: Node3D = preload('res://scenes/effects/spark_puff.tscn').instantiate()

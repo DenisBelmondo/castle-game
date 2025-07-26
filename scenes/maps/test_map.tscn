@@ -1,9 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca1wxh5od1473"]
 
-[ext_resource type="CompressedTexture3D" uid="uid://bpjafu51pt3kx" path="res://gpu_particles_collisions/test_map.GPUParticlesCollisionSDF3D_data.exr" id="1_38prr"]
 [ext_resource type="Texture2D" uid="uid://xeft73sjarny" path="res://icon.svg" id="1_ybdod"]
 [ext_resource type="PackedScene" uid="uid://boigngi4wgtav" path="res://scenes/characters/player.tscn" id="2_2s55i"]
 [ext_resource type="PackedScene" uid="uid://dvcpjyyvpe806" path="res://scenes/characters/sandbag.tscn" id="3_o3n0h"]
+
+[sub_resource type="CompressedTexture3D" id="CompressedTexture3D_o3n0h"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/test_map.GPUParticlesCollisionSDF3D_data.exr-88067fdef66ab732e81a68012280c487.ctex3d"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s55i"]
 albedo_texture = ExtResource("1_ybdod")
@@ -13,7 +16,7 @@ uv1_triplanar = true
 
 [node name="GPUParticlesCollisionSDF3D" type="GPUParticlesCollisionSDF3D" parent="."]
 size = Vector3(20, 10, 20)
-texture = ExtResource("1_38prr")
+texture = SubResource("CompressedTexture3D_o3n0h")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
