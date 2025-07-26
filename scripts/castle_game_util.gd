@@ -14,25 +14,25 @@ const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapon.gd')
 
 
+static func attach_interpolated(child: Node3D, parent: Node3D) -> void:
+	var rt := RemoteInterpolatedTransformer.new()
+
+	rt.target_physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+
+	Util.reparent_or_add_child.call_deferred(rt, parent)
+	Util.reparent_or_add_child.call_deferred(child, parent)
+	rt.set_deferred(&'source', parent)
+	rt.set_target.call_deferred(child)
+
+
 static func attach_camera(camera: Camera3D, to: Node3D) -> void:
-	var head_to_camera_rt := RemoteInterpolatedTransformer.new()
-
-	head_to_camera_rt.target_physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-
-	Util.reparent_or_add_child.call_deferred(head_to_camera_rt, to)
-	Util.reparent_or_add_child.call_deferred(camera, to)
-	head_to_camera_rt.set_deferred(&'source', to)
-	head_to_camera_rt.set_target.call_deferred(camera)
+	attach_interpolated(camera, to)
 
 
 static func give_weapon_to_player(weapon: ViewWeapon, player: Player) -> void:
 	var weapon_to_camera_rt := RemoteInterpolatedTransformer.new()
 
-	weapon_to_camera_rt.target_physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-	weapon_to_camera_rt.source = player.inner_head
-	weapon_to_camera_rt.set_target(weapon.root)
-	player.inner_head.add_child.call_deferred(weapon_to_camera_rt)
-	Util.reparent_or_add_child.call_deferred(weapon.root, player.inner_head)
+	attach_interpolated(weapon.owner, player.inner_head)
 
 	if not weapon.is_node_ready():
 		await weapon.ready

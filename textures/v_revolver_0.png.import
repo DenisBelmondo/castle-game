@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be8w1lwt0ppyk"
-path="res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.ctex"
+uid="uid://b03w0ubg1ihuw"
+path="res://.godot/imported/v_revolver_0.png-4e4aef944475bf760e32569e18eb6f55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/v_muzzle_flash_0.png"
-dest_files=["res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.ctex"]
+source_file="res://textures/v_revolver_0.png"
+dest_files=["res://.godot/imported/v_revolver_0.png-4e4aef944475bf760e32569e18eb6f55.ctex"]
 
 [params]
 

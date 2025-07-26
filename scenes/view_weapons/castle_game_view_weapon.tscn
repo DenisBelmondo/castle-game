@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://7eo0cokhgq4w"]
+
+[ext_resource type="Script" uid="uid://cdqsawpapbfjd" path="res://scripts/view_weapons/castle_game_view_weapon.gd" id="1_y3vky"]
+[ext_resource type="PackedScene" uid="uid://conts47vxgnkn" path="res://scenes/nodes/local_game_context.tscn" id="2_gjjp1"]
+[ext_resource type="Script" uid="uid://dpad1n2xdit3c" path="res://scripts/view_weapon.gd" id="3_svun0"]
+
+[sub_resource type="Animation" id="Animation_00rgd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1imhk"]
+resource_name = "bob"
+length = 0.30001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.30466),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.02, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00rgd"]
+_data = {
+&"RESET": SubResource("Animation_00rgd"),
+&"bob": SubResource("Animation_1imhk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1imhk"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00rgd"]
+animation = &"bob"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1imhk"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1imhk")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_00rgd")
+blend_point_1/pos = 1.0
+
+[node name="CastleGameViewWeapon" type="Node3D" node_paths=PackedStringArray("view_weapon", "animation_player", "bob_animation_tree")]
+script = ExtResource("1_y3vky")
+view_weapon = NodePath("ViewWeapon")
+animation_player = NodePath("AnimationPlayer")
+bob_animation_tree = NodePath("RestTransform/BobTransform/BobAnimationTree")
+
+[node name="LocalGameContext" parent="." instance=ExtResource("2_gjjp1")]
+
+[node name="ViewWeapon" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_svun0")
+root = NodePath("..")
+
+[node name="EditorPreviewCamera" type="Camera3D" parent="." groups=["only_visible_in_editor"]]
+
+[node name="RestTransform" type="Node3D" parent="."]
+
+[node name="BobTransform" type="Node3D" parent="RestTransform"]
+
+[node name="BobAnimationPlayer" type="AnimationPlayer" parent="RestTransform/BobTransform"]
+libraries = {
+&"": SubResource("AnimationLibrary_00rgd")
+}
+autoplay = "bob"
+
+[node name="BobAnimationTree" type="AnimationTree" parent="RestTransform/BobTransform"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_1imhk")
+anim_player = NodePath("../BobAnimationPlayer")
+parameters/blend_position = 0.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="SpringArm3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+visible = false
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="WeaponAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ViewWeapon")
