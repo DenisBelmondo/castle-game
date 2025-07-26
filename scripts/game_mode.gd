@@ -2,9 +2,11 @@ extends Node
 
 
 const CastleGameUtil := preload('res://scripts/castle_game_util.gd')
+const CastleGameViewWeapon := preload('res://scripts/view_weapons/castle_game_view_weapon.gd')
 const GameMode := preload('game_mode.gd')
 const GroupNames := preload('res://scripts/group_names.gd')
 const Health := preload('res://scripts/health.gd')
+const LocalGameContext := preload('res://scripts/local_game_context.gd')
 const Player := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
 const ShotgunAttack := preload('res://scripts/shotgun_attack.gd')
@@ -31,9 +33,8 @@ static func _set_up_player(player: Player) -> void:
 
 	CastleGameUtil.attach_camera.call_deferred(camera, player.inner_head)
 	camera.make_current.call_deferred()
-	player.get_tree().physics_frame.connect(func () -> void:
-		shotgun.bob_animation_tree[&'parameters/blend_position'] = player.movement_axes.length_squared())
-	CastleGameUtil.give_weapon_to_player(shotgun.view_weapon, player)
+	CastleGameUtil.give_weapon_to_player.call_deferred(shotgun.view_weapon, player)
+	shotgun.set_deferred(&'get_bob_strength_function', func () -> float: return player.movement_axes.length_squared())
 
 
 func _enter_tree() -> void:
@@ -55,8 +56,8 @@ func change_map(scene_root: Node) -> void:
 	if is_instance_valid(_current_scene):
 		_current_scene.queue_free()
 
-	Util.reparent_or_add_child(scene_root, _viewport)
-	set.call_deferred(&'_current_scene', scene_root)
+	Util.reparent_or_add_child.call_deferred(scene_root, _viewport)
+	set_deferred(&'_current_scene', scene_root)
 
 
 func _on_node_added(node: Node) -> void:
@@ -65,22 +66,13 @@ func _on_node_added(node: Node) -> void:
 		node.queue_free()
 		return
 
-	var object: Object = node
+	var player: Player
 
-	if object is Player:
+	if node is Player:
+		player = node
 		_set_up_player(node)
-	elif object is ShotgunAttack:
-		object.intersections_detected.connect(_on_attack_intersections_detected)
+	elif node is LocalGameContext:
+		node.current_scene_root = _current_scene
 
-
-func _on_attack_intersections_detected(intersections: Array) -> void:
-	for i in intersections:
-		var puff: Node3D = preload('res://scenes/effects/spark_puff.tscn').instantiate()
-
-		if &'position' in i:
-			_current_scene.add_child.call_deferred(puff)
-			puff.set.call_deferred(&'global_position', i.position)
-			puff.set.call_deferred(&'emitting', true)
-
-			if &'normal' in i:
-				puff.look_at.call_deferred(i.position + i.normal)
+	#get_tree().physics_frame.connect(func () -> void:
+		#node.bob_animation_tree[&'parameters/blend_position'] = player.movement_axes.length_squared())

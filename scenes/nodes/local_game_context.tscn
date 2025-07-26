@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://conts47vxgnkn"]
+
+[ext_resource type="Script" uid="uid://cahqh6h68nqxv" path="res://scripts/local_game_context.gd" id="1_8msve"]
+
+[node name="LocalGameContext" type="Node"]
+script = ExtResource("1_8msve")

@@ -1,14 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmakw0lhp380b"]
+[gd_scene load_steps=20 format=3 uid="uid://bmakw0lhp380b"]
 
 [ext_resource type="Script" uid="uid://cdqsawpapbfjd" path="res://scripts/view_weapons/castle_game_view_weapon.gd" id="1_00rgd"]
 [ext_resource type="PackedScene" uid="uid://cvbvmhpeqm05y" path="res://scenes/nodes/view_sprite.tscn" id="1_rmjr7"]
 [ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="2_1imhk"]
 [ext_resource type="Script" uid="uid://dw7uu4frkt657" path="res://scripts/shotgun_attack.gd" id="2_7ocdu"]
 [ext_resource type="Script" uid="uid://dpad1n2xdit3c" path="res://scripts/view_weapon.gd" id="2_tmn6a"]
+[ext_resource type="PackedScene" uid="uid://conts47vxgnkn" path="res://scenes/nodes/local_game_context.tscn" id="2_wqbgx"]
 [ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="4_2ohk5"]
 [ext_resource type="Script" uid="uid://4mpl82xkg48o" path="res://scripts/physics_query.gd" id="4_a5cxh"]
 [ext_resource type="Texture2D" uid="uid://din2ae5tcrql7" path="res://textures/v_super_shotgun_1.png" id="4_qh4lp"]
-[ext_resource type="AudioStream" uid="uid://bktmhqlfhno3a" path="res://audio/sounds/shotgun.wav" id="5_7uca5"]
+[ext_resource type="AudioStream" uid="uid://c005xxatettd2" path="res://audio/sounds/shotgun.tres" id="10_wqbgx"]
 
 [sub_resource type="Animation" id="Animation_00rgd"]
 length = 0.001
@@ -66,7 +67,7 @@ resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../RestTransform/BobTransform/ViewSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,7 +79,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../RestTransform/BobTransform/ViewSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -90,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../../SpringArm3D/MuzzleFlashLight:visible")
+tracks/2/path = NodePath("../SpringArm3D/MuzzleFlashLight:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -102,7 +103,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MuzzleFlashSprite:position")
+tracks/3/path = NodePath("../RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -114,7 +115,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MuzzleFlashSprite:visible")
+tracks/4/path = NodePath("../RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -126,7 +127,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MuzzleFlashSprite:scale")
+tracks/5/path = NodePath("../RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -142,7 +143,7 @@ length = 1.10001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../RestTransform/BobTransform/ViewSprite:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -154,7 +155,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
+tracks/1/path = NodePath("../RestTransform/BobTransform/ViewSprite:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -166,14 +167,14 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../../WeaponAudio")
+tracks/2/path = NodePath("../WeaponAudio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_7uca5")
+"stream": ExtResource("10_wqbgx")
 }],
 "times": PackedFloat32Array(0.133333)
 }
@@ -181,7 +182,7 @@ tracks/2/use_blend = true
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../../SpringArm3D/MuzzleFlashLight:visible")
+tracks/3/path = NodePath("../SpringArm3D/MuzzleFlashLight:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -193,7 +194,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MuzzleFlashSprite:visible")
+tracks/4/path = NodePath("../RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -205,7 +206,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MuzzleFlashSprite:scale")
+tracks/5/path = NodePath("../RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -217,7 +218,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../../../ShotgunAttack")
+tracks/6/path = NodePath("../ShotgunAttack")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -241,15 +242,20 @@ view_weapon = NodePath("ViewWeapon")
 animation_player = NodePath("AnimationPlayer")
 bob_animation_tree = NodePath("RestTransform/BobTransform/BobAnimationTree")
 
-[node name="ViewWeapon" type="Node3D" parent="."]
-script = ExtResource("2_tmn6a")
+[node name="LocalGameContext" parent="." instance=ExtResource("2_wqbgx")]
 
-[node name="ShotgunAttack" type="Node3D" parent="."]
+[node name="ViewWeapon" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_tmn6a")
+root = NodePath("..")
+
+[node name="ShotgunAttack" type="Node3D" parent="." node_paths=PackedStringArray("_local_game_context")]
+unique_name_in_owner = true
 script = ExtResource("2_7ocdu")
+_local_game_context = NodePath("../LocalGameContext")
 
 [node name="PhysicsQuery" type="Node3D" parent="ShotgunAttack"]
 script = ExtResource("4_a5cxh")
-exclude = []
+exclude = Array[Object]([])
 
 [node name="EditorPreviewCamera" type="Camera3D" parent="." groups=["only_visible_in_editor"]]
 
@@ -259,14 +265,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
 [node name="BobTransform" type="Node3D" parent="RestTransform"]
 
 [node name="ViewSprite" parent="RestTransform/BobTransform" instance=ExtResource("1_rmjr7")]
+unique_name_in_owner = true
 texture = ExtResource("2_1imhk")
 pixel_size = 0.0038
 
 [node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" instance=ExtResource("1_rmjr7")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.155, -1)
 visible = false
 texture = ExtResource("4_2ohk5")
 pixel_size = 0.0038
+unshaded = true
 
 [node name="BobAnimationPlayer" type="AnimationPlayer" parent="RestTransform/BobTransform"]
 libraries = {
@@ -283,15 +292,17 @@ parameters/blend_position = 0.0
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 
 [node name="MuzzleFlashLight" type="OmniLight3D" parent="SpringArm3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
 visible = false
 shadow_enabled = true
-omni_attenuation = 2.0
+omni_range = 10.0
 
 [node name="WeaponAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../RestTransform/BobTransform/ViewSprite")
+root_node = NodePath("../ViewWeapon")
 libraries = {
 &"": SubResource("AnimationLibrary_7uca5")
 }
