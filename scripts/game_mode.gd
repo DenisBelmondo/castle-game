@@ -6,6 +6,7 @@ const CastleGameViewWeapon := preload('res://scripts/view_weapons/castle_game_vi
 const GameMode := preload('game_mode.gd')
 const GroupNames := preload('res://scripts/group_names.gd')
 const Health := preload('res://scripts/health.gd')
+const InteractionEngine := preload('res://scripts/interaction_engine/static.gd')
 const LocalGameContext := preload('res://scripts/local_game_context.gd')
 const Player := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
@@ -13,6 +14,7 @@ const ShotgunAttack := preload('res://scripts/shotgun_attack.gd')
 const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapon.gd')
 
+const PLAYER_INTERACTOR_AREA := preload('res://scenes/nodes/player_interactor_area.tscn')
 const V_SHOTGUN_SCENE := preload('res://scenes/view_weapons/v_shotgun.tscn')
 
 @export var current_scene: PackedScene
@@ -28,11 +30,17 @@ static func _toggle_mouse_mode() -> void:
 
 
 static func _set_up_player(player: Player) -> void:
+	var player_interactor_area := PLAYER_INTERACTOR_AREA.instantiate()
 	var camera := Camera3D.new()
 	var shotgun := V_SHOTGUN_SCENE.instantiate()
 
+	# intentional assignment instead of OR'ing
+	player_interactor_area.collision_mask = InteractionEngine.LAYER_MASK
+	player.inner_head.add_child.call_deferred(player_interactor_area)
+
 	CastleGameUtil.attach_camera.call_deferred(camera, player.inner_head)
 	camera.make_current.call_deferred()
+
 	CastleGameUtil.give_weapon_to_player.call_deferred(shotgun.view_weapon, player)
 	shotgun.set_deferred(&'get_bob_strength_function', func () -> float: return player.movement_axes.length_squared())
 
@@ -66,10 +74,7 @@ func _on_node_added(node: Node) -> void:
 		node.queue_free()
 		return
 
-	var player: Player
-
 	if node is Player:
-		player = node
 		_set_up_player(node)
 	elif node is LocalGameContext:
 		node.current_scene_root = _current_scene
