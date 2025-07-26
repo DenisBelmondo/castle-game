@@ -1,12 +1,18 @@
+@tool
 extends Node
 
 
-signal primary_attack_event
-
-
+@export var root: Node
 var holder: Node
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&'attack_primary'):
-		primary_attack_event.emit()
+func _ready() -> void:
+	var new_root = root
+
+	if not is_instance_valid(new_root):
+		new_root = owner
+
+	if not is_instance_valid(new_root):
+		new_root = get_parent()
+
+	root = new_root

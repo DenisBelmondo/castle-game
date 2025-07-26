@@ -21,6 +21,7 @@ static func attach_camera(camera: Camera3D, to: Node3D) -> void:
 
 	Util.reparent_or_add_child.call_deferred(head_to_camera_rt, to)
 	Util.reparent_or_add_child.call_deferred(camera, to)
+	head_to_camera_rt.set_deferred(&'source', to)
 	head_to_camera_rt.set_target.call_deferred(camera)
 
 
@@ -28,17 +29,19 @@ static func give_weapon_to_player(weapon: ViewWeapon, player: Player) -> void:
 	var weapon_to_camera_rt := RemoteInterpolatedTransformer.new()
 
 	weapon_to_camera_rt.target_physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-	weapon_to_camera_rt.set_target.call_deferred(weapon.owner)
+	weapon_to_camera_rt.source = player.inner_head
+	weapon_to_camera_rt.set_target(weapon.root)
 	player.inner_head.add_child.call_deferred(weapon_to_camera_rt)
-	Util.reparent_or_add_child.call_deferred(weapon.owner, player.inner_head)
+	Util.reparent_or_add_child.call_deferred(weapon.root, player.inner_head)
 
-	if not weapon.owner.is_node_ready():
-		await weapon.owner.ready
+	if not weapon.is_node_ready():
+		await weapon.ready
 
 	var physics_queries: Array[PhysicsQuery]
 	var exclude: Array[Object] = [ player.character.body ]
 
-	physics_queries.assign(Util.find_children(weapon.owner, func (c: Node) -> bool: return c is PhysicsQuery, true, false))
+	# [TODO]: buhhhhh
+	physics_queries.assign(Util.find_children(weapon.root, func (c: Node) -> bool: return c is PhysicsQuery, true, false))
 
 	for pq in physics_queries:
 		pq.exclude = exclude
