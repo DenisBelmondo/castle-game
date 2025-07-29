@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b36bl4vj1mbch"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qhqgy"]
+height = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dqkch"]
+top_radius = 0.0
+bottom_radius = 1.0
+
+[node name="BasisGizmo" type="MeshInstance3D"]
+transform = Transform3D(0.0625, 0, 0, 0, -2.73196e-09, 0.0625, 0, -0.0625, -2.73196e-09, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qhqgy")
+skeleton = NodePath("")
+
+[node name="ArrowHead" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_dqkch")
+skeleton = NodePath("")

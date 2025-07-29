@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvcpjyyvpe806"]
+
+[ext_resource type="PackedScene" uid="uid://41jv6sarns0x" path="res://scenes/nodes/character.tscn" id="1_3lam7"]
+[ext_resource type="Script" uid="uid://bix8rew5tdyxp" path="res://scripts/characters/sandbag.gd" id="1_lyhwg"]
+[ext_resource type="Script" uid="uid://bil4u701cleug" path="res://scripts/health.gd" id="2_kwusq"]
+[ext_resource type="PackedScene" uid="uid://c4ng50o26w5vp" path="res://scenes/collision_shapes/character.tscn" id="2_ods6e"]
+[ext_resource type="PackedScene" uid="uid://b36bl4vj1mbch" path="res://scenes/editor/basis_gizmo.tscn" id="4_kwusq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ods6e"]
+radius = 0.25
+height = 1.0
+
+[node name="Sandbag" type="Node3D" node_paths=PackedStringArray("health")]
+script = ExtResource("1_lyhwg")
+health = NodePath("Character/Health")
+
+[node name="Character" parent="." instance=ExtResource("1_3lam7")]
+
+[node name="Health" type="Node" parent="Character" node_paths=PackedStringArray("target")]
+script = ExtResource("2_kwusq")
+target = NodePath("..")
+amount = 100.0
+
+[node name="CharacterCollisionShape" parent="Character" instance=ExtResource("2_ods6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_ods6e")
+skeleton = NodePath("../EditorOnly")
+
+[node name="EditorOnly" type="Node3D" parent="Character" groups=["only_visible_in_editor"]]
+
+[node name="BasisGizmo" parent="Character/EditorOnly" instance=ExtResource("4_kwusq")]
+transform = Transform3D(0.0625, 0, 0, 0, -2.73196e-09, 0.0625, 0, -0.0625, -2.73196e-09, 0, 0.5, -0.4)

@@ -2,6 +2,14 @@
 extends Node3D
 
 
+enum BlendMode {
+	MIX,
+	ADD,
+	SUBTRACT,
+	MULTIPLY,
+}
+
+
 @export var texture: Texture2D
 
 ## A multiplier used to size the quad mesh on which the sprite is displayed.
@@ -12,13 +20,19 @@ extends Node3D
 ## need to set this value to 1/(320*(200/240)).
 @export var pixel_size: float = 0.01
 
+@export var unshaded: bool
+@export var blend_mode: BlendMode
+
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var mesh_material_override: ShaderMaterial = mesh_instance.material_override
 
 
 func _ready() -> void:
+	# [TODO]: be smarter
 	RenderingServer.frame_pre_draw.connect(func () -> void:
-		mesh_material_override.set_shader_parameter.call_deferred(&'albedo_texture', texture)
+		mesh_material_override.set_shader_parameter(&'albedo_texture', texture)
+		mesh_material_override.set_shader_parameter(&'unshaded_', unshaded)
+		mesh_material_override.set_shader_parameter(&'blend_mode', blend_mode)
 		_recalculate())
 
 

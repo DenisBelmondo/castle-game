@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnphvvina7fl"]
+
+[ext_resource type="Script" path="res://scripts/interaction_engine/buttons/button_held.gd" id="1_psvrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7iego"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 0.27451)
+
+[node name="ButtonHeld" type="Area3D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_psvrd")
+
+[node name="DisplayLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -37.5
+offset_right = 135.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Example text
+
+Replace and move to desired need."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -277.0
+offset_top = -27.0
+offset_right = 277.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_7iego")
+show_percentage = false

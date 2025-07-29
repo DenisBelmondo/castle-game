@@ -1,8 +1,7 @@
-extends Node3D
+extends Node
 
 
-const Character := preload('res://scripts/character.gd')
-const CharacterMovementState := preload('res://scripts/character_movement_state.gd')
+const Character := preload('res://scripts/nodes/character.gd')
 
 signal jumped
 
@@ -20,12 +19,10 @@ signal jumped
 var movement_axes: Vector2
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	movement_axes.y = Input.get_axis(&'move_backwards', &'move_forward')
 	movement_axes.x = Input.get_axis(&'move_left', &'move_right')
 
-
-# [TODO]: refactor!
 
 func _physics_process(_delta: float) -> void:
 	var forward_move := Input.get_axis(&'move_backwards', &'move_forward')
@@ -35,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 	walk_vector += outer_head.basis.x * strafe_move
 	walk_vector = walk_vector.normalized()
 	walk_vector *= walk_speed
-	walk_vector *= float(character.movement_state.is_on_floor)
+	walk_vector *= float(character.movement_result.is_on_floor)
 	character.linear_velocity += walk_vector
 
 
@@ -45,14 +42,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'jump'):
 		await get_tree().physics_frame
 
-		if character.movement_state.is_on_floor:
+		if character.movement_result.is_on_floor:
 			character.linear_velocity += character.body.global_basis.y * jump_force
 
 
-static func basic_player_look(event: InputEvent, outer_head: Node3D, inner_head: Node3D, vertical_look_clamp: Vector2 = Vector2(-90, 90)) -> void:
+static func basic_player_look(event: InputEvent, p_outer_head: Node3D, p_inner_head: Node3D, p_vertical_look_clamp: Vector2 = Vector2(-90, 90)) -> void:
 	if event is InputEventMouseMotion:
 		event.screen_relative *= float(Input.mouse_mode == Input.MOUSE_MODE_CAPTURED)
 		event.screen_relative /= 500
-		outer_head.rotation.y -= event.screen_relative.x
-		inner_head.rotation.x -= event.screen_relative.y
-		inner_head.rotation_degrees.x = clampf(inner_head.rotation_degrees.x, vertical_look_clamp.x, vertical_look_clamp.y)
+		p_outer_head.rotation.y -= event.screen_relative.x
+		p_inner_head.rotation.x -= event.screen_relative.y
+		p_inner_head.rotation_degrees.x = clampf(p_inner_head.rotation_degrees.x, p_vertical_look_clamp.x, p_vertical_look_clamp.y)

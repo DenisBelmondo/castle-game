@@ -8,6 +8,8 @@ render_mode cull_disabled, depth_draw_always, depth_test_disabled, skip_vertex_t
 
 uniform sampler2D screen_texture : hint_screen_texture;
 uniform sampler2D albedo_texture : filter_nearest, source_color;
+uniform int blend_mode : hint_enum("Add", "Subtract", "Multiply");
+uniform bool unshaded_;
 
 mat4 orthographic(float left, float right, float bottom, float top, float near, float far) {
 	mat4 ortho = mat4(0.0);
@@ -38,6 +40,13 @@ void fragment() {
 	ALBEDO = color.rgb;
 	ALPHA = color.a;
 	LIGHT_VERTEX = vec3(0);
+	EMISSION = mix(EMISSION, ALBEDO, float(unshaded_));
+
+	vec4 screen_color = texture(screen_texture, SCREEN_UV);
+
+	ALBEDO = mix(ALBEDO, screen_color.rgb + ALBEDO, float(blend_mode == 1));
+	ALBEDO = mix(ALBEDO, screen_color.rgb - ALBEDO, float(blend_mode == 2));
+	ALBEDO = mix(ALBEDO, screen_color.rgb * ALBEDO, float(blend_mode == 3));
 }
 
 void light() {
