@@ -2,7 +2,7 @@
 extends Node
 
 
-const DEFAULT_PROCESS_PRIORITY := 999
+const DEFAULT_PROCESS_PRIORITY := -999
 
 @export var source: Node3D
 @export var _target: Node3D
