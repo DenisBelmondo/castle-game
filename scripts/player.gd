@@ -27,9 +27,9 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	var forward_move := Input.get_axis(&'move_backwards', &'move_forward')
 	var strafe_move := Input.get_axis(&'move_left', &'move_right')
-	var walk_vector := -outer_head.basis.z * forward_move
+	var walk_vector := -outer_head.global_basis.z * forward_move
 
-	walk_vector += outer_head.basis.x * strafe_move
+	walk_vector += outer_head.global_basis.x * strafe_move
 	walk_vector = walk_vector.normalized()
 	walk_vector *= walk_speed
 	walk_vector *= float(character.movement_result.is_on_floor)
