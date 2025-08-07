@@ -57,25 +57,5 @@ static func get_impact_effect_for_node(node: Node) -> PackedScene:
 	return FX_PUFF
 
 
-"""
-static func init_shotgun_attack(physics_query: PhysicsQuery) -> void:
-	physics_query.should_not_be_excluded_predicate = func (d: Dictionary) -> bool:
-		return d.collider not in physics_query.exclude
-
-	physics_query.get_intersection_results_function = func () -> Array:
-		var results: Array = []
-
-		for i in 7:
-			var p := PhysicsRayQueryParameters3D.create(
-				physics_query.global_position,
-				physics_query.global_position
-						- physics_query.global_basis.z
-								.rotated(physics_query.global_basis.y, randf_range(-PI / 30.0, PI / 30.0))
-								.rotated(physics_query.global_basis.x, randf_range(-PI / 60.0, PI / 60.0))
-								* 16)
-
-			p.hit_from_inside = true
-			results.append_array(Util.intersect_ray_all_3d(physics_query.get_world_3d().direct_space_state, p))
-
-		return results
-"""
+static func hitscan() -> void:
+	pass

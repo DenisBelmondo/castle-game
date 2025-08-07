@@ -1,6 +1,7 @@
 extends Node
 
 
+const Bob := preload('res://scripts/bob.gd')
 const CastleGameUtil := preload('res://scripts/castle_game_util.gd')
 const CastleGameViewWeapon := preload('res://scripts/view_weapons/castle_game_view_weapon.gd')
 const CastleGameMode := preload('castle_game_mode.gd')
@@ -17,6 +18,7 @@ const ViewWeapon := preload('res://scripts/view_weapons/view_weapon.gd')
 class CastleGamePlayer:
 	var player: Player
 	var audio_ui: AudioStreamPlayer3D
+	var view_weapon: ViewWeapon
 
 
 const PLAYER_INTERACTOR_AREA := preload('res://scenes/nodes/player_interactor_area.tscn')
@@ -43,13 +45,18 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 			results = Util.filter_physics_query_by_object(results, weapon.physics_exclude)
 
+			if results.is_empty():
+				return
+
 			var first_result = results.front()
 			var collider = first_result.collider
 
-			if collider is not Node:
-				return
-
 			collider = collider as Node
+
+			var collider_health := Health.get_from(collider)
+
+			if collider_health:
+				collider_health.damage(randi_range(1, 3) * 5)
 
 			var collider_owner = collider.owner
 
@@ -134,7 +141,17 @@ func _set_up_player(player: Player) -> void:
 	audio_listener.make_current.call_deferred()
 
 	CastleGameUtil.attach_interpolated(audio_listener, player.inner_head)
+
+	# give weapon
 	CastleGameUtil.attach_view_weapon_to_player(shotgun, player)
+	castle_game_player.view_weapon = shotgun
+
+	# bob shit
+	for bob: Bob in Util.find_children(player, func (c: Node) -> bool: return c is Bob):
+		bob.get_bob_strength_function = func () -> float:
+			return (float(player.character.linear_velocity.length_squared() > 0.5)
+					* float(player.character.movement_result.was_on_floor
+							or player.character.movement_result.is_on_floor))
 
 
 func _on_node_added(node: Node) -> void:
@@ -161,4 +178,4 @@ func _on_node_added(node: Node) -> void:
 			if f is Callable:
 				_weapon_attacks[p_name].call(node, user_data)
 			else:
-				push_warning('attack "%s" not found in weapon attacks!' % p_name))
+				push_warning('attack "%s" not implemented.' % p_name))
