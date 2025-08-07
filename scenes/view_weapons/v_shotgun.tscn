@@ -1,42 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmakw0lhp380b"]
+[gd_scene load_steps=6 format=3 uid="uid://bmakw0lhp380b"]
 
 [ext_resource type="PackedScene" uid="uid://7eo0cokhgq4w" path="res://scenes/view_weapons/castle_game_view_weapon.tscn" id="1_pvdfx"]
 [ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="2_1imhk"]
-[ext_resource type="Script" uid="uid://dw7uu4frkt657" path="res://scripts/shotgun_attack.gd" id="2_7ocdu"]
-[ext_resource type="Script" uid="uid://4mpl82xkg48o" path="res://scripts/physics_query.gd" id="4_a5cxh"]
-[ext_resource type="PackedScene" uid="uid://cvbvmhpeqm05y" path="res://scenes/nodes/view_sprite.tscn" id="4_fqffq"]
 [ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="6_7ocdu"]
 [ext_resource type="AnimationLibrary" uid="uid://bs0nbouoxeoa4" path="res://animation_libraries/castle_game_view_weapons/shotgun.res" id="9_a5cxh"]
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y23k3"]
+
 [node name="VShotgun" instance=ExtResource("1_pvdfx")]
 attack_primary_animation_name = &"shotgun/attack_primary"
+physics_exclude = Array[Object]([])
 
-[node name="ShotgunAttack" type="Node3D" parent="." index="2" node_paths=PackedStringArray("_local_game_context")]
-unique_name_in_owner = true
-script = ExtResource("2_7ocdu")
-_local_game_context = NodePath("../LocalGameContext")
-
-[node name="PhysicsQuery" type="Node3D" parent="ShotgunAttack" index="0"]
-script = ExtResource("4_a5cxh")
-exclude = Array[Object]([])
-
-[node name="RestTransform" parent="." index="4"]
+[node name="RestTransform" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
 
-[node name="ViewSprite" parent="RestTransform/BobTransform" index="0" instance=ExtResource("4_fqffq")]
-unique_name_in_owner = true
+[node name="ViewSprite" parent="RestTransform/BobTransform" index="0"]
 texture = ExtResource("2_1imhk")
 pixel_size = 0.0038
 
-[node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" index="1" instance=ExtResource("4_fqffq")]
-unique_name_in_owner = true
+[node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.155, -1)
-visible = false
 texture = ExtResource("6_7ocdu")
 pixel_size = 0.0038
-unshaded = true
 
-[node name="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" parent="." index="4"]
+root_node = NodePath("..")
 libraries = {
+&"": SubResource("AnimationLibrary_y23k3"),
 &"shotgun": ExtResource("9_a5cxh")
 }
+autoplay = "shotgun/RESET"

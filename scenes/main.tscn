@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwuhc7g3383rw"]
 
-[ext_resource type="Script" uid="uid://ci6tnyfj0bl86" path="res://scripts/game_mode.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://ci6tnyfj0bl86" path="res://scripts/castle_game_mode.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://ca1wxh5od1473" path="res://scenes/maps/test_map.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node"]
 
-[node name="GameMode" type="Node" parent="."]
+[node name="CastleGameMode" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_0wfyh")
 current_scene = ExtResource("1_o5qli")
 
-[node name="Control" type="Control" parent="GameMode"]
+[node name="Control" type="Control" parent="CastleGameMode"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="GameMode/Control"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CastleGameMode/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="GameViewport" type="SubViewport" parent="GameMode/Control/SubViewportContainer"]
+[node name="GameViewport" type="SubViewport" parent="CastleGameMode/Control/SubViewportContainer"]
 unique_name_in_owner = true
 handle_input_locally = false
 audio_listener_enable_2d = true

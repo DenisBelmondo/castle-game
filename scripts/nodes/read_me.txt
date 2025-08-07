@@ -1,1 +1,0 @@
-see `res://scenes/nodes/view_sprite.tscn`.

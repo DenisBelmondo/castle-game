@@ -21,7 +21,7 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_8dwsm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ub3dv"]
-size = Vector3(0.25, 0.25, 0.25)
+size = Vector3(1, 0.25, 1)
 
 [node name="Revolver" type="Node3D" node_paths=PackedStringArray("area")]
 script = ExtResource("1_ughn6")

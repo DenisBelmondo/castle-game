@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://7eo0cokhgq4w"]
+[gd_scene load_steps=9 format=3 uid="uid://7eo0cokhgq4w"]
 
 [ext_resource type="Script" uid="uid://cdqsawpapbfjd" path="res://scripts/view_weapons/castle_game_view_weapon.gd" id="1_y3vky"]
-[ext_resource type="PackedScene" uid="uid://conts47vxgnkn" path="res://scenes/nodes/local_game_context.tscn" id="2_gjjp1"]
-[ext_resource type="Script" uid="uid://dpad1n2xdit3c" path="res://scripts/view_weapon.gd" id="3_svun0"]
+[ext_resource type="PackedScene" uid="uid://cvbvmhpeqm05y" path="res://scenes/nodes/view_sprite.tscn" id="3_vssrn"]
 
 [sub_resource type="Animation" id="Animation_00rgd"]
 length = 0.001
@@ -55,23 +54,24 @@ blend_point_0/pos = 0.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_00rgd")
 blend_point_1/pos = 1.0
 
-[node name="CastleGameViewWeapon" type="Node3D" node_paths=PackedStringArray("view_weapon", "animation_player", "bob_animation_tree")]
+[node name="CastleGameViewWeapon" type="Node3D" node_paths=PackedStringArray("animation_player", "bob_animation_tree")]
 script = ExtResource("1_y3vky")
-view_weapon = NodePath("ViewWeapon")
 animation_player = NodePath("AnimationPlayer")
 bob_animation_tree = NodePath("RestTransform/BobTransform/BobAnimationTree")
-
-[node name="LocalGameContext" parent="." instance=ExtResource("2_gjjp1")]
-
-[node name="ViewWeapon" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("3_svun0")
-root = NodePath("..")
 
 [node name="EditorPreviewCamera" type="Camera3D" parent="." groups=["only_visible_in_editor"]]
 
 [node name="RestTransform" type="Node3D" parent="."]
 
 [node name="BobTransform" type="Node3D" parent="RestTransform"]
+
+[node name="ViewSprite" parent="RestTransform/BobTransform" instance=ExtResource("3_vssrn")]
+unique_name_in_owner = true
+
+[node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" instance=ExtResource("3_vssrn")]
+unique_name_in_owner = true
+visible = false
+unshaded = true
 
 [node name="BobAnimationPlayer" type="AnimationPlayer" parent="RestTransform/BobTransform"]
 libraries = {
@@ -98,4 +98,4 @@ omni_range = 10.0
 unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../ViewWeapon")
+root_node = NodePath("")

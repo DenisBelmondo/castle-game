@@ -17,6 +17,13 @@ var amount: float = 100:
 		updated.emit(amount, old_value)
 
 
+static func get_from(node: Node) -> Health:
+	if node.has_meta(&'health'):
+		return node.get_meta(&'health')
+
+	return null
+
+
 func _get_property_list() -> Array[Dictionary]:
 	return [
 		{
@@ -31,13 +38,6 @@ func _get_property_list() -> Array[Dictionary]:
 			'usage': PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE,
 		},
 	]
-
-
-static func get_from(node: Node) -> Health:
-	if node.has_meta(&'health'):
-		return node.get_meta(&'health')
-
-	return null
 
 
 func _enter_tree() -> void:

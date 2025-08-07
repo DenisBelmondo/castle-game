@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bppjg1p87iohb" path="res://scripts/nodes/character.gd" id="1_k8nt8"]
 [ext_resource type="Script" uid="uid://cv4lm3m1adnbs" path="res://scripts/character_movement_result.gd" id="2_tyh68"]
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("body", "_movement_state")]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("body", "_movement_result")]
 script = ExtResource("1_k8nt8")
 body = NodePath(".")
-_movement_state = NodePath("CharacterMovementState")
+_movement_result = NodePath("CharacterMovementResult")
 
-[node name="CharacterMovementState" type="Node" parent="."]
+[node name="CharacterMovementResult" type="Node" parent="."]
 script = ExtResource("2_tyh68")
