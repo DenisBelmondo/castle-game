@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmakw0lhp380b"]
+[gd_scene load_steps=7 format=3 uid="uid://bmakw0lhp380b"]
 
 [ext_resource type="PackedScene" uid="uid://7eo0cokhgq4w" path="res://scenes/view_weapons/castle_game_view_weapon.tscn" id="1_pvdfx"]
 [ext_resource type="Texture2D" uid="uid://de1nm2tiey3be" path="res://textures/v_super_shotgun_0.png" id="2_1imhk"]
+[ext_resource type="AudioStream" uid="uid://c005xxatettd2" path="res://audio/sounds/shotgun.tres" id="4_pvdfx"]
 [ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="6_7ocdu"]
 [ext_resource type="AnimationLibrary" uid="uid://bs0nbouoxeoa4" path="res://animation_libraries/castle_game_view_weapons/shotgun.res" id="9_a5cxh"]
 
@@ -15,6 +16,7 @@ physics_exclude = Array[Object]([])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336, 0)
 
 [node name="ViewSprite" parent="RestTransform/BobTransform" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00190106, 0)
 texture = ExtResource("2_1imhk")
 pixel_size = 0.0038
 
@@ -22,6 +24,9 @@ pixel_size = 0.0038
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.155, -1)
 texture = ExtResource("6_7ocdu")
 pixel_size = 0.0038
+
+[node name="WeaponAudio" parent="." index="3"]
+stream = ExtResource("4_pvdfx")
 
 [node name="AnimationPlayer" parent="." index="4"]
 root_node = NodePath("..")

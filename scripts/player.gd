@@ -3,7 +3,7 @@ extends Node
 
 const Character := preload('res://scripts/nodes/character.gd')
 
-signal jumped
+#signal jumped
 
 @export_category('References')
 @export var character: Character

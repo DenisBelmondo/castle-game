@@ -11,10 +11,15 @@ uniform sampler2D albedo_texture : filter_nearest, source_color;
 uniform vec2 uv_offset;
 uniform vec2 uv_scale = vec2(1);
 uniform vec2 offset;
+uniform bool flip_x;
+uniform bool flip_y;
 uniform int billboard_mode : hint_enum("Disabled", "Enabled", "Y-Billboard");
 uniform float pixel_size = 0.01;
 
 void vertex() {
+	UV.x = mix(UV.x, -UV.x, float(flip_x));
+	UV.y = mix(UV.y, -UV.y, float(flip_y));
+	
 	// aspect ratio
 	VERTEX.xy *= _texture_size;
 	VERTEX.xy += offset;

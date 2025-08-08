@@ -25,6 +25,11 @@ enum BillboardMode {
 	get = get_offset,
 	set = set_offset
 
+
+@export var flip_x: bool:
+	get = get_flip_x,
+	set = set_flip_x
+
 @export var billboard_mode: BillboardMode
 
 
@@ -59,6 +64,14 @@ func set_offset(p_offset: Vector2) -> void:
 	offset = p_offset
 
 
+func get_flip_x() -> bool:
+	return flip_x
+
+
+func set_flip_x(p_flip_x: bool) -> void:
+	flip_x = p_flip_x
+
+
 func force_update_texture() -> void:
 	if not is_instance_valid(texture):
 		mesh.material[&'shader_parameter/albedo_texture'] = null
@@ -84,3 +97,11 @@ func force_update_billboard_mode() -> void:
 
 func force_update_offset() -> void:
 	mesh.material[&'shader_parameter/offset'] = offset
+
+
+func force_update_flip_x() -> void:
+	mesh.material[&'shader_parameter/flip_x'] = flip_x
+
+
+func force_update_flip_y() -> void:
+	mesh.material[&'shader_parameter/flip_y'] = flip_y
