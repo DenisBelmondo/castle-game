@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d26b5rpg5nab4"]
+
+[ext_resource type="Texture2D" uid="uid://cr0ot7jn4tcf0" path="res://Meshes/Candelabra/Candelabra_T_Metal_1_0_BaseColor.png" id="1_h552k"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(1, 1, 0.603922, 1)
+albedo_texture = ExtResource("1_h552k")
+metallic = 0.771429
+roughness = 0.248571

@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://b671rtutx15of"]
+
+[ext_resource type="Texture2D" uid="uid://dydcverwjy65x" path="res://textures/Particles/CircleSmall.png" id="1_cgiwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14ixv"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_cgiwl")
+emission_enabled = true
+emission = Color(1, 0.498485, 0.104717, 1)
+emission_energy_multiplier = 3.0
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_s5rjp"]
+offsets = PackedFloat32Array(0, 0.345455, 0.8, 1)
+colors = PackedColorArray(1, 0.841927, 0.312414, 1, 0.958172, 0.431982, 0, 1, 0.490572, 0, 0.0186938, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sqxfs"]
+gradient = SubResource("Gradient_s5rjp")
+
+[sub_resource type="Curve" id="Curve_uxm6w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.64391, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e80di"]
+curve = SubResource("Curve_uxm6w")
+
+[sub_resource type="Curve" id="Curve_32f7w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_48xp5"]
+curve = SubResource("Curve_32f7w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c37w1"]
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0.2, 0)
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_48xp5")
+color_ramp = SubResource("GradientTexture1D_sqxfs")
+emission_curve = SubResource("CurveTexture_e80di")
+turbulence_noise_strength = 9.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rt3re"]
+orientation = 2
+
+[node name="FireLight" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_14ixv")
+process_material = SubResource("ParticleProcessMaterial_c37w1")
+draw_pass_1 = SubResource("PlaneMesh_rt3re")
