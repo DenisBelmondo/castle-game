@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bidf6kyt1lhtj"
-path="res://.godot/imported/structure-wall.glb-1bdb1db8b35dd433bb7940eee680c392.scn"
+path="res://.godot/imported/structure-wall.glb-731763a74fc0f3fe145ba91dee24bb16.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/structure-wall.glb"
-dest_files=["res://.godot/imported/structure-wall.glb-1bdb1db8b35dd433bb7940eee680c392.scn"]
+source_file="res://Meshes/GenericCastleAssets/structure-wall.glb"
+dest_files=["res://.godot/imported/structure-wall.glb-731763a74fc0f3fe145ba91dee24bb16.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d30ksm3ggscum"
-path="res://.godot/imported/detail-barrel.glb-29c6df5e139744507bfda965ab018036.scn"
+path="res://.godot/imported/detail-barrel.glb-45afc46b52cee13acb7fd3cce5bdc69e.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/detail-barrel.glb"
-dest_files=["res://.godot/imported/detail-barrel.glb-29c6df5e139744507bfda965ab018036.scn"]
+source_file="res://Meshes/GenericCastleAssets/detail-barrel.glb"
+dest_files=["res://.godot/imported/detail-barrel.glb-45afc46b52cee13acb7fd3cce5bdc69e.scn"]
 
 [params]
 

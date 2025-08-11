@@ -1,30 +1,30 @@
-[gd_scene load_steps=117 format=4 uid="uid://bdhyci7hg313a"]
+[gd_scene load_steps=122 format=4 uid="uid://bdhyci7hg313a"]
 
-[ext_resource type="Texture2D" uid="uid://c4m7sfdedgs76" path="res://meshes/OutdoorsShell/CastleCourtyard_snow2C.png" id="1_3py8t"]
-[ext_resource type="Texture2D" uid="uid://c72xlw5lbds70" path="res://meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png" id="2_0m3if"]
-[ext_resource type="Texture2D" uid="uid://bkg7p84qqapwu" path="res://meshes/OutdoorsShell/CastleCourtyard_T_Stone_0_1_BaseColor.png" id="3_u7gda"]
-[ext_resource type="Texture2D" uid="uid://cksn6tsv4ckls" path="res://meshes/OutdoorsShell/CastleCourtyard_T_RoofTiles_0_2_BaseColor.png" id="4_tele8"]
-[ext_resource type="Texture2D" uid="uid://bvxgkv6rv5pmo" path="res://meshes/OutdoorsShell/CastleCourtyard_T_Wood_2_0_BaseColor.png" id="5_3yoli"]
-[ext_resource type="Texture2D" uid="uid://c33f8qlrgogqc" path="res://meshes/OutdoorsShell/CastleCourtyard_T_Metal_2_2_BaseColor.png" id="6_6vewb"]
-[ext_resource type="Texture2D" uid="uid://brxae8skeyqq1" path="res://meshes/OutdoorsShell/CastleCourtyard_T_Wood_0_0_BaseColor.png" id="7_drf5c"]
-[ext_resource type="Texture2D" uid="uid://02tfd88tac8r" path="res://meshes/OutdoorsShell/CastleCourtyard_window_1.png" id="8_bx6nt"]
-[ext_resource type="Texture2D" uid="uid://clqih27hhgjub" path="res://meshes/OutdoorsShell/CastleCourtyard_book_1.png" id="9_468x8"]
+[ext_resource type="Texture2D" uid="uid://c4m7sfdedgs76" path="res://Meshes/OutdoorsShell/CastleCourtyard_snow2C.png" id="1_3py8t"]
+[ext_resource type="Texture2D" uid="uid://c72xlw5lbds70" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png" id="2_0m3if"]
+[ext_resource type="Texture2D" uid="uid://bkg7p84qqapwu" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Stone_0_1_BaseColor.png" id="3_u7gda"]
+[ext_resource type="Texture2D" uid="uid://cksn6tsv4ckls" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_RoofTiles_0_2_BaseColor.png" id="4_tele8"]
+[ext_resource type="Texture2D" uid="uid://bvxgkv6rv5pmo" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Wood_2_0_BaseColor.png" id="5_3yoli"]
+[ext_resource type="Texture2D" uid="uid://c33f8qlrgogqc" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Metal_2_2_BaseColor.png" id="6_6vewb"]
+[ext_resource type="Texture2D" uid="uid://brxae8skeyqq1" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Wood_0_0_BaseColor.png" id="7_drf5c"]
+[ext_resource type="Texture2D" uid="uid://02tfd88tac8r" path="res://Meshes/OutdoorsShell/CastleCourtyard_window_1.png" id="8_bx6nt"]
+[ext_resource type="Texture2D" uid="uid://clqih27hhgjub" path="res://Meshes/OutdoorsShell/CastleCourtyard_book_1.png" id="9_468x8"]
 [ext_resource type="PackedScene" uid="uid://boigngi4wgtav" path="res://scenes/characters/player.tscn" id="10_eis5w"]
-[ext_resource type="Texture2D" uid="uid://cwqvi4qpuywr1" path="res://meshes/Well/Well_Stone_13-256x256.png" id="11_468x8"]
-[ext_resource type="Texture2D" uid="uid://b0fpf12q1wehx" path="res://meshes/Well/Well_water_1.png" id="12_eis5w"]
-[ext_resource type="PackedScene" uid="uid://40xn05anrv74" path="res://meshes/Trees/dead_tree_rt_1.glb" id="12_w6ktx"]
-[ext_resource type="PackedScene" uid="uid://cj3htaxft6vjy" path="res://meshes/Trees/small_tree_rt_1.glb" id="13_l8rx1"]
-[ext_resource type="Texture2D" uid="uid://dgvlpfm5rw8i0" path="res://meshes/Well/Well_T_Wood_3_0_BaseColor.png" id="13_lni4b"]
-[ext_resource type="PackedScene" uid="uid://docimpws5b1r2" path="res://meshes/Trees/tree_rt_1.glb" id="14_ltwbt"]
-[ext_resource type="Texture2D" uid="uid://dc848kggbwax1" path="res://meshes/Well/Well_T_RoofTiles_0_3_BaseColor.png" id="14_w6ktx"]
-[ext_resource type="PackedScene" uid="uid://14mvrrgg3dq" path="res://meshes/Trees/tree_rt_2.glb" id="15_84nv5"]
-[ext_resource type="Texture2D" uid="uid://usn0pec572rw" path="res://meshes/Well/Well_T_Leather_0_3_BaseColor.png" id="15_l8rx1"]
-[ext_resource type="Texture2D" uid="uid://bxtwrgwi1xh5m" path="res://meshes/Well/Well_T_Fabric_0_0_BaseColor.png" id="16_ltwbt"]
-[ext_resource type="PackedScene" uid="uid://dg5ln1wxj4w3h" path="res://meshes/Trees/tree_rt_2_1.glb" id="16_qxg5u"]
+[ext_resource type="Texture2D" uid="uid://cwqvi4qpuywr1" path="res://Meshes/Well/Well_Stone_13-256x256.png" id="11_468x8"]
+[ext_resource type="Texture2D" uid="uid://b0fpf12q1wehx" path="res://Meshes/Well/Well_water_1.png" id="12_eis5w"]
+[ext_resource type="PackedScene" uid="uid://40xn05anrv74" path="res://Meshes/Trees/dead_tree_rt_1.glb" id="12_w6ktx"]
+[ext_resource type="PackedScene" uid="uid://cj3htaxft6vjy" path="res://Meshes/Trees/small_tree_rt_1.glb" id="13_l8rx1"]
+[ext_resource type="Texture2D" uid="uid://dgvlpfm5rw8i0" path="res://Meshes/Well/Well_T_Wood_3_0_BaseColor.png" id="13_lni4b"]
+[ext_resource type="PackedScene" uid="uid://docimpws5b1r2" path="res://Meshes/Trees/tree_rt_1.glb" id="14_ltwbt"]
+[ext_resource type="Texture2D" uid="uid://dc848kggbwax1" path="res://Meshes/Well/Well_T_RoofTiles_0_3_BaseColor.png" id="14_w6ktx"]
+[ext_resource type="PackedScene" uid="uid://14mvrrgg3dq" path="res://Meshes/Trees/tree_rt_2.glb" id="15_84nv5"]
+[ext_resource type="Texture2D" uid="uid://usn0pec572rw" path="res://Meshes/Well/Well_T_Leather_0_3_BaseColor.png" id="15_l8rx1"]
+[ext_resource type="Texture2D" uid="uid://bxtwrgwi1xh5m" path="res://Meshes/Well/Well_T_Fabric_0_0_BaseColor.png" id="16_ltwbt"]
+[ext_resource type="PackedScene" uid="uid://dg5ln1wxj4w3h" path="res://Meshes/Trees/tree_rt_2_1.glb" id="16_qxg5u"]
 [ext_resource type="LightmapGIData" uid="uid://bqouu1gk5vq" path="res://lightmap_data/court_yard.lmbake" id="17_0m3if"]
-[ext_resource type="Texture2D" uid="uid://0vj52gqk3spf" path="res://meshes/Well/Well_T_Metal_1_0_BaseColor.png" id="17_84nv5"]
+[ext_resource type="Texture2D" uid="uid://0vj52gqk3spf" path="res://Meshes/Well/Well_T_Metal_1_0_BaseColor.png" id="17_84nv5"]
 [ext_resource type="PackedScene" uid="uid://ddgf4qim3udwk" path="res://scenes/interaction_engine/buttons/button_timed.tscn" id="24_qxg5u"]
-
+[ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="25_eis5w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj0eh"]
 resource_name = "Material"
@@ -1948,6 +1948,46 @@ radius = 0.26123
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nsxy4"]
 
+[sub_resource type="Animation" id="Animation_eis5w"]
+resource_name = "Unlock"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:_is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_lni4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:_is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6ktx"]
+_data = {
+&"RESET": SubResource("Animation_lni4b"),
+&"Unlock": SubResource("Animation_eis5w")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lni4b"]
+size = Vector3(3.7002, 3.99609, 0.601563)
+
 [node name="CourtYard" type="Node3D"]
 
 [node name="CastleCourtyard" type="Node3D" parent="."]
@@ -2120,9 +2160,6 @@ light_color = Color(0.829456, 0.897004, 0.955674, 1)
 light_energy = 1.65
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("10_eis5w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-
 [node name="Well" type="Node3D" parent="."]
 transform = Transform3D(0.806476, 0, -0.591267, 0, 1, 0, 0.591267, 0, 0.806476, 3.26375, 0.551137, 3.73579)
 
@@ -2239,14 +2276,63 @@ transform = Transform3D(0.744847, 0, 0.667235, 0, 1, 0, -0.667235, 0, 0.744847, 
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.864197, 0)
 shape = SubResource("CylinderShape3D_lni4b")
 
-[node name="ButtonTimed" parent="." instance=ExtResource("24_qxg5u")]
+[node name="WellUse" parent="." instance=ExtResource("24_qxg5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01487, 1.01816, 4.25905)
 use_amount = 1
 display_mode = true
 enter_text = "Press E to Use"
 Description_text = "*The handle is wet*"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonTimed"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WellUse"]
 shape = SubResource("BoxShape3D_nsxy4")
 
-[connection signal="pressed" from="ButtonTimed" to="Well/AnimationPlayer" method="play" binds= [&"Use"]]
+[node name="GetKey" parent="." instance=ExtResource("24_qxg5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20498, 1.01816, 3.73535)
+use_amount = 1
+_is_active = false
+display_mode = true
+enter_text = "Press E to Pickup Key"
+Description_text = "*Added to inventory*"
+Description_text_fade_time = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GetKey"]
+shape = SubResource("BoxShape3D_nsxy4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GetKey"]
+libraries = {
+&"": SubResource("AnimationLibrary_w6ktx")
+}
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("25_eis5w")
+
+[node name="LevelChanger" parent="." instance=ExtResource("24_qxg5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47161, 2.76207, -7.47914)
+use_amount = 1
+_is_active = false
+display_mode = true
+enter_text = "Press E to Unlock with Key"
+Description_text = "*unlocked*"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelChanger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145996, 0, -0.199219)
+shape = SubResource("BoxShape3D_lni4b")
+
+[node name="DoorLocked" parent="." instance=ExtResource("24_qxg5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47161, 2.76207, -7.47914)
+display_mode = true
+enter_text = "Press E to Open"
+Description_text = "*The door is locked*"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLocked"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145996, 0, -0.199219)
+shape = SubResource("BoxShape3D_lni4b")
+
+[node name="Player" parent="." instance=ExtResource("10_eis5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[connection signal="pressed" from="WellUse" to="Well/AnimationPlayer" method="play" binds= [&"Use"]]
+[connection signal="pressed" from="WellUse" to="GetKey/AnimationPlayer" method="play" binds= [&"Unlock"]]
+[connection signal="pressed" from="GetKey" to="LevelChanger" method="activate"]
+[connection signal="pressed" from="GetKey" to="DoorLocked" method="deactivate"]
+[connection signal="pressed" from="LevelChanger" to="SceneChanger" method="change_to_INDOOR_CASTLE"]

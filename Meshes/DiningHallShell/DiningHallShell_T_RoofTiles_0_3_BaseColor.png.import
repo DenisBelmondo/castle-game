@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgixgigaojes"
-path="res://.godot/imported/DiningHallShell_T_RoofTiles_0_3_BaseColor.png-50a09eacde5efd557d2d2ff44c344eab.ctex"
+path="res://.godot/imported/DiningHallShell_T_RoofTiles_0_3_BaseColor.png-1c3402cae6b5ca41b1961f7c7421ab0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://meshes/DiningHallShell/DiningHallShell_T_RoofTiles_0_3_BaseColor.png"
-dest_files=["res://.godot/imported/DiningHallShell_T_RoofTiles_0_3_BaseColor.png-50a09eacde5efd557d2d2ff44c344eab.ctex"]
+source_file="res://Meshes/DiningHallShell/DiningHallShell_T_RoofTiles_0_3_BaseColor.png"
+dest_files=["res://.godot/imported/DiningHallShell_T_RoofTiles_0_3_BaseColor.png-1c3402cae6b5ca41b1961f7c7421ab0b.ctex"]
 
 [params]
 

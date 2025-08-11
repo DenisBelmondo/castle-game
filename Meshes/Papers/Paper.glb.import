@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dns2d2544r1ph"
-path="res://.godot/imported/Paper.glb-1b467089df0d93e2cb93685eca22acb4.scn"
+path="res://.godot/imported/Paper.glb-648fb3bc849a3c8e3ca9d2e31958fee8.scn"
 
 [deps]
 
-source_file="res://meshes/Papers/Paper.glb"
-dest_files=["res://.godot/imported/Paper.glb-1b467089df0d93e2cb93685eca22acb4.scn"]
+source_file="res://Meshes/Papers/Paper.glb"
+dest_files=["res://.godot/imported/Paper.glb-648fb3bc849a3c8e3ca9d2e31958fee8.scn"]
 
 [params]
 

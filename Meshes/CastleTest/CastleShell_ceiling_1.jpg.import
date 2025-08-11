@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bghgojpv1p4x5"
-path.s3tc="res://.godot/imported/CastleShell_ceiling_1.jpg-f30cdc6bf42520a307bcd1b13d9df779.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleShell_ceiling_1.jpg-0da9fbeb9b48897cd7ae5ae808b322a9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/CastleTest/CastleShell_ceiling_1.jpg"
-dest_files=["res://.godot/imported/CastleShell_ceiling_1.jpg-f30cdc6bf42520a307bcd1b13d9df779.s3tc.ctex"]
+source_file="res://Meshes/CastleTest/CastleShell_ceiling_1.jpg"
+dest_files=["res://.godot/imported/CastleShell_ceiling_1.jpg-0da9fbeb9b48897cd7ae5ae808b322a9.s3tc.ctex"]
 
 [params]
 

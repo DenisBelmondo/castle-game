@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diwdo1v8gsao2"
-path.s3tc="res://.godot/imported/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png-f1733d1e078e65b9dd51a03506e46f50.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png-81e27aa7204a346ba1bb4f02a442513e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/WoodSteelBeams/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png-f1733d1e078e65b9dd51a03506e46f50.s3tc.ctex"]
+source_file="res://Meshes/WoodSteelBeams/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/WoodSteelStraightBeam_T_CurigatedMetal_0_0_BaseColor.png-81e27aa7204a346ba1bb4f02a442513e.s3tc.ctex"]
 
 [params]
 

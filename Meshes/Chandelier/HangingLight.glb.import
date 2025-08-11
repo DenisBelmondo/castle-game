@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0blrxg0te6w"
-path="res://.godot/imported/HangingLight.glb-e213c084202c0441296136199cc94ffb.scn"
+path="res://.godot/imported/HangingLight.glb-ed51b9924105c9acde154e0d6a077eeb.scn"
 
 [deps]
 
-source_file="res://meshes/Chandelier/HangingLight.glb"
-dest_files=["res://.godot/imported/HangingLight.glb-e213c084202c0441296136199cc94ffb.scn"]
+source_file="res://Meshes/Chandelier/HangingLight.glb"
+dest_files=["res://.godot/imported/HangingLight.glb-ed51b9924105c9acde154e0d6a077eeb.scn"]
 
 [params]
 

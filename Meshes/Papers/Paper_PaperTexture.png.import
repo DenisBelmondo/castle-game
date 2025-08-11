@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o41eubmubpdl"
-path.s3tc="res://.godot/imported/Paper_PaperTexture.png-29d7e8ab06f98945b451df09cb96a34c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Paper_PaperTexture.png-04059418b39942e869a196ec21511122.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/Papers/Paper_PaperTexture.png"
-dest_files=["res://.godot/imported/Paper_PaperTexture.png-29d7e8ab06f98945b451df09cb96a34c.s3tc.ctex"]
+source_file="res://Meshes/Papers/Paper_PaperTexture.png"
+dest_files=["res://.godot/imported/Paper_PaperTexture.png-04059418b39942e869a196ec21511122.s3tc.ctex"]
 
 [params]
 
