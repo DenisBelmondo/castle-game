@@ -74,4 +74,14 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+
+[shader_globals]
+
+wind_direction={
+"type": "vec3",
+"value": Vector3(1.5, 0, 1.5)
+}
+wind_intensity={
+"type": "float",
+"value": 0.0
+}
