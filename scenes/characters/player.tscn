@@ -58,10 +58,9 @@ inner_head = NodePath("Character/OuterHead/InnerHead")
 walk_speed = 1.5
 
 [node name="Character" parent="." instance=ExtResource("3_atpat")]
+metadata/castle_game_ = {}
 
-[node name="Health" parent="Character" node_paths=PackedStringArray("target") instance=ExtResource("2_atpat")]
-target = NodePath("..")
-amount = 100.0
+[node name="Health" parent="Character" instance=ExtResource("2_atpat")]
 
 [node name="CharacterCollisionShape" parent="Character" instance=ExtResource("4_atpat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -5,6 +5,7 @@ const Bob := preload('res://scripts/bob.gd')
 const CastleGameUtil := preload('res://scripts/castle_game_util.gd')
 const CastleGameViewWeapon := preload('res://scripts/view_weapons/castle_game_view_weapon.gd')
 const CastleGameMode := preload('castle_game_mode.gd')
+const CollisionLayers := preload('res://scripts/collision_layers.gd')
 const GroupNames := preload('res://scripts/group_names.gd')
 const Health := preload('res://scripts/health.gd')
 const InteractionEngine := preload('res://scripts/interaction_engine/static.gd')
@@ -13,6 +14,7 @@ const Player := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
 const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapons/view_weapon.gd')
+const Zombie := preload('res://scripts/zombie.gd')
 
 
 class CastleGamePlayer:
@@ -37,7 +39,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 						- weapon.global_basis.z
 								.rotated(weapon.global_basis.y, randf_range(-PI / 30.0, PI / 30.0))
 								.rotated(weapon.global_basis.x, randf_range(-PI / 60.0, PI / 60.0))
-								* 16)
+								* 32)
 
 			p.hit_from_inside = true
 
@@ -53,9 +55,9 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 			collider = collider as Node
 
-			var collider_health := Health.get_from(collider)
+			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
-			if collider_health:
+			if collider_health is Health:
 				collider_health.damage(randi_range(1, 3) * 5)
 
 			var collider_owner = collider.owner
@@ -153,6 +155,8 @@ func _set_up_player(player: Player) -> void:
 					* float(player.character.movement_result.was_on_floor
 							or player.character.movement_result.is_on_floor))
 
+	player.character.body.collision_layer |= CollisionLayers.SIGHT
+
 
 func _on_node_added(node: Node) -> void:
 	if node.is_in_group(GroupNames.ONLY_VISIBLE_IN_EDITOR):
@@ -179,3 +183,5 @@ func _on_node_added(node: Node) -> void:
 				_weapon_attacks[p_name].call(node, user_data)
 			else:
 				push_warning('attack "%s" not implemented.' % p_name))
+	elif node is Zombie:
+		node.sight_targets = _players.keys().map(func (t: Node3D) -> Node3D: return t.find_children('*', 'CharacterBody3D', true, false).front())

@@ -36,23 +36,9 @@ var auto_integration_mode: int = AutoIntegrationMode.ALL
 @export var default_floor_friction: float = 1.0 / 3.0
 @export var default_ceiling_friction: float = 0.0
 
-var _movement_result: Variant
+var movement_result: CharacterMovementResult = CharacterMovementResult.new()
 var linear_velocity: Vector3
 var free_fall_velocity: Vector3
-
-var movement_result: CharacterMovementResult:
-	get: return _movement_result
-
-
-func _get_property_list() -> Array[Dictionary]:
-	return [
-		{
-			'name': '_movement_result',
-			'type': TYPE_OBJECT,
-			'usage': PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE,
-			'hint': PROPERTY_HINT_NODE_TYPE,
-		}
-	]
 
 
 func _physics_process(_delta: float) -> void:
@@ -78,9 +64,7 @@ func _physics_process(_delta: float) -> void:
 		movement_result.character_move(body, final_velocity)
 
 	linear_velocity = movement_result.linear_velocity
-
-	if not is_equal_approx(free_fall_velocity.length_squared(), 0):
-		free_fall_velocity = linear_velocity.project(free_fall_velocity.normalized())
+	free_fall_velocity = body.get_real_velocity().project(body.global_basis.y)
 
 	if movement_result.is_on_floor:
 		linear_velocity = linear_velocity.lerp(Vector3.ZERO, default_floor_friction)

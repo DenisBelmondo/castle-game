@@ -57,5 +57,39 @@ static func get_impact_effect_for_node(node: Node) -> PackedScene:
 	return FX_PUFF
 
 
-static func hitscan() -> void:
-	pass
+static func get_meta_dict_from(object: Object) -> Variant:
+	if object.has_meta(&'castle_game_'):
+		return object.get_meta(&'castle_game_')
+
+	return null
+
+
+## Gets metadata from object with unified game-specific prefix.
+static func get_meta_from(object: Object, key: Variant) -> Variant:
+	var d = get_meta_dict_from(object)
+
+	if d is Dictionary:
+		return d.get(key)
+
+	return null
+
+
+## Sets metadata to object with unified game-specific prefix.
+static func set_meta_on(object: Object, key: Variant, value: Variant) -> void:
+	var d: Dictionary
+
+	if object.has_meta(&'castle_game_'):
+		d = object.get_meta(&'castle_game_', {})
+
+	object.set_meta(&'castle_game_', d)
+	d.set(key, value)
+
+
+static func remove_meta_from(object: Object, key: Variant) -> void:
+	var d = get_meta_dict_from(object)
+
+	if not d:
+		return
+
+	d = d as Dictionary
+	d.erase(key)

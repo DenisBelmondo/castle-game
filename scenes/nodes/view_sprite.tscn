@@ -18,6 +18,7 @@ script = ExtResource("1_ie7yt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
+sorting_offset = 999.0
 material_override = SubResource("ShaderMaterial_qlg0r")
 cast_shadow = 0
 extra_cull_margin = 16384.0

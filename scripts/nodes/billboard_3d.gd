@@ -30,6 +30,12 @@ enum BillboardMode {
 	get = get_flip_x,
 	set = set_flip_x
 
+
+@export var flip_y: bool:
+	get = get_flip_y,
+	set = set_flip_y
+
+
 @export var billboard_mode: BillboardMode
 
 
@@ -38,6 +44,8 @@ func _init() -> void:
 	RenderingServer.frame_pre_draw.connect(force_update_pixel_size)
 	RenderingServer.frame_pre_draw.connect(force_update_billboard_mode)
 	RenderingServer.frame_pre_draw.connect(force_update_offset)
+	RenderingServer.frame_pre_draw.connect(force_update_flip_x)
+	RenderingServer.frame_pre_draw.connect(force_update_flip_y)
 
 
 func get_texture() -> Texture2D:
@@ -70,6 +78,14 @@ func get_flip_x() -> bool:
 
 func set_flip_x(p_flip_x: bool) -> void:
 	flip_x = p_flip_x
+
+
+func get_flip_y() -> bool:
+	return flip_y
+
+
+func set_flip_y(p_flip_y: bool) -> void:
+	flip_y = p_flip_y
 
 
 func force_update_texture() -> void:

@@ -16,9 +16,12 @@ uniform bool flip_y;
 uniform int billboard_mode : hint_enum("Disabled", "Enabled", "Y-Billboard");
 uniform float pixel_size = 0.01;
 
+varying vec2 uv;
+
 void vertex() {
-	UV.x = mix(UV.x, -UV.x, float(flip_x));
-	UV.y = mix(UV.y, -UV.y, float(flip_y));
+	UV.x = mix(UV.x, 1.0 - UV.x, float(flip_x));
+	UV.y = mix(UV.y, 1.0 - UV.y, float(flip_y));
+	uv = UV * uv_scale + uv_offset;
 	
 	// aspect ratio
 	VERTEX.xy *= _texture_size;
@@ -53,7 +56,6 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = UV * uv_scale + uv_offset;
 	vec4 color = texture(albedo_texture, uv);
 
 	ALBEDO = color.rgb;

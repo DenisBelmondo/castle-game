@@ -16,13 +16,13 @@ health = NodePath("Character/Health")
 
 [node name="Character" parent="." instance=ExtResource("1_3lam7")]
 
+[node name="CharacterCollisionShape" parent="Character" instance=ExtResource("2_ods6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
 [node name="Health" type="Node" parent="Character" node_paths=PackedStringArray("target")]
 script = ExtResource("2_kwusq")
 target = NodePath("..")
 amount = 100.0
-
-[node name="CharacterCollisionShape" parent="Character" instance=ExtResource("2_ods6e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
