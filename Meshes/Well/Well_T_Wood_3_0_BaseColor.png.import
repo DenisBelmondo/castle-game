@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgvlpfm5rw8i0"
-path.s3tc="res://.godot/imported/Well_T_Wood_3_0_BaseColor.png-b4072276fa943f39ff5576a2f604953f.s3tc.ctex"
+path.s3tc="res://.godot/imported/Well_T_Wood_3_0_BaseColor.png-dccd21870393f18f90dedd2cf2bf6cbf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Well/Well_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/Well_T_Wood_3_0_BaseColor.png-b4072276fa943f39ff5576a2f604953f.s3tc.ctex"]
+source_file="res://meshes/Well/Well_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/Well_T_Wood_3_0_BaseColor.png-dccd21870393f18f90dedd2cf2bf6cbf.s3tc.ctex"]
 
 [params]
 

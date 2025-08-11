@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc1gh213skpoo"
-path.s3tc="res://.godot/imported/Shield_T_CurigatedMetal_0_0_BaseColor.png-552c35cb63715236fb47af4bff741002.s3tc.ctex"
+path.s3tc="res://.godot/imported/Shield_T_CurigatedMetal_0_0_BaseColor.png-6678d25d4e4cd219f72858bd3af8b734.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Shield/Shield_T_CurigatedMetal_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/Shield_T_CurigatedMetal_0_0_BaseColor.png-552c35cb63715236fb47af4bff741002.s3tc.ctex"]
+source_file="res://meshes/Shield/Shield_T_CurigatedMetal_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/Shield_T_CurigatedMetal_0_0_BaseColor.png-6678d25d4e4cd219f72858bd3af8b734.s3tc.ctex"]
 
 [params]
 

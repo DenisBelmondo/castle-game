@@ -13,7 +13,9 @@ static func reparent_or_add_child(child: Node, parent: Node) -> void:
 	if child.is_inside_tree():
 		f = child.reparent.bind(parent)
 
-	f.call()
+	# i take care of deferring the call because doing it at the call site mucks
+	# up the stack trace.
+	f.call_deferred()
 
 
 ## Recursively finds children of a node as long as they satisfy `predicate`

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwv8buf1mfqs0"
-path="res://.godot/imported/Candelabra.glb-c47a5c5a2333aab472a61f25f13539b5.scn"
+path="res://.godot/imported/Candelabra.glb-9c1f7019784b115906fb437b188fa8ef.scn"
 
 [deps]
 
-source_file="res://Meshes/Candelabra/Candelabra.glb"
-dest_files=["res://.godot/imported/Candelabra.glb-c47a5c5a2333aab472a61f25f13539b5.scn"]
+source_file="res://meshes/Candelabra/Candelabra.glb"
+dest_files=["res://.godot/imported/Candelabra.glb-9c1f7019784b115906fb437b188fa8ef.scn"]
 
 [params]
 

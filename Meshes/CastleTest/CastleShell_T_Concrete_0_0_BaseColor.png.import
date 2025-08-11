@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpxrfywdbuptg"
-path.s3tc="res://.godot/imported/CastleShell_T_Concrete_0_0_BaseColor.png-9795c45cac625422cacc02cbd292d7e3.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleShell_T_Concrete_0_0_BaseColor.png-b21b04a74eba6897aefc90022c9cf76d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/CastleTest/CastleShell_T_Concrete_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/CastleShell_T_Concrete_0_0_BaseColor.png-9795c45cac625422cacc02cbd292d7e3.s3tc.ctex"]
+source_file="res://meshes/CastleTest/CastleShell_T_Concrete_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/CastleShell_T_Concrete_0_0_BaseColor.png-b21b04a74eba6897aefc90022c9cf76d.s3tc.ctex"]
 
 [params]
 

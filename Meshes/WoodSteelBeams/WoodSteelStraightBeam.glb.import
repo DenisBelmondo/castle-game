@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c6prpqp0ecnrc"
-path="res://.godot/imported/WoodSteelStraightBeam.glb-bf926c7b2d99c5de03acf117abeef9f2.scn"
+path="res://.godot/imported/WoodSteelStraightBeam.glb-9b13dcb9d469283fd8e6da1b580b0ac8.scn"
 
 [deps]
 
-source_file="res://Meshes/WoodSteelBeams/WoodSteelStraightBeam.glb"
-dest_files=["res://.godot/imported/WoodSteelStraightBeam.glb-bf926c7b2d99c5de03acf117abeef9f2.scn"]
+source_file="res://meshes/WoodSteelBeams/WoodSteelStraightBeam.glb"
+dest_files=["res://.godot/imported/WoodSteelStraightBeam.glb-9b13dcb9d469283fd8e6da1b580b0ac8.scn"]
 
 [params]
 

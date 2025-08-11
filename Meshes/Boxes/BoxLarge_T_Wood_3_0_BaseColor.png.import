@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwtnu4m5443cx"
-path.s3tc="res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-7751b2a549a49a3513b4f1d34565ab84.s3tc.ctex"
+uid="uid://1diabe2u6cug"
+path="res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-081f61c9f1990e8a9fbd56807cd9546c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "b90fbcb64930676f52652c8d05a5b553"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/Boxes/BoxLarge_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-7751b2a549a49a3513b4f1d34565ab84.s3tc.ctex"]
+source_file="res://meshes/Boxes/BoxLarge_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-081f61c9f1990e8a9fbd56807cd9546c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

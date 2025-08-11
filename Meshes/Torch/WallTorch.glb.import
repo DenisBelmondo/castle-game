@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hivhcash6hb0"
-path="res://.godot/imported/WallTorch.glb-4a236e8a0f37e7f295dd06b610b32b08.scn"
+path="res://.godot/imported/WallTorch.glb-738e12407f2794bd14b38c4ca3a6eb3c.scn"
 
 [deps]
 
-source_file="res://Meshes/Torch/WallTorch.glb"
-dest_files=["res://.godot/imported/WallTorch.glb-4a236e8a0f37e7f295dd06b610b32b08.scn"]
+source_file="res://meshes/Torch/WallTorch.glb"
+dest_files=["res://.godot/imported/WallTorch.glb-738e12407f2794bd14b38c4ca3a6eb3c.scn"]
 
 [params]
 

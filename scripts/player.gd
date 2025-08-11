@@ -3,7 +3,7 @@ extends Node
 
 const Character := preload('res://scripts/nodes/character.gd')
 
-signal jumped
+#signal jumped
 
 @export_category('References')
 @export var character: Character
@@ -27,9 +27,9 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	var forward_move := Input.get_axis(&'move_backwards', &'move_forward')
 	var strafe_move := Input.get_axis(&'move_left', &'move_right')
-	var walk_vector := -outer_head.basis.z * forward_move
+	var walk_vector := -outer_head.global_basis.z * forward_move
 
-	walk_vector += outer_head.basis.x * strafe_move
+	walk_vector += outer_head.global_basis.x * strafe_move
 	walk_vector = walk_vector.normalized()
 	walk_vector *= walk_speed
 	walk_vector *= float(character.movement_result.is_on_floor)
@@ -50,6 +50,11 @@ static func basic_player_look(event: InputEvent, p_outer_head: Node3D, p_inner_h
 	if event is InputEventMouseMotion:
 		event.screen_relative *= float(Input.mouse_mode == Input.MOUSE_MODE_CAPTURED)
 		event.screen_relative /= 500
+
+		# updating transforms outside of physics frames with interpolation on
+		# makes it jerky
+		await Engine.get_main_loop().physics_frame
+
 		p_outer_head.rotation.y -= event.screen_relative.x
 		p_inner_head.rotation.x -= event.screen_relative.y
 		p_inner_head.rotation_degrees.x = clampf(p_inner_head.rotation_degrees.x, p_vertical_look_clamp.x, p_vertical_look_clamp.y)

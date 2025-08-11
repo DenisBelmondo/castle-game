@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dui5tjxhqy8rp"
-path="res://.godot/imported/pulley-crate.glb-c22f25a013cb7ad48c7c3f4dfb38f82e.scn"
+path="res://.godot/imported/pulley-crate.glb-ca8260e062e758859521c49dd5a06656.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/pulley-crate.glb"
-dest_files=["res://.godot/imported/pulley-crate.glb-c22f25a013cb7ad48c7c3f4dfb38f82e.scn"]
+source_file="res://meshes/GenericCastleAssets/pulley-crate.glb"
+dest_files=["res://.godot/imported/pulley-crate.glb-ca8260e062e758859521c49dd5a06656.scn"]
 
 [params]
 

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpv65jv4v6bad"
-path.s3tc="res://.godot/imported/details.png-66c6c054dd84972809608652bebd9804.s3tc.ctex"
+uid="uid://c0ciyj3ve0oqe"
+path="res://.godot/imported/details.png-05e5dc13501fdd52afe6ba34cb269bb1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/Textures/details.png"
-dest_files=["res://.godot/imported/details.png-66c6c054dd84972809608652bebd9804.s3tc.ctex"]
+source_file="res://meshes/GenericCastleAssets/Textures/details.png"
+dest_files=["res://.godot/imported/details.png-05e5dc13501fdd52afe6ba34cb269bb1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

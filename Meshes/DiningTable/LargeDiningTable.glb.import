@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://beehcsb312rv0"
-path="res://.godot/imported/LargeDiningTable.glb-09e0ea2e900f443bebfc9df3e6f85c03.scn"
+path="res://.godot/imported/LargeDiningTable.glb-d6f6ab5e949d1770079213883a92b62e.scn"
 
 [deps]
 
-source_file="res://Meshes/DiningTable/LargeDiningTable.glb"
-dest_files=["res://.godot/imported/LargeDiningTable.glb-09e0ea2e900f443bebfc9df3e6f85c03.scn"]
+source_file="res://meshes/DiningTable/LargeDiningTable.glb"
+dest_files=["res://.godot/imported/LargeDiningTable.glb-d6f6ab5e949d1770079213883a92b62e.scn"]
 
 [params]
 

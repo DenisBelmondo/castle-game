@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmj03klrjg4fv"
-path.s3tc="res://.godot/imported/SpiralShell_T_Brick_6_0_Metallic.png-69ae1f23cb9c20b3ad38f70a111fa429.s3tc.ctex"
+uid="uid://bctnvyq27wnp4"
+path="res://.godot/imported/SpiralShell_T_Brick_6_0_Metallic.png-97f11022d1d1b10621b31c389eac65a7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "77e25513b60cf72f1cbb35d261b20b59"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Metallic.png"
-dest_files=["res://.godot/imported/SpiralShell_T_Brick_6_0_Metallic.png-69ae1f23cb9c20b3ad38f70a111fa429.s3tc.ctex"]
+source_file="res://meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Metallic.png"
+dest_files=["res://.godot/imported/SpiralShell_T_Brick_6_0_Metallic.png-97f11022d1d1b10621b31c389eac65a7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

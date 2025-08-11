@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr0ot7jn4tcf0"
-path.s3tc="res://.godot/imported/Candelabra_T_Metal_1_0_BaseColor.png-2bb2abfc7621f3cce9a1caef7b049bf9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Candelabra_T_Metal_1_0_BaseColor.png-dc01b78357b492c698e3e152d0820135.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Candelabra/Candelabra_T_Metal_1_0_BaseColor.png"
-dest_files=["res://.godot/imported/Candelabra_T_Metal_1_0_BaseColor.png-2bb2abfc7621f3cce9a1caef7b049bf9.s3tc.ctex"]
+source_file="res://meshes/Candelabra/Candelabra_T_Metal_1_0_BaseColor.png"
+dest_files=["res://.godot/imported/Candelabra_T_Metal_1_0_BaseColor.png-dc01b78357b492c698e3e152d0820135.s3tc.ctex"]
 
 [params]
 

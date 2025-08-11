@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be8w1lwt0ppyk"
-path.s3tc="res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.s3tc.ctex"
+path="res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/v_muzzle_flash_0.png"
-dest_files=["res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.s3tc.ctex"]
+dest_files=["res://.godot/imported/v_muzzle_flash_0.png-d8e9f53ba226b15ef216dde272c4b272.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

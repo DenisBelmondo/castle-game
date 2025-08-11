@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qtod64imklky"
-path.s3tc="res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.s3tc.ctex"
+path.s3tc="res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-2fc9b679790b86114a2ca3d10177af77.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Torch/WallTorch_T_Metal_1_0_BaseColor.png"
-dest_files=["res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.s3tc.ctex"]
+source_file="res://meshes/Torch/WallTorch_T_Metal_1_0_BaseColor.png"
+dest_files=["res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-2fc9b679790b86114a2ca3d10177af77.s3tc.ctex"]
 
 [params]
 

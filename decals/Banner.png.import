@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pgaj0rdwqnh5"
-path.s3tc="res://.godot/imported/Rug.png-5357e9437e5c80b64971e9dc826081ed.s3tc.ctex"
+uid="uid://c3wll8j8s1yfk"
+path.s3tc="res://.godot/imported/Banner.png-465a6924ae644eee3ce4dda4d861f633.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Decal/Rug.png"
-dest_files=["res://.godot/imported/Rug.png-5357e9437e5c80b64971e9dc826081ed.s3tc.ctex"]
+source_file="res://decals/Banner.png"
+dest_files=["res://.godot/imported/Banner.png-465a6924ae644eee3ce4dda4d861f633.s3tc.ctex"]
 
 [params]
 

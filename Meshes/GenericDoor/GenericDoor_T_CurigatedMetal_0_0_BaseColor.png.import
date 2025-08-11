@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd7awm8ykjc4p"
-path.s3tc="res://.godot/imported/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png-6f878a41183d021bc440e65ca2288b1e.s3tc.ctex"
+path.s3tc="res://.godot/imported/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png-ae9f1be8e40a3888d765d86cb378d3a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/GenericDoor/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png-6f878a41183d021bc440e65ca2288b1e.s3tc.ctex"]
+source_file="res://meshes/GenericDoor/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/GenericDoor_T_CurigatedMetal_0_0_BaseColor.png-ae9f1be8e40a3888d765d86cb378d3a4.s3tc.ctex"]
 
 [params]
 
