@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprcxqk5oo10b"
-path.s3tc="res://.godot/imported/cobblestone.png-4cf89de3dcec17ae9bdd238f5ed3aa6c.s3tc.ctex"
+uid="uid://by8s6dalvkifx"
+path="res://.godot/imported/cobblestone.png-3a1336cfcc91e7eb19f88989c0eea122.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/Textures/cobblestone.png"
-dest_files=["res://.godot/imported/cobblestone.png-4cf89de3dcec17ae9bdd238f5ed3aa6c.s3tc.ctex"]
+source_file="res://meshes/GenericCastleAssets/Textures/cobblestone.png"
+dest_files=["res://.godot/imported/cobblestone.png-3a1336cfcc91e7eb19f88989c0eea122.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

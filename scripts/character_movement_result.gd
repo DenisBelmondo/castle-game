@@ -26,7 +26,7 @@ static func normal_is_ceiling(normal: Vector3, up: Vector3, max_ceiling_angle: f
 	return acos(normal.dot(-up) <= max_ceiling_angle + 0.01)
 
 
-static func _get_collision_surface_types(collision: KinematicCollision3D, up: Vector3, max_floor_angle: float) -> SurfaceType:
+static func _get_collision_surface_types(collision: KinematicCollision3D, up: Vector3, max_floor_angle: float, max_ceiling_angle: float) -> SurfaceType:
 	var st := SurfaceType.WALL
 
 	for i in collision.get_collision_count():
@@ -36,12 +36,12 @@ static func _get_collision_surface_types(collision: KinematicCollision3D, up: Ve
 		st |= int(normal_is_floor(n, up, max_floor_angle)) * SurfaceType.FLOOR
 
 		@warning_ignore('int_as_enum_without_cast')
-		st |= int(normal_is_ceiling(n, up, max_floor_angle)) * SurfaceType.CEILING
+		st |= int(normal_is_ceiling(n, up, max_ceiling_angle)) * SurfaceType.CEILING
 
 	return st
 
 
-func character_move(body: CharacterBody3D, relative_motion: Vector3, max_floor_angle: float) -> void:
+func character_move(body: CharacterBody3D, relative_motion: Vector3) -> void:
 	was_on_floor = is_on_floor
 	was_on_ceiling = is_on_ceiling
 	is_on_floor = false
@@ -50,9 +50,10 @@ func character_move(body: CharacterBody3D, relative_motion: Vector3, max_floor_a
 	body.move_and_slide()
 	is_on_floor = is_on_floor or body.is_on_floor()
 	is_on_ceiling = is_on_ceiling or body.is_on_ceiling()
+	linear_velocity = body.get_real_velocity()
 
 
-func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, step_height: float, max_floor_angle: float, on_step_function: Callable = Callable(), on_land_function: Callable = Callable()) -> void:
+func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, step_height: float, max_floor_angle: float, max_ceiling_angle: float, on_step_function: Callable = Callable(), on_land_function: Callable = Callable()) -> void:
 	var old_position := body.global_position
 
 	lateral_velocity = relative_motion.slide(body.global_basis.y)
@@ -89,7 +90,7 @@ func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, st
 	var position_after_stepping := body.global_position
 
 	if is_instance_valid(step_down_col):
-		var collision_surfaces := _get_collision_surface_types(step_down_col, body.global_basis.y, max_floor_angle)
+		var collision_surfaces := _get_collision_surface_types(step_down_col, body.global_basis.y, max_floor_angle, max_ceiling_angle)
 		var collision_has_floor := collision_surfaces & SurfaceType.FLOOR
 		var collision_has_ceiling := collision_surfaces & SurfaceType.CEILING
 
@@ -108,7 +109,7 @@ func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, st
 	#
 
 	old_velocity = body.velocity
-	_regular_character_move(body, lateral_velocity, max_floor_angle)
+	_regular_character_move(body, lateral_velocity)
 	var lateral_velocity_after_moving_normally := body.get_real_velocity()
 
 	body.velocity = old_velocity
@@ -156,7 +157,7 @@ func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, st
 	if should_snap:
 		var snap_col := body.move_and_collide(-body.global_basis.y * step_height, true)
 
-		if is_instance_valid(snap_col) and (_get_collision_surface_types(snap_col, body.global_basis.y, max_floor_angle) & SurfaceType.FLOOR):
+		if is_instance_valid(snap_col) and (_get_collision_surface_types(snap_col, body.global_basis.y, max_floor_angle, max_ceiling_angle) & SurfaceType.FLOOR):
 			body.global_position += snap_col.get_travel()
 
 			if on_step_function.is_valid():
@@ -169,7 +170,7 @@ func character_move_and_step(body: CharacterBody3D, relative_motion: Vector3, st
 	linear_velocity = lateral_velocity + vertical_velocity
 
 
-func _regular_character_move(body: CharacterBody3D, relative_motion: Vector3, max_floor_angle: float) -> void:
+func _regular_character_move(body: CharacterBody3D, relative_motion: Vector3) -> void:
 	body.velocity = relative_motion
 	body.move_and_slide()
 	is_on_floor = is_on_floor or body.is_on_floor()

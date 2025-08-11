@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cynsmd3g7u2pw"]
+
+[ext_resource type="AudioStream" uid="uid://ovhyiymi4eio" path="res://audio/sounds/pick_up_weapon.wav" id="1_ixhvc"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_ixhvc")

@@ -3,7 +3,7 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://kr0rfswu2ylw"
-path.bptc="res://.godot/imported/stairs.exr-b083939204d41d8dafe5c07b793e6f34.bptc.ctexarray"
+path.bptc="res://.godot/imported/stairs.exr-eb8ec8c635bcdcb84c1fb41ca2f948d9.bptc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://LightmapData/stairs.exr"
-dest_files=["res://.godot/imported/stairs.exr-b083939204d41d8dafe5c07b793e6f34.bptc.ctexarray"]
+source_file="res://lightmap_data/stairs.exr"
+dest_files=["res://.godot/imported/stairs.exr-eb8ec8c635bcdcb84c1fb41ca2f948d9.bptc.ctexarray"]
 
 [params]
 

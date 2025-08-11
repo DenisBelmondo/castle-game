@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://cetww4hdt1sch"]
 
-[ext_resource type="Script" uid="uid://dbrmb08wfai8x" path="res://scripts/interaction_engine/touch_interaction.gd" id="1_xb0ep"]
+[ext_resource type="Script" uid="uid://dbrmb08wfai8x" path="res://addons/InteractionEngine2.0/TouchInteraction/touch_interaction.gd" id="1_xb0ep"]
 
 [node name="TouchInteraction" type="Area3D"]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 128
 script = ExtResource("1_xb0ep")
 
 [node name="DisplayLabel" type="Label" parent="."]

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2ruunqq14ipu"
-path.s3tc="res://.godot/imported/CastleShell_T_Brick_6_0_BaseColor.png-a1ff9047077f5458234f7cacde599ee5.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleShell_T_Brick_6_0_BaseColor.png-22b8b7c4d1ddb92b6ef7c728f2679d77.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/CastleTest/CastleShell_T_Brick_6_0_BaseColor.png"
-dest_files=["res://.godot/imported/CastleShell_T_Brick_6_0_BaseColor.png-a1ff9047077f5458234f7cacde599ee5.s3tc.ctex"]
+source_file="res://meshes/CastleTest/CastleShell_T_Brick_6_0_BaseColor.png"
+dest_files=["res://.godot/imported/CastleShell_T_Brick_6_0_BaseColor.png-22b8b7c4d1ddb92b6ef7c728f2679d77.s3tc.ctex"]
 
 [params]
 

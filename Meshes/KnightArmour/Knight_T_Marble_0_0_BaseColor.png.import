@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmqgwehb8xml6"
-path.s3tc="res://.godot/imported/Knight_T_Marble_0_0_BaseColor.png-af6103129669354cc80b121cf3e27b06.s3tc.ctex"
+uid="uid://dnui236fsbdm7"
+path="res://.godot/imported/Knight_T_Marble_0_0_BaseColor.png-eb6e62acfe0e445f1c7b02434ca0a51f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "993503ee713207f65b0b534909a6e97f"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/KnightArmour/Knight_T_Marble_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/Knight_T_Marble_0_0_BaseColor.png-af6103129669354cc80b121cf3e27b06.s3tc.ctex"]
+source_file="res://meshes/KnightArmour/Knight_T_Marble_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/Knight_T_Marble_0_0_BaseColor.png-eb6e62acfe0e445f1c7b02434ca0a51f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

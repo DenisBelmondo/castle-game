@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://belw7clx1fuy7"
-path="res://.godot/imported/Woodbox.glb-82d507e3cc3596e8577160c339bc4fdb.scn"
+path="res://.godot/imported/Woodbox.glb-60e793b928104541c5c79a9c8d125e73.scn"
 
 [deps]
 
-source_file="res://Meshes/Boxes/Woodbox.glb"
-dest_files=["res://.godot/imported/Woodbox.glb-82d507e3cc3596e8577160c339bc4fdb.scn"]
+source_file="res://meshes/Boxes/Woodbox.glb"
+dest_files=["res://.godot/imported/Woodbox.glb-60e793b928104541c5c79a9c8d125e73.scn"]
 
 [params]
 

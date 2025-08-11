@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4k388ivogn87"
-path.s3tc="res://.godot/imported/Book_BookOutside Base Color.png-7fc5cb196b9389812cc0069340ee17e7.s3tc.ctex"
+path.s3tc="res://.godot/imported/Book_BookOutside Base Color.png-55d111dffd0fda0c524118064035dcc9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Books/Book_BookOutside Base Color.png"
-dest_files=["res://.godot/imported/Book_BookOutside Base Color.png-7fc5cb196b9389812cc0069340ee17e7.s3tc.ctex"]
+source_file="res://meshes/Books/Book_BookOutside Base Color.png"
+dest_files=["res://.godot/imported/Book_BookOutside Base Color.png-55d111dffd0fda0c524118064035dcc9.s3tc.ctex"]
 
 [params]
 

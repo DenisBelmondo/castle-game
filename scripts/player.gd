@@ -3,7 +3,7 @@ extends Node
 
 const Character := preload('res://scripts/nodes/character.gd')
 
-signal jumped
+#signal jumped
 
 @export_category('References')
 @export var character: Character
@@ -50,6 +50,11 @@ static func basic_player_look(event: InputEvent, p_outer_head: Node3D, p_inner_h
 	if event is InputEventMouseMotion:
 		event.screen_relative *= float(Input.mouse_mode == Input.MOUSE_MODE_CAPTURED)
 		event.screen_relative /= 500
+
+		# updating transforms outside of physics frames with interpolation on
+		# makes it jerky
+		await Engine.get_main_loop().physics_frame
+
 		p_outer_head.rotation.y -= event.screen_relative.x
 		p_inner_head.rotation.x -= event.screen_relative.y
 		p_inner_head.rotation_degrees.x = clampf(p_inner_head.rotation_degrees.x, p_vertical_look_clamp.x, p_vertical_look_clamp.y)

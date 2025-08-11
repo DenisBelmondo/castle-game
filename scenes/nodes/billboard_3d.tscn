@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://0qla75g25iuh"]
+
+[ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="1_yg2xb"]
+[ext_resource type="Script" uid="uid://di63nciuh8pgw" path="res://scripts/nodes/billboard_3d.gd" id="3_du2pe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjbka"]
+render_priority = 0
+shader = ExtResource("1_yg2xb")
+shader_parameter/_texture_size = Vector2(0, 0)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/billboard_mode = 0
+shader_parameter/pixel_size = 0.01
+
+[sub_resource type="QuadMesh" id="QuadMesh_jraow"]
+material = SubResource("ShaderMaterial_xjbka")
+
+[node name="Billboard3D" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_jraow")
+script = ExtResource("3_du2pe")

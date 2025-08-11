@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbrkld32j3k6d"
-path.s3tc="res://.godot/imported/planks.png-826edb7deb139cc63c9b4036c007f5fe.s3tc.ctex"
+uid="uid://du24eweklmt4c"
+path="res://.godot/imported/planks.png-d871dac48d1c0d5821e537e3e562ac7f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/Textures/planks.png"
-dest_files=["res://.godot/imported/planks.png-826edb7deb139cc63c9b4036c007f5fe.s3tc.ctex"]
+source_file="res://meshes/GenericCastleAssets/Textures/planks.png"
+dest_files=["res://.godot/imported/planks.png-d871dac48d1c0d5821e537e3e562ac7f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

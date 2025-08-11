@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://boigngi4wgtav"]
+[gd_scene load_steps=15 format=3 uid="uid://boigngi4wgtav"]
 
 [ext_resource type="Script" uid="uid://2vy5avxs45yj" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cwb7qufghffik" path="res://scenes/nodes/health.tscn" id="2_atpat"]
@@ -6,6 +6,49 @@
 [ext_resource type="PackedScene" uid="uid://c4ng50o26w5vp" path="res://scenes/collision_shapes/character.tscn" id="4_atpat"]
 [ext_resource type="PackedScene" uid="uid://cpli8psni3vyd" path="res://scenes/ui/hud.tscn" id="4_dyp2m"]
 [ext_resource type="PackedScene" uid="uid://cnnl565mmb8bs" path="res://scenes/editor/in_editor_character.tscn" id="5_kqtwu"]
+[ext_resource type="AudioStream" uid="uid://nd402milcq30" path="res://audio/sounds/step.tres" id="6_6eyoc"]
+[ext_resource type="Script" uid="uid://b047ncohoudcu" path="res://scripts/bob.gd" id="6_eojnx"]
+
+[sub_resource type="Animation" id="Animation_00rgd"]
+length = 0.0333367
+
+[sub_resource type="Animation" id="Animation_1imhk"]
+resource_name = "bob"
+length = 0.30001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bob/FootstepAudio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqtwu"]
+_data = {
+&"RESET": SubResource("Animation_00rgd"),
+&"bob": SubResource("Animation_1imhk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1imhk"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00rgd"]
+animation = &"bob"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_6eyoc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1imhk")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_00rgd")
+blend_point_1/pos = 1.0
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("character", "outer_head", "inner_head")]
 script = ExtResource("1_3vyb7")
@@ -15,10 +58,9 @@ inner_head = NodePath("Character/OuterHead/InnerHead")
 walk_speed = 1.5
 
 [node name="Character" parent="." instance=ExtResource("3_atpat")]
+metadata/castle_game_ = {}
 
-[node name="Health" parent="Character" node_paths=PackedStringArray("target") instance=ExtResource("2_atpat")]
-target = NodePath("..")
-amount = 100.0
+[node name="Health" parent="Character" instance=ExtResource("2_atpat")]
 
 [node name="CharacterCollisionShape" parent="Character" instance=ExtResource("4_atpat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -31,6 +73,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="EditorOnly" type="Node3D" parent="Character" groups=["only_visible_in_editor"]]
 
 [node name="InEditorCharacter" parent="Character/EditorOnly" instance=ExtResource("5_kqtwu")]
+
+[node name="Bob" type="Node3D" parent="Character" node_paths=PackedStringArray("bob_animation_tree")]
+script = ExtResource("6_eojnx")
+bob_animation_tree = NodePath("BobAnimationTree")
+
+[node name="BobAnimationPlayer" type="AnimationPlayer" parent="Character/Bob"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_kqtwu")
+}
+
+[node name="BobAnimationTree" type="AnimationTree" parent="Character/Bob"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendSpace1D_6eyoc")
+anim_player = NodePath("../BobAnimationPlayer")
+parameters/blend_position = 0.0
+
+[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="Character/Bob"]
+stream = ExtResource("6_6eyoc")
+volume_db = -35.0
 
 [node name="HUD" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_dyp2m")]
 health = NodePath("../Character/Health")

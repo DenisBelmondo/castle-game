@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bt1uu0cywh67p"
-path="res://.godot/imported/column-paint-damaged.glb-26998f10bce54c5def1e3b93a96ebdd1.scn"
+path="res://.godot/imported/column-paint-damaged.glb-a6cccbdd4b06763beec5c5070fa3fe6e.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/column-paint-damaged.glb"
-dest_files=["res://.godot/imported/column-paint-damaged.glb-26998f10bce54c5def1e3b93a96ebdd1.scn"]
+source_file="res://meshes/GenericCastleAssets/column-paint-damaged.glb"
+dest_files=["res://.godot/imported/column-paint-damaged.glb-a6cccbdd4b06763beec5c5070fa3fe6e.scn"]
 
 [params]
 

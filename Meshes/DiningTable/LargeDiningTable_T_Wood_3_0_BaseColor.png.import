@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjg5gl0iqmcgd"
-path.s3tc="res://.godot/imported/LargeDiningTable_T_Wood_3_0_BaseColor.png-31b687b750155cbdbd1382427e7b0266.s3tc.ctex"
+path.s3tc="res://.godot/imported/LargeDiningTable_T_Wood_3_0_BaseColor.png-6e861892b78d8a2c5f55253b5cac4257.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/DiningTable/LargeDiningTable_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/LargeDiningTable_T_Wood_3_0_BaseColor.png-31b687b750155cbdbd1382427e7b0266.s3tc.ctex"]
+source_file="res://meshes/DiningTable/LargeDiningTable_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/LargeDiningTable_T_Wood_3_0_BaseColor.png-6e861892b78d8a2c5f55253b5cac4257.s3tc.ctex"]
 
 [params]
 

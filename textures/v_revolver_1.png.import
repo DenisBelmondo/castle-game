@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3wll8j8s1yfk"
-path.s3tc="res://.godot/imported/Banner.png-afd6881178a314d74fae738c67f85790.s3tc.ctex"
+uid="uid://pr5vq8pfxqoy"
+path="res://.godot/imported/v_revolver_1.png-6dd8d556bf04f94652042b1cf20e95b4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Decal/Banner.png"
-dest_files=["res://.godot/imported/Banner.png-afd6881178a314d74fae738c67f85790.s3tc.ctex"]
+source_file="res://textures/v_revolver_1.png"
+dest_files=["res://.godot/imported/v_revolver_1.png-6dd8d556bf04f94652042b1cf20e95b4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

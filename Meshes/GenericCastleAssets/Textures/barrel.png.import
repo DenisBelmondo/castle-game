@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2bs1lypmo8m"
-path.s3tc="res://.godot/imported/barrel.png-0205c03960e5c82fe0dfcc6252ffb387.s3tc.ctex"
+uid="uid://du83kapd2jkq2"
+path="res://.godot/imported/barrel.png-e45f12352c1640aefc1e3afbb84d8b61.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/Textures/barrel.png"
-dest_files=["res://.godot/imported/barrel.png-0205c03960e5c82fe0dfcc6252ffb387.s3tc.ctex"]
+source_file="res://meshes/GenericCastleAssets/Textures/barrel.png"
+dest_files=["res://.godot/imported/barrel.png-e45f12352c1640aefc1e3afbb84d8b61.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

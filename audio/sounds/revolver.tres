@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dxyomhag6py5k"]
+
+[ext_resource type="AudioStream" uid="uid://dljl34ujseed6" path="res://audio/sounds/revolver.ogg" id="1_ppqju"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_ppqju")

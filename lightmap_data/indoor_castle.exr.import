@@ -2,8 +2,8 @@
 
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
-uid="uid://dipx1vouexej0"
-path.bptc="res://.godot/imported/dining_hall.exr-83abaeaa9e7916c25cee3119efb36d32.bptc.ctexarray"
+uid="uid://u3yj8j52pno7"
+path.bptc="res://.godot/imported/indoor_castle.exr-5a6046b95a4e6513c35f447964d1ec9c.bptc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://LightmapData/dining_hall.exr"
-dest_files=["res://.godot/imported/dining_hall.exr-83abaeaa9e7916c25cee3119efb36d32.bptc.ctexarray"]
+source_file="res://lightmap_data/indoor_castle.exr"
+dest_files=["res://.godot/imported/indoor_castle.exr-5a6046b95a4e6513c35f447964d1ec9c.bptc.ctexarray"]
 
 [params]
 
@@ -24,4 +24,4 @@ compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 slices/horizontal=1
-slices/vertical=4
+slices/vertical=1

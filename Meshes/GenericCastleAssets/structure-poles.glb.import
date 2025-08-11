@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhoqxr0tkfkw2"
-path="res://.godot/imported/structure-poles.glb-e3348921dc825a2d70aefc5bbb4968da.scn"
+path="res://.godot/imported/structure-poles.glb-7f483c95d5ece0f400b3c0b2be17aa3a.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/structure-poles.glb"
-dest_files=["res://.godot/imported/structure-poles.glb-e3348921dc825a2d70aefc5bbb4968da.scn"]
+source_file="res://meshes/GenericCastleAssets/structure-poles.glb"
+dest_files=["res://.godot/imported/structure-poles.glb-7f483c95d5ece0f400b3c0b2be17aa3a.scn"]
 
 [params]
 

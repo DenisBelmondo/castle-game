@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://du8ejn0ts5afm"
-path="res://.godot/imported/pulley.glb-57e9431fe43c82399ae87c624ca1e192.scn"
+path="res://.godot/imported/pulley.glb-0fd36f8e0627a8f331ed197b29af28f0.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/pulley.glb"
-dest_files=["res://.godot/imported/pulley.glb-57e9431fe43c82399ae87c624ca1e192.scn"]
+source_file="res://meshes/GenericCastleAssets/pulley.glb"
+dest_files=["res://.godot/imported/pulley.glb-0fd36f8e0627a8f331ed197b29af28f0.scn"]
 
 [params]
 

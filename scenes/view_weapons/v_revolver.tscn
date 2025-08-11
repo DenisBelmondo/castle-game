@@ -1,0 +1,205 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddgiakwguyd00"]
+
+[ext_resource type="PackedScene" uid="uid://7eo0cokhgq4w" path="res://scenes/view_weapons/castle_game_view_weapon.tscn" id="1_ugxho"]
+[ext_resource type="Texture2D" uid="uid://b03w0ubg1ihuw" path="res://textures/v_revolver_0.png" id="2_cggdb"]
+[ext_resource type="Texture2D" uid="uid://pr5vq8pfxqoy" path="res://textures/v_revolver_1.png" id="3_p8m33"]
+[ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="4_5g3r8"]
+[ext_resource type="AudioStream" uid="uid://dxyomhag6py5k" path="res://audio/sounds/revolver.tres" id="4_n262q"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n262q"]
+
+[sub_resource type="Animation" id="Animation_j5u33"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RestTransform/BobTransform/ViewSprite:pixel_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0038]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:pixel_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0038]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_5g3r8")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpringArm3D/MuzzleFlashLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0685, 0.1815, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_cggdb"]
+resource_name = "attack_primary"
+length = 0.80001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ViewSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.25, 0.4, 0.75),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.034, 0), Vector3(-0.03, -0.0505, 0), Vector3(-0.0352, 0.068, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ViewSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_cggdb"), ExtResource("3_p8m33"), ExtResource("2_cggdb")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ViewSprite/MuzzleFlashSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%MuzzleFlashLight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%WeaponAudio:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_n262q")]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%WeaponAudio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RestTransform/BobTransform/ViewSprite/MuzzleFlashSprite:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_5g3r8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q3xd5"]
+_data = {
+&"RESET": SubResource("Animation_j5u33"),
+&"attack_primary": SubResource("Animation_cggdb")
+}
+
+[node name="VRevolver" instance=ExtResource("1_ugxho")]
+attack_primary_animation_name = &"revolver/attack_primary"
+
+[node name="RestTransform" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, -0.28, 0)
+
+[node name="ViewSprite" parent="RestTransform/BobTransform" index="0"]
+texture = ExtResource("2_cggdb")
+pixel_size = 0.0038
+
+[node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0685, 0.1815, -1)
+texture = ExtResource("4_5g3r8")
+pixel_size = 0.0038
+
+[node name="WeaponAudio" parent="." index="3"]
+stream = ExtResource("4_n262q")
+
+[node name="AnimationPlayer" parent="." index="4"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_n262q"),
+&"revolver": SubResource("AnimationLibrary_q3xd5")
+}

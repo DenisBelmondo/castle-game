@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bqqc6ifufdqvk"
-path="res://.godot/imported/detail-crate.glb-ec6dd18b2746a4cfe3d0b1676e09e677.scn"
+path="res://.godot/imported/detail-crate.glb-fbdec41c0b04011528814d8bd0346cb5.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/detail-crate.glb"
-dest_files=["res://.godot/imported/detail-crate.glb-ec6dd18b2746a4cfe3d0b1676e09e677.scn"]
+source_file="res://meshes/GenericCastleAssets/detail-crate.glb"
+dest_files=["res://.godot/imported/detail-crate.glb-fbdec41c0b04011528814d8bd0346cb5.scn"]
 
 [params]
 

@@ -4,7 +4,7 @@
 
 [node name="ButtonToggle" type="Area3D"]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 128
 script = ExtResource("1_iqt3t")
 
 [node name="DisplayLabel" type="Label" parent="."]

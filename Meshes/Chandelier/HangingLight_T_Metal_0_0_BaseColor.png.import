@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byecteuu7vvqh"
-path.s3tc="res://.godot/imported/HangingLight_T_Metal_0_0_BaseColor.png-13fbabba88ec93db36f711b5fe473b6d.s3tc.ctex"
+path.s3tc="res://.godot/imported/HangingLight_T_Metal_0_0_BaseColor.png-d02703a05b756b6f658df818df9c655b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Chandelier/HangingLight_T_Metal_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/HangingLight_T_Metal_0_0_BaseColor.png-13fbabba88ec93db36f711b5fe473b6d.s3tc.ctex"]
+source_file="res://meshes/Chandelier/HangingLight_T_Metal_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/HangingLight_T_Metal_0_0_BaseColor.png-d02703a05b756b6f658df818df9c655b.s3tc.ctex"]
 
 [params]
 

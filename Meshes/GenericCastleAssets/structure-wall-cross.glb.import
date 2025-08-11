@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cs016vb0a58kr"
-path="res://.godot/imported/structure-wall-cross.glb-7c39f1c29dd7c710aabb1b8f40acdbe7.scn"
+path="res://.godot/imported/structure-wall-cross.glb-83395ce144446236c175796420c7e4f9.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/structure-wall-cross.glb"
-dest_files=["res://.godot/imported/structure-wall-cross.glb-7c39f1c29dd7c710aabb1b8f40acdbe7.scn"]
+source_file="res://meshes/GenericCastleAssets/structure-wall-cross.glb"
+dest_files=["res://.godot/imported/structure-wall-cross.glb-83395ce144446236c175796420c7e4f9.scn"]
 
 [params]
 

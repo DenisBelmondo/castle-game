@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://xcbo7158jntu"
-path="res://.godot/imported/bricks.glb-23e6f8bd7129d61d12804e78a4fb0e21.scn"
+path="res://.godot/imported/bricks.glb-a5c0d54e0e052636a0b527761a8c7642.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/bricks.glb"
-dest_files=["res://.godot/imported/bricks.glb-23e6f8bd7129d61d12804e78a4fb0e21.scn"]
+source_file="res://meshes/GenericCastleAssets/bricks.glb"
+dest_files=["res://.godot/imported/bricks.glb-a5c0d54e0e052636a0b527761a8c7642.scn"]
 
 [params]
 

@@ -7,14 +7,18 @@
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_332sf")
+shader_parameter/blend_mode = 0
+shader_parameter/unshaded_ = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_g2els"]
+resource_local_to_scene = true
 
 [node name="ViewSprite" type="Node3D"]
 script = ExtResource("1_ie7yt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
+sorting_offset = 999.0
 material_override = SubResource("ShaderMaterial_qlg0r")
 cast_shadow = 0
 extra_cull_margin = 16384.0

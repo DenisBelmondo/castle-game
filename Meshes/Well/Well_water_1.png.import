@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0fpf12q1wehx"
-path.s3tc="res://.godot/imported/Well_water_1.png-aa51b42e4a833c0f9771258c5bc174ae.s3tc.ctex"
+path.s3tc="res://.godot/imported/Well_water_1.png-65695bd2fa3aa3cdf691863cb6251ea1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Well/Well_water_1.png"
-dest_files=["res://.godot/imported/Well_water_1.png-aa51b42e4a833c0f9771258c5bc174ae.s3tc.ctex"]
+source_file="res://meshes/Well/Well_water_1.png"
+dest_files=["res://.godot/imported/Well_water_1.png-65695bd2fa3aa3cdf691863cb6251ea1.s3tc.ctex"]
 
 [params]
 

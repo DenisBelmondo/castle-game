@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://2v5c8hlvu2xy"
-path="res://.godot/imported/Well.glb-3458c68002f87da75432be508a01ccb5.scn"
+path="res://.godot/imported/Well.glb-23479351b0ead8ea7e0b220a5615f7b9.scn"
 
 [deps]
 
-source_file="res://Meshes/Well/Well.glb"
-dest_files=["res://.godot/imported/Well.glb-3458c68002f87da75432be508a01ccb5.scn"]
+source_file="res://meshes/Well/Well.glb"
+dest_files=["res://.godot/imported/Well.glb-23479351b0ead8ea7e0b220a5615f7b9.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sbtqk2ywun6v"
-path.s3tc="res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-dd4fca2f33b456418cb93e483bac14c5.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-1fd7cd498a137c35cdfc12cc2b14a812.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/WoodBeams/WoodBeemStraight_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-dd4fca2f33b456418cb93e483bac14c5.s3tc.ctex"]
+source_file="res://meshes/WoodBeams/WoodBeemStraight_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-1fd7cd498a137c35cdfc12cc2b14a812.s3tc.ctex"]
 
 [params]
 

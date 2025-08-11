@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c1xe42ixx05sx"
-path="res://.godot/imported/detail-crate-ropes.glb-40b3303d80119ed21302f059b5f272ad.scn"
+path="res://.godot/imported/detail-crate-ropes.glb-e59bd0d19edd4d3de627c5ef224a3ce1.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/detail-crate-ropes.glb"
-dest_files=["res://.godot/imported/detail-crate-ropes.glb-40b3303d80119ed21302f059b5f272ad.scn"]
+source_file="res://meshes/GenericCastleAssets/detail-crate-ropes.glb"
+dest_files=["res://.godot/imported/detail-crate-ropes.glb-e59bd0d19edd4d3de627c5ef224a3ce1.scn"]
 
 [params]
 

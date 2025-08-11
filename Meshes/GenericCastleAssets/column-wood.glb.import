@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dd3hjsrhx6tcp"
-path="res://.godot/imported/column-wood.glb-3dcbc6c7e4eaad122d76358eb81a172f.scn"
+path="res://.godot/imported/column-wood.glb-0152f65fcdecdec5c135284cf536cec5.scn"
 
 [deps]
 
-source_file="res://Meshes/GenericCastleAssets/column-wood.glb"
-dest_files=["res://.godot/imported/column-wood.glb-3dcbc6c7e4eaad122d76358eb81a172f.scn"]
+source_file="res://meshes/GenericCastleAssets/column-wood.glb"
+dest_files=["res://.godot/imported/column-wood.glb-0152f65fcdecdec5c135284cf536cec5.scn"]
 
 [params]
 
