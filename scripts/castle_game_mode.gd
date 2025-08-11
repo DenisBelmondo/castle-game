@@ -27,6 +27,8 @@ const PLAYER_INTERACTOR_AREA := preload('res://scenes/nodes/player_interactor_ar
 const V_REVOLVER_SCENE := preload('res://scenes/view_weapons/v_revolver.tscn')
 const V_SHOTGUN_SCENE := preload('res://scenes/view_weapons/v_shotgun.tscn')
 
+static var _instance: CastleGameMode
+
 @export var current_scene: PackedScene
 
 var _weapon_attacks: Dictionary[StringName, Callable] = {
@@ -92,11 +94,20 @@ var _players: Dictionary
 @onready var _viewport: SubViewport = %GameViewport
 
 
+static func get_instance() -> CastleGameMode:
+	return _instance
+
+
 static func _toggle_mouse_mode() -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+# [TODO]: UGHHHHHHHHHHHH
+func _init() -> void:
+	_instance = self
 
 
 func _enter_tree() -> void:
