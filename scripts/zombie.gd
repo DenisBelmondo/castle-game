@@ -50,7 +50,7 @@ func _physics_process(_delta: float) -> void:
 			var p := PhysicsRayQueryParameters3D.create(
 				heart.global_position,
 				target.global_position,
-				CollisionLayers.SIGHT
+				CollisionLayers.CHARACTERS
 			)
 
 			var result := get_world_3d().direct_space_state.intersect_ray(p)
