@@ -43,9 +43,9 @@ static func attach_view_weapon_to_player(view_weapon: ViewWeapon, player: Player
 	# [TODO]: loll?
 	if view_weapon is CastleGameViewWeapon:
 		view_weapon.get_bob_strength_function = (func () -> float:
-				return (
-					player.character.linear_velocity.slide(player.character.global_basis.y).length_squared()
-							* float(player.character.movement_result.is_on_floor)))
+			return (
+				player.character.linear_velocity.slide(player.character.global_basis.y).length_squared()
+						* float(player.character.movement_result.is_on_floor)))
 
 	attach_interpolated(view_weapon, player.inner_head)
 	view_weapon.set_deferred(&'owner', player)
