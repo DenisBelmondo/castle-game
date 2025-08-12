@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=4 uid="uid://naj6hejhqv86"]
+[gd_scene load_steps=45 format=4 uid="uid://naj6hejhqv86"]
 
-[ext_resource type="Texture2D" uid="uid://cug8xgetd0ncv" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_BaseColor.png" id="1_1cyp2"]
+[ext_resource type="Texture2D" uid="uid://37vx3xsttvk4" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_BaseColor.png" id="1_1cyp2"]
 [ext_resource type="Texture2D" uid="uid://bctnvyq27wnp4" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Metallic.png" id="2_t126j"]
 [ext_resource type="Texture2D" uid="uid://bvjm724d427ec" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Normal.png" id="3_drbnc"]
 [ext_resource type="Texture2D" uid="uid://dtxmecjuf6o6n" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_4_BaseColor.png" id="4_8wdjp"]
@@ -15,8 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://3s2bcfn1gp14" path="res://Meshes/DontOpen/Head.glb" id="13_5vmlh"]
 [ext_resource type="PackedScene" uid="uid://cetww4hdt1sch" path="res://scenes/interaction_engine/touch_interaction.tscn" id="13_bf2gp"]
 [ext_resource type="PackedScene" uid="uid://risbmi2f376o" path="res://Meshes/GenericDoor/GenericDoor.glb" id="15_1fgxa"]
-[ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="16_t1ibi"]
 [ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="17_sry6j"]
+[ext_resource type="Script" uid="uid://ddtmhsqapc1yl" path="res://scripts/BADSceneChange3Godotwhatthefuckiswrongwithyourfilemanagementsystem.gd" id="18_8eevp"]
+[ext_resource type="PackedScene" uid="uid://ddgf4qim3udwk" path="res://scenes/interaction_engine/buttons/button_timed.tscn" id="18_vcu42"]
+[ext_resource type="PackedScene" uid="uid://b88nn33xdwklx" path="res://scenes/items/revolver.tscn" id="19_8eevp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aafbl"]
 resource_name = "StoneBrick"
@@ -226,6 +228,9 @@ _data = {
 &"RESET": SubResource("Animation_sry6j")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8eevp"]
+size = Vector3(1, 1.40723, 0.261719)
+
 [node name="Stairs" type="Node3D"]
 
 [node name="SpiralShell" type="Node3D" parent="."]
@@ -252,7 +257,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_iwet7")
 
 [node name="Player" parent="." instance=ExtResource("5_631k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.0185618, 1.1)
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -0.7, 0.0185618, 1.1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8wdjp")
@@ -418,13 +423,27 @@ transform = Transform3D(0.852868, 0, -0.522126, 0, 1, 0, 0.522126, 0, 0.852868, 
 [node name="GenericDoor2" parent="Meshes" instance=ExtResource("15_1fgxa")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -5.08798, 18.0602, 5.11115)
 
-[node name="SceneChanger" type="Node" parent="."]
-script = ExtResource("16_t1ibi")
-
 [node name="Zombie" parent="." instance=ExtResource("17_sry6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, -0.1)
 
 [node name="Zombie2" parent="." instance=ExtResource("17_sry6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 18.1, 2.8)
 
+[node name="ButtonTimed" parent="." instance=ExtResource("18_vcu42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08643, 18.734, 5.10617)
+use_amount = 1
+display_mode = true
+enter_text = "Press E to Open"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonTimed"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+shape = SubResource("BoxShape3D_8eevp")
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("18_8eevp")
+
+[node name="Revolver" parent="." instance=ExtResource("19_8eevp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59286, 0.383, 1.1426)
+
 [connection signal="entered" from="TouchInteraction" to="Meshes/Head/AnimationPlayer" method="play" binds= [&"Hide"]]
+[connection signal="pressed" from="ButtonTimed" to="SceneChanger" method="change_to_DINING_HALL"]
