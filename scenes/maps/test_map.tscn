@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca1wxh5od1473"]
+[gd_scene load_steps=6 format=3 uid="uid://ca1wxh5od1473"]
 
 [ext_resource type="Texture2D" uid="uid://xeft73sjarny" path="res://icon.svg" id="1_ybdod"]
 [ext_resource type="PackedScene" uid="uid://boigngi4wgtav" path="res://scenes/characters/player.tscn" id="2_2s55i"]
-[ext_resource type="PackedScene" uid="uid://dvcpjyyvpe806" path="res://scenes/characters/sandbag.tscn" id="3_o3n0h"]
 [ext_resource type="PackedScene" uid="uid://b88nn33xdwklx" path="res://scenes/items/revolver.tscn" id="4_38prr"]
 [ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="5_a3b3n"]
 
@@ -75,14 +74,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
 
-[node name="Sandbag" parent="." instance=ExtResource("3_o3n0h")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 0, -1.5)
-
 [node name="Revolver" parent="." instance=ExtResource("4_38prr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -4)
 
 [node name="Zombie" parent="." instance=ExtResource("5_a3b3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="Zombie2" parent="." instance=ExtResource("5_a3b3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="Zombie3" parent="." instance=ExtResource("5_a3b3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)

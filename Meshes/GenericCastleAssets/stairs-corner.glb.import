@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d17xvtaa6stto"
-path="res://.godot/imported/stairs-corner.glb-f0517d262d832dc72a2e715cbb499ab7.scn"
+path="res://.godot/imported/stairs-corner.glb-10d3d6eeda6e20013af839bc4fcfe968.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/stairs-corner.glb"
-dest_files=["res://.godot/imported/stairs-corner.glb-f0517d262d832dc72a2e715cbb499ab7.scn"]
+source_file="res://Meshes/GenericCastleAssets/stairs-corner.glb"
+dest_files=["res://.godot/imported/stairs-corner.glb-10d3d6eeda6e20013af839bc4fcfe968.scn"]
 
 [params]
 

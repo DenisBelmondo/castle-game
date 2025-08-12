@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ckdim61kwvth0"
-path="res://.godot/imported/column-paint.glb-24964cb10873ee3a9fe2f825660f1359.scn"
+path="res://.godot/imported/column-paint.glb-f06fe6a06c82610a2177a685743bb88e.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/column-paint.glb"
-dest_files=["res://.godot/imported/column-paint.glb-24964cb10873ee3a9fe2f825660f1359.scn"]
+source_file="res://Meshes/GenericCastleAssets/column-paint.glb"
+dest_files=["res://.godot/imported/column-paint.glb-f06fe6a06c82610a2177a685743bb88e.scn"]
 
 [params]
 

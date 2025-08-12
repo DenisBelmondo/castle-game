@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buckmt81h0gdt"
-path.s3tc="res://.godot/imported/WoodShelf_T_Wood_3_0_BaseColor.png-e7c5bc754ca2f40634e1056bf15ef18f.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodShelf_T_Wood_3_0_BaseColor.png-83d311b78cbbea2e2390ff06dfe59599.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/WoodShelf/WoodShelf_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/WoodShelf_T_Wood_3_0_BaseColor.png-e7c5bc754ca2f40634e1056bf15ef18f.s3tc.ctex"]
+source_file="res://Meshes/WoodShelf/WoodShelf_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/WoodShelf_T_Wood_3_0_BaseColor.png-83d311b78cbbea2e2390ff06dfe59599.s3tc.ctex"]
 
 [params]
 

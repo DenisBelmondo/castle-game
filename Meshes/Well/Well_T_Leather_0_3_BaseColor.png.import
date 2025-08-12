@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://usn0pec572rw"
-path.s3tc="res://.godot/imported/Well_T_Leather_0_3_BaseColor.png-8ee6e26f96c3ff1d514f763ddaf4ffbb.s3tc.ctex"
+uid="uid://dj0ti84bhrmrh"
+path="res://.godot/imported/Well_T_Leather_0_3_BaseColor.png-8ae0c196cd8569097dbf43fd0b69a637.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "f6ae3dd5cce3aecc7e76be49af508a1e"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://meshes/Well/Well_T_Leather_0_3_BaseColor.png"
-dest_files=["res://.godot/imported/Well_T_Leather_0_3_BaseColor.png-8ee6e26f96c3ff1d514f763ddaf4ffbb.s3tc.ctex"]
+source_file="res://Meshes/Well/Well_T_Leather_0_3_BaseColor.png"
+dest_files=["res://.godot/imported/Well_T_Leather_0_3_BaseColor.png-8ae0c196cd8569097dbf43fd0b69a637.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

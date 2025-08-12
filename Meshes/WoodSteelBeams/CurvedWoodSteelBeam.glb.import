@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dw38bem544msp"
-path="res://.godot/imported/CurvedWoodSteelBeam.glb-46b6fd598621f5ae253bef475d019ea7.scn"
+path="res://.godot/imported/CurvedWoodSteelBeam.glb-2463c97f226583d809febfac0c972906.scn"
 
 [deps]
 
-source_file="res://meshes/WoodSteelBeams/CurvedWoodSteelBeam.glb"
-dest_files=["res://.godot/imported/CurvedWoodSteelBeam.glb-46b6fd598621f5ae253bef475d019ea7.scn"]
+source_file="res://Meshes/WoodSteelBeams/CurvedWoodSteelBeam.glb"
+dest_files=["res://.godot/imported/CurvedWoodSteelBeam.glb-2463c97f226583d809febfac0c972906.scn"]
 
 [params]
 

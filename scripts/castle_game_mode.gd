@@ -5,12 +5,15 @@ const Bob := preload('res://scripts/bob.gd')
 const CastleGameUtil := preload('res://scripts/castle_game_util.gd')
 const CastleGameViewWeapon := preload('res://scripts/view_weapons/castle_game_view_weapon.gd')
 const CastleGameMode := preload('castle_game_mode.gd')
+const Character := preload('res://scripts/nodes/character.gd')
 const CollisionLayers := preload('res://scripts/collision_layers.gd')
 const GroupNames := preload('res://scripts/group_names.gd')
 const Health := preload('res://scripts/health.gd')
+const HUD := preload('res://scripts/ui/hud.gd')
 const InteractionEngine := preload('res://scripts/interaction_engine/static.gd')
 const Pickup := preload('res://scripts/pickup.gd')
 const Player := preload('res://scripts/player.gd')
+const PlayerCamera := preload('res://scripts/player.gd')
 const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolated_transformer_3d.gd')
 const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapons/view_weapon.gd')
@@ -21,9 +24,14 @@ class CastleGamePlayer:
 	var player: Player
 	var audio_ui: AudioStreamPlayer3D
 	var view_weapon: ViewWeapon
+	var camera: Camera3D
+	var hud: HUD
 
 
+const PLAYER_CAMERA_SCENE := preload('res://scenes/nodes/player_camera.tscn')
 const PLAYER_INTERACTOR_AREA := preload('res://scenes/nodes/player_interactor_area.tscn')
+const PLAYER_HURT_SOUND := preload('res://audio/sounds/player_hurt.wav')
+const HUD_SCENE := preload('res://scenes/ui/hud.tscn')
 const V_REVOLVER_SCENE := preload('res://scenes/view_weapons/v_revolver.tscn')
 const V_SHOTGUN_SCENE := preload('res://scenes/view_weapons/v_shotgun.tscn')
 
@@ -89,7 +97,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 }
 
 var _current_scene: Node
-var _players: Dictionary
+var _players: Dictionary[Player, CastleGamePlayer]
 
 @onready var _viewport: SubViewport = %GameViewport
 
@@ -129,13 +137,26 @@ func change_map(scene_root: Node) -> void:
 	if is_instance_valid(_current_scene):
 		_current_scene.queue_free()
 
+	_players.clear()
 	Util.reparent_or_add_child.call_deferred(scene_root, _viewport)
 	set_deferred(&'_current_scene', scene_root)
 
 
+func restart_map() -> void:
+	var sf := _current_scene.scene_file_path
+	_current_scene.queue_free()
+
+	await get_tree().process_frame
+
+	change_map(load(sf).instantiate())
+
+
 func _set_up_player(player: Player) -> void:
+	player.character.body.collision_layer = CollisionLayers.CHARACTERS
+	player.character.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
+
 	var player_interactor_area := PLAYER_INTERACTOR_AREA.instantiate()
-	var camera := Camera3D.new()
+	var camera := PLAYER_CAMERA_SCENE.instantiate()
 	var audio_listener := AudioListener3D.new()
 	var shotgun := V_SHOTGUN_SCENE.instantiate()
 
@@ -150,6 +171,7 @@ func _set_up_player(player: Player) -> void:
 	player.inner_head.add_child.call_deferred(player_interactor_area)
 
 	player.inner_head.add_child.call_deferred(camera)
+	castle_game_player.set_deferred(&'camera', camera)
 	camera.make_current.call_deferred()
 	audio_listener.make_current.call_deferred()
 
@@ -168,6 +190,15 @@ func _set_up_player(player: Player) -> void:
 
 	player.character.body.collision_layer |= CollisionLayers.SIGHT
 
+	await player.ready
+
+	var player_health: Health = CastleGameUtil.get_meta_from(player.character, Health)
+
+	castle_game_player.hud = HUD_SCENE.instantiate()
+	castle_game_player.hud.health = player_health
+	player.add_child.call_deferred(castle_game_player.hud)
+	player_health.depleted.connect(restart_map)
+
 
 func _on_node_added(node: Node) -> void:
 	if node.is_in_group(GroupNames.ONLY_VISIBLE_IN_EDITOR):
@@ -175,9 +206,15 @@ func _on_node_added(node: Node) -> void:
 		node.queue_free()
 		return
 
-	if node is Player:
+	if node is Character:
+		node.body.collision_layer = CollisionLayers.CHARACTERS
+		node.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
+	elif node is Player:
 		_set_up_player(node)
 	elif node is Pickup:
+		node.area.collision_layer = CollisionLayers.ITEMS
+		node.area.collision_mask = CollisionLayers.CHARACTERS
+
 		node.area.body_entered.connect(func (body: Node) -> void:
 			var p = _players.get(body.owner)
 
@@ -195,4 +232,23 @@ func _on_node_added(node: Node) -> void:
 			else:
 				push_warning('attack "%s" not implemented.' % p_name))
 	elif node is Zombie:
+		await node.ready
+
 		node.sight_targets = _players.keys().map(func (t: Node3D) -> Node3D: return t.find_children('*', 'CharacterBody3D', true, false).front())
+		node.hitbox.collision_layer = 0
+		node.hitbox.collision_mask = CollisionLayers.CHARACTERS
+		node.poop.connect(func (thing: Node3D) -> void:
+			if thing.owner is Player and thing.owner in _players:
+				var p := thing.owner as Player
+				var player: CastleGamePlayer = _players[p]
+
+				p.character.linear_velocity += node.character.global_position.direction_to(p.character.global_position)
+
+				var health = CastleGameUtil.get_meta_from(p.character, Health)
+
+				if health is Health:
+					health.damage(25)
+
+				player.audio_ui.stream = PLAYER_HURT_SOUND
+				player.audio_ui.play()
+				player.camera.shake())

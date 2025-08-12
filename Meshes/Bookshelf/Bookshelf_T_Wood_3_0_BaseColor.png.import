@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6wdr1n2w32ea"
-path.s3tc="res://.godot/imported/Bookshelf_T_Wood_3_0_BaseColor.png-3360e8e1145b4eaef8a8a2931d358d3a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bookshelf_T_Wood_3_0_BaseColor.png-f392f6e363cdf046823e7d1eee768caf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/Bookshelf/Bookshelf_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/Bookshelf_T_Wood_3_0_BaseColor.png-3360e8e1145b4eaef8a8a2931d358d3a.s3tc.ctex"]
+source_file="res://Meshes/Bookshelf/Bookshelf_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/Bookshelf_T_Wood_3_0_BaseColor.png-f392f6e363cdf046823e7d1eee768caf.s3tc.ctex"]
 
 [params]
 

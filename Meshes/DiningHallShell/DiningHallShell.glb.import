@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3wp7x53sywyp"
-path="res://.godot/imported/DiningHallShell.glb-47d0a644bbdaf3efb65a918ddd720bc5.scn"
+path="res://.godot/imported/DiningHallShell.glb-88eaf6d0d56558ff2387ef23fb66375c.scn"
 
 [deps]
 
-source_file="res://meshes/DiningHallShell/DiningHallShell.glb"
-dest_files=["res://.godot/imported/DiningHallShell.glb-47d0a644bbdaf3efb65a918ddd720bc5.scn"]
+source_file="res://Meshes/DiningHallShell/DiningHallShell.glb"
+dest_files=["res://.godot/imported/DiningHallShell.glb-88eaf6d0d56558ff2387ef23fb66375c.scn"]
 
 [params]
 

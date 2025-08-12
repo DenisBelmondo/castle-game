@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gpwwldt6v57w"
-path="res://.godot/imported/WoodShelf.glb-aa8ceddc002cfd6a3c9e8f9193d389b4.scn"
+path="res://.godot/imported/WoodShelf.glb-356d955c38ed06836ad2d17d045fd31f.scn"
 
 [deps]
 
-source_file="res://meshes/WoodShelf/WoodShelf.glb"
-dest_files=["res://.godot/imported/WoodShelf.glb-aa8ceddc002cfd6a3c9e8f9193d389b4.scn"]
+source_file="res://Meshes/WoodShelf/WoodShelf.glb"
+dest_files=["res://.godot/imported/WoodShelf.glb-356d955c38ed06836ad2d17d045fd31f.scn"]
 
 [params]
 

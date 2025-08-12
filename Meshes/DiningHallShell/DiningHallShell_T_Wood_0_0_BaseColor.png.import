@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2wjufcwdvevb"
-path.s3tc="res://.godot/imported/DiningHallShell_T_Wood_0_0_BaseColor.png-bfa1135fa265337fc34eb42597169676.s3tc.ctex"
+path.s3tc="res://.godot/imported/DiningHallShell_T_Wood_0_0_BaseColor.png-57d607cc19569b7b77587f52854b90a8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/DiningHallShell/DiningHallShell_T_Wood_0_0_BaseColor.png"
-dest_files=["res://.godot/imported/DiningHallShell_T_Wood_0_0_BaseColor.png-bfa1135fa265337fc34eb42597169676.s3tc.ctex"]
+source_file="res://Meshes/DiningHallShell/DiningHallShell_T_Wood_0_0_BaseColor.png"
+dest_files=["res://.godot/imported/DiningHallShell_T_Wood_0_0_BaseColor.png-57d607cc19569b7b77587f52854b90a8.s3tc.ctex"]
 
 [params]
 

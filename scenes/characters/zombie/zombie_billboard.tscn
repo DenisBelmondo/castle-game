@@ -22,6 +22,7 @@ shader_parameter/billboard_mode = 2
 shader_parameter/pixel_size = 0.0156
 
 [sub_resource type="QuadMesh" id="QuadMesh_1mh23"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_1mh23")
 
 [sub_resource type="Animation" id="Animation_2617o"]

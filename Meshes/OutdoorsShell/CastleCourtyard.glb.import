@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://m0v7qpyjxit5"
-path="res://.godot/imported/CastleCourtyard.glb-c482988c93ecc092413303c658f60fc9.scn"
+path="res://.godot/imported/CastleCourtyard.glb-4f42957aa729a7aef1b17fbb4e5cc0dd.scn"
 
 [deps]
 
-source_file="res://meshes/OutdoorsShell/CastleCourtyard.glb"
-dest_files=["res://.godot/imported/CastleCourtyard.glb-c482988c93ecc092413303c658f60fc9.scn"]
+source_file="res://Meshes/OutdoorsShell/CastleCourtyard.glb"
+dest_files=["res://.godot/imported/CastleCourtyard.glb-4f42957aa729a7aef1b17fbb4e5cc0dd.scn"]
 
 [params]
 
