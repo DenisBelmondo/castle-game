@@ -1,6 +1,6 @@
-[gd_scene load_steps=41 format=4 uid="uid://naj6hejhqv86"]
+[gd_scene load_steps=42 format=4 uid="uid://naj6hejhqv86"]
 
-[ext_resource type="Texture2D" uid="uid://37vx3xsttvk4" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_BaseColor.png" id="1_1cyp2"]
+[ext_resource type="Texture2D" uid="uid://cug8xgetd0ncv" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_BaseColor.png" id="1_1cyp2"]
 [ext_resource type="Texture2D" uid="uid://bctnvyq27wnp4" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Metallic.png" id="2_t126j"]
 [ext_resource type="Texture2D" uid="uid://bvjm724d427ec" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_0_Normal.png" id="3_drbnc"]
 [ext_resource type="Texture2D" uid="uid://dtxmecjuf6o6n" path="res://Meshes/SpiralTowerShell/SpiralShell_T_Brick_6_4_BaseColor.png" id="4_8wdjp"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cetww4hdt1sch" path="res://scenes/interaction_engine/touch_interaction.tscn" id="13_bf2gp"]
 [ext_resource type="PackedScene" uid="uid://risbmi2f376o" path="res://Meshes/GenericDoor/GenericDoor.glb" id="15_1fgxa"]
 [ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="16_t1ibi"]
+[ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="17_sry6j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aafbl"]
 resource_name = "StoneBrick"
@@ -419,5 +420,11 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 
 [node name="SceneChanger" type="Node" parent="."]
 script = ExtResource("16_t1ibi")
+
+[node name="Zombie" parent="." instance=ExtResource("17_sry6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, -0.1)
+
+[node name="Zombie2" parent="." instance=ExtResource("17_sry6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 18.1, 2.8)
 
 [connection signal="entered" from="TouchInteraction" to="Meshes/Head/AnimationPlayer" method="play" binds= [&"Hide"]]
