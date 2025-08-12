@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://cr8o6onuryta2"]
+[gd_scene load_steps=90 format=4 uid="uid://cr8o6onuryta2"]
 
 [ext_resource type="Texture2D" uid="uid://c4m7sfdedgs76" path="res://Meshes/OutdoorsShell/CastleCourtyard_snow2C.png" id="1_c7i1d"]
 [ext_resource type="Texture2D" uid="uid://c72xlw5lbds70" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png" id="2_rr7dw"]
@@ -12,6 +12,7 @@
 [ext_resource type="LightmapGIData" uid="uid://bqouu1gk5vq" path="res://lightmap_data/court_yard.lmbake" id="10_4yuc5"]
 [ext_resource type="Texture2D" uid="uid://8s4u6e526vee" path="res://UIAssets/Play button.png" id="11_cgpod"]
 [ext_resource type="Texture2D" uid="uid://pkcos51mqulp" path="res://UIAssets/Quit button.png" id="12_w5b5e"]
+[ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="13_rr7dw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj0eh"]
 resource_name = "Material"
@@ -1591,6 +1592,21 @@ volumetric_fog_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wi8fi"]
 
+[sub_resource type="Animation" id="Animation_rr7dw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.497419, 0.663225, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_c7i1d"]
 resource_name = "loop"
 length = 12.0
@@ -1606,21 +1622,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.497419, 0.663225, 0), Vector3(0.593412, 0.837758, 0), Vector3(0.497419, 0.890118, 0), Vector3(0.401426, 0.876155, 0), Vector3(0.593412, 0.698132, 0), Vector3(0.401426, 0.486947, 0), Vector3(0.497419, 0.436332, 0), Vector3(0.593412, 0.467748, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rr7dw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.497419, 0.663225, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3m62h"]
@@ -1857,3 +1858,9 @@ texture_normal = ExtResource("11_cgpod")
 [node name="TextureButton2" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("12_w5b5e")
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("13_rr7dw")
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="SceneChanger" method="change_to_COURT_YARD"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="SceneChanger" method="quit_game"]

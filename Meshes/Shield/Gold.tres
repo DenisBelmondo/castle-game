@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4pwr0kb8mwow"]
 
-[ext_resource type="Texture2D" uid="uid://c0bq560dgmiqa" path="res://meshes/Shield/Shield_T_Metal_1_0_BaseColor.png" id="1_85rlb"]
-
+[ext_resource type="Texture2D" uid="uid://c0bq560dgmiqa" path="res://Meshes/Shield/Shield_T_Metal_1_0_BaseColor.png" id="1_85rlb"]
 
 [resource]
 resource_name = "Gold"
