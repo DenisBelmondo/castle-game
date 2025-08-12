@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://bxskfsdsj2bxi"]
+[gd_scene load_steps=57 format=4 uid="uid://bxskfsdsj2bxi"]
 
 [ext_resource type="Texture2D" uid="uid://2ruunqq14ipu" path="res://Meshes/CastleTest/CastleShell_T_Brick_6_0_BaseColor.png" id="1_gyd8l"]
 [ext_resource type="Texture2D" uid="uid://bpxrfywdbuptg" path="res://Meshes/CastleTest/CastleShell_T_Concrete_0_0_BaseColor.png" id="2_3lmun"]
@@ -28,9 +28,11 @@
 [ext_resource type="PackedScene" uid="uid://dw38bem544msp" path="res://Meshes/WoodSteelBeams/CurvedWoodSteelBeam.glb" id="24_axac8"]
 [ext_resource type="PackedScene" uid="uid://b671rtutx15of" path="res://Particles/fire_light.tscn" id="25_axac8"]
 [ext_resource type="PackedScene" uid="uid://c22jtmu3avb5x" path="res://Particles/fire_sparks.tscn" id="26_ycvy6"]
-[ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="29_30wdj"]
 [ext_resource type="PackedScene" uid="uid://b88nn33xdwklx" path="res://scenes/items/revolver.tscn" id="30_ss4xe"]
 [ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="31_jsqjn"]
+[ext_resource type="PackedScene" uid="uid://ix55hfc8y71b" path="res://Meshes/key_mp_2.glb" id="32_ulyki"]
+[ext_resource type="Script" uid="uid://brebw3qciqqmd" path="res://scripts/DontTellMason.gd" id="33_2llxn"]
+[ext_resource type="Script" uid="uid://bf0irmfq8q1b0" path="res://scripts/BADSceneChange2Fuckyoubogaloo.gd" id="33_ulyki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sr76"]
 resource_name = "Wall"
@@ -226,6 +228,93 @@ edge_fade = 0.606287
 [sub_resource type="FogMaterial" id="FogMaterial_ipoi1"]
 edge_fade = 0.951366
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikqya"]
+
+[sub_resource type="Animation" id="Animation_ulyki"]
+resource_name = "Event"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Camera3D:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyExit/key_mp_22:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyExit:_is_active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_2llxn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Camera3D:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyExit/key_mp_22:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyExit:_is_active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikqya"]
+_data = {
+&"Event": SubResource("Animation_ulyki"),
+&"RESET": SubResource("Animation_2llxn")
+}
+
 [node name="IndoorCastle" type="Node3D"]
 
 [node name="CastleShell2" type="Node3D" parent="."]
@@ -246,7 +335,7 @@ shape = SubResource("ConcavePolygonShape3D_gyd8l")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("6_8801k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.3, 0.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b8rnv")
@@ -615,11 +704,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41526, 4.19056, 10.9475)
 [node name="FireSparks2" parent="Particles" instance=ExtResource("26_ycvy6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8342, 4.19056, 10.9475)
 
-[node name="SceneChanger" type="Node" parent="."]
-script = ExtResource("29_30wdj")
-
 [node name="Revolver" parent="." instance=ExtResource("30_ss4xe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49106, 0.4, 0.732151)
 
 [node name="Zombie" parent="." instance=ExtResource("31_jsqjn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.4, 8)
+
+[node name="KeyExit" parent="." instance=ExtResource("8_17sl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8971, 0.952669, 5.48423)
+use_amount = 1
+_is_active = false
+display_mode = true
+enter_text = "Press E to pickup Key"
+Description_text = "*added to inventory*"
+
+[node name="key_mp_22" parent="KeyExit" instance=ExtResource("32_ulyki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0143752, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyExit"]
+shape = SubResource("BoxShape3D_ikqya")
+
+[node name="Leave" parent="." instance=ExtResource("8_17sl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1288, 0.989736, 11.3611)
+use_amount = 1
+_is_active = false
+display_mode = true
+enter_text = "Press E to Open"
+Description_text = "*Opend*"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Leave"]
+shape = SubResource("BoxShape3D_ikqya")
+
+[node name="Locked" parent="." instance=ExtResource("8_17sl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1288, 0.989736, 11.3611)
+display_mode = true
+enter_text = "Press E to Open"
+Description_text = "*It's locked... needs a key*"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Locked"]
+shape = SubResource("BoxShape3D_ikqya")
+
+[node name="Puzzle1" type="Node" parent="." node_paths=PackedStringArray("tracking_zombie", "event_anim")]
+script = ExtResource("33_2llxn")
+tracking_zombie = NodePath("../Zombie")
+event_anim = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ikqya")
+}
+
+[node name="Camera3D" type="Camera3D" parent="AnimationPlayer"]
+transform = Transform3D(-0.822144, -0.314207, 0.474714, 0, 0.833886, 0.551937, -0.56928, 0.453772, -0.685574, 12.0563, 1.27387, 5.28864)
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("33_ulyki")
+
+[connection signal="pressed" from="KeyExit" to="KeyExit/key_mp_22" method="hide"]
+[connection signal="pressed" from="KeyExit" to="Leave" method="activate"]
+[connection signal="pressed" from="KeyExit" to="Locked" method="deactivate"]
+[connection signal="pressed" from="Leave" to="SceneChanger" method="change_to_STAIRS"]

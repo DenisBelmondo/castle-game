@@ -6,6 +6,7 @@ const Character := preload('res://scripts/nodes/character.gd')
 const CollisionLayers := preload('res://scripts/collision_layers.gd')
 const Health := preload('res://scripts/health.gd')
 
+signal died#KEEGAN SHIT REMOVE
 
 enum State {
 	LOOKING,
@@ -68,4 +69,5 @@ func _on_health_depleted() -> void:
 	character.body.collision_mask &= ~CollisionLayers.CHARACTERS
 	hitbox.collision_layer = 0
 	hitbox.collision_mask &= ~CollisionLayers.CHARACTERS
+	died.emit() #KEEGAN SHIT REMOVE
 	animation_player.play(&'die')
