@@ -26,6 +26,7 @@ class CastleGamePlayer:
 	var view_weapon: ViewWeapon
 	var camera: Camera3D
 	var hud: HUD
+	var inventory: Dictionary
 
 
 const PLAYER_CAMERA_SCENE := preload('res://scenes/nodes/player_camera.tscn')
@@ -40,8 +41,60 @@ static var _instance: CastleGameMode
 @export var current_scene: PackedScene
 
 var _weapon_attacks: Dictionary[StringName, Callable] = {
+	&'revolver_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
+			var p := PhysicsRayQueryParameters3D.create(
+				weapon.global_position,
+				weapon.global_position
+						- weapon.global_basis.z
+								.rotated(weapon.global_basis.y, randf_range(-PI / 30.0, PI / 30.0))
+								.rotated(weapon.global_basis.x, randf_range(-PI / 60.0, PI / 60.0))
+								* 32)
+
+			p.hit_from_inside = true
+
+			var results := Util.intersect_ray_all_3d(get_viewport().world_3d.direct_space_state, p)
+
+			results = Util.filter_physics_query_by_object(results, weapon.physics_exclude)
+
+			if results.is_empty():
+				return
+
+			var first_result = results.front()
+			var collider = first_result.collider
+
+			collider = collider as Node
+
+			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
+
+			if collider_health is Health:
+				collider_health.damage(randi_range(1, 3) * 10)
+
+			var collider_owner = collider.owner
+
+			if collider_owner is not Node:
+				return
+
+			collider_owner = collider_owner as Node
+
+			var impact_fx_scene := CastleGameUtil.get_impact_effect_for_node(collider_owner)
+
+			if impact_fx_scene is PackedScene:
+				var impact_fx := impact_fx_scene.instantiate()
+
+				_current_scene.add_child.call_deferred(impact_fx)
+
+				var position = first_result.get(&'position')
+				var normal = first_result.get(&'normal')
+
+				if position is Vector3:
+					impact_fx.set_deferred(&'global_position', first_result.position)
+					impact_fx.set_deferred(&'emitting', true)
+
+					if normal is Vector3:
+						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
+						impact_fx.look_at.call_deferred(first_result.position + first_result.normal)),
 	# [TODO]: refactor
-	&'shotgun_attack': func (weapon: ViewWeapon, user_data: Variant) -> void:
+	&'shotgun_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
 		for i in 7:
 			var p := PhysicsRayQueryParameters3D.create(
 				weapon.global_position,
@@ -93,7 +146,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 					if normal is Vector3:
 						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
-						impact_fx.look_at.call_deferred(first_result.position + first_result.normal)
+						impact_fx.look_at.call_deferred(first_result.position + first_result.normal)),
 }
 
 var _current_scene: Node

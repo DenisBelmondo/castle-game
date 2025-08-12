@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uldbcrld56it" path="res://scenes/characters/zombie/zombie_billboard.tscn" id="4_luamn"]
 [ext_resource type="PackedScene" uid="uid://b36bl4vj1mbch" path="res://scenes/editor/basis_gizmo.tscn" id="5_ilqf0"]
 [ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="6_ij7uc"]
-[ext_resource type="Texture2D" uid="uid://cnhqnds3oaxx2" path="res://textures/zombie_walk_1.tres" id="7_1fqab"]
+[ext_resource type="Texture2D" uid="uid://40rbhik4v2mc" path="res://textures/emre/PNG_image_3.png" id="7_1fqab"]
 [ext_resource type="AudioStream" uid="uid://dka5r34wapy15" path="res://audio/sounds/zombie.wav" id="9_1fqab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fqab"]
@@ -16,15 +16,15 @@
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_ij7uc")
-shader_parameter/_texture_size = Vector2(46, 90)
+shader_parameter/_texture_size = Vector2(92, 180)
 shader_parameter/albedo_texture = ExtResource("7_1fqab")
-shader_parameter/uv_offset = Vector2(0.32882, 0.43299)
-shader_parameter/uv_scale = Vector2(0.0889749, 0.231959)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/flip_x = false
 shader_parameter/flip_y = false
 shader_parameter/billboard_mode = 2
-shader_parameter/pixel_size = 0.0156
+shader_parameter/pixel_size = 0.0078
 
 [sub_resource type="QuadMesh" id="QuadMesh_1mh23"]
 resource_local_to_scene = true
