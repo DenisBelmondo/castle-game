@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://b3qy3lqh4ekb4"]
+[gd_scene load_steps=50 format=4 uid="uid://b3qy3lqh4ekb4"]
 
 [ext_resource type="Texture2D" uid="uid://2wjufcwdvevb" path="res://Meshes/DiningHallShell/DiningHallShell_T_Wood_0_0_BaseColor.png" id="1_p2bhu"]
 [ext_resource type="Texture2D" uid="uid://1ca78h1wsn4k" path="res://Meshes/DiningHallShell/DiningHallShell_T_Concrete_0_0_BaseColor.png" id="2_y3kfe"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccuqdpfloahjj" path="res://Meshes/DiningHallShell/DiningHallShell_T_Stone_0_2_BaseColor.png" id="4_biq67"]
 [ext_resource type="Texture2D" uid="uid://chg61svlchc1i" path="res://Meshes/DiningHallShell/DiningHallShell_stone_hell_8.png" id="5_2hccb"]
 [ext_resource type="Texture2D" uid="uid://dgixgigaojes" path="res://Meshes/DiningHallShell/DiningHallShell_T_RoofTiles_0_3_BaseColor.png" id="6_snjrg"]
-[ext_resource type="Texture2D" uid="uid://4nbn47r3y0xt" path="res://meshes/DiningHallShell/DiningHallShell_wood_4.png" id="7_whyp5"]
+[ext_resource type="Texture2D" uid="uid://07bnee1roosl" path="res://Meshes/DiningHallShell/DiningHallShell_wood_4.png" id="7_whyp5"]
 [ext_resource type="PackedScene" uid="uid://hivhcash6hb0" path="res://Meshes/Torch/WallTorch.glb" id="8_ldra2"]
 [ext_resource type="PackedScene" uid="uid://b671rtutx15of" path="res://Particles/fire_light.tscn" id="9_xrxea"]
 [ext_resource type="PackedScene" uid="uid://boigngi4wgtav" path="res://scenes/characters/player.tscn" id="10_y3kfe"]
@@ -27,8 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://dwv8buf1mfqs0" path="res://Meshes/Candelabra/Candelabra.glb" id="25_8imh2"]
 [ext_resource type="PackedScene" uid="uid://c6prpqp0ecnrc" path="res://Meshes/WoodSteelBeams/WoodSteelStraightBeam.glb" id="26_rdh5r"]
 [ext_resource type="PackedScene" uid="uid://dw38bem544msp" path="res://Meshes/WoodSteelBeams/CurvedWoodSteelBeam.glb" id="27_tvhuk"]
-[ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="28_l6yll"]
-[ext_resource type="PackedScene" uid="uid://b88nn33xdwklx" path="res://scenes/items/revolver.tscn" id="29_bde26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swlry"]
 resource_name = "WoodFloor"
@@ -634,15 +632,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4775, 4.19292, 7.39618)
 
 [node name="WoodSteelStraightBeam4" parent="." instance=ExtResource("26_rdh5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4775, 4.19292, 7.39618)
-
-[node name="Zombie" parent="." instance=ExtResource("28_l6yll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 5.9)
-
-[node name="Zombie2" parent="." instance=ExtResource("28_l6yll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 3.5)
-
-[node name="Zombie3" parent="." instance=ExtResource("28_l6yll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 4.7)
-
-[node name="Revolver" parent="." instance=ExtResource("29_bde26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 4.2)
