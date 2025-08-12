@@ -52,8 +52,12 @@ static func basic_player_look(event: InputEvent, p_outer_head: Node3D, p_inner_h
 		event.screen_relative /= 500
 
 		# updating transforms outside of physics frames with interpolation on
-		# makes it jerky
+		# makes it jerky. BUT you also have to be careful because references
+		# could become invalidated since last physics frame.
 		await Engine.get_main_loop().physics_frame
+
+		if not is_instance_valid(p_outer_head) or not is_instance_valid(p_inner_head):
+			return
 
 		p_outer_head.rotation.y -= event.screen_relative.x
 		p_inner_head.rotation.x -= event.screen_relative.y

@@ -27,6 +27,7 @@ class CastleGamePlayer:
 	var camera: Camera3D
 	var hud: HUD
 	var inventory: Dictionary
+	var id: int
 
 
 const PLAYER_CAMERA_SCENE := preload('res://scenes/nodes/player_camera.tscn')
@@ -151,6 +152,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 }
 
 var _current_scene: Node
+var _old_players: Dictionary[Player, CastleGamePlayer]
 var _players: Dictionary[Player, CastleGamePlayer]
 
 @onready var _viewport: SubViewport = %GameViewport
@@ -216,19 +218,18 @@ func change_map(scene_root: Node, preserve_players: bool = false) -> void:
 	if is_instance_valid(_current_scene):
 		_current_scene.queue_free()
 
-	if not preserve_players:
-		_players.clear()
+	_old_players = _players
 
+	if not preserve_players:
+		_old_players = {}
+
+	_players = {}
 	Util.reparent_or_add_child.call_deferred(scene_root, _viewport)
 	set_deferred(&'_current_scene', scene_root)
 
 
 func restart_map() -> void:
 	var sf := _current_scene.scene_file_path
-	_current_scene.queue_free()
-
-	await get_tree().process_frame
-
 	change_map(load(sf).instantiate())
 
 
@@ -237,6 +238,18 @@ func restart_game() -> void:
 
 
 func _set_up_player(player: Player) -> void:
+	"""
+	var id := _players.size()
+	var cgps: Array[CastleGamePlayer] = _old_players.values().filter(func (cgp: CastleGamePlayer) -> bool: return cgp.id == id)
+
+	if not cgps.is_empty():
+		var old_player: CastleGamePlayer = _old_players.values().filter(func (cgp: CastleGamePlayer) -> bool: return cgp.id == id).front()
+
+		if is_instance_valid(old_player):
+			print('yes')
+
+		return
+	"""
 	player.character.body.collision_layer = CollisionLayers.CHARACTERS
 	player.character.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
 
@@ -247,6 +260,7 @@ func _set_up_player(player: Player) -> void:
 
 	var castle_game_player := CastleGamePlayer.new()
 
+	#castle_game_player.id = id
 	castle_game_player.audio_ui = AudioStreamPlayer3D.new()
 	_players[player] = castle_game_player
 	camera.add_child.call_deferred(castle_game_player.audio_ui)
@@ -295,11 +309,7 @@ func _on_node_added(node: Node) -> void:
 		node.body.collision_layer = CollisionLayers.CHARACTERS
 		node.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
 	elif node is Player:
-		if _players.is_empty():
-			_set_up_player(node)
-		else:
-			print('wowaz')
-			node.global_transform = _players.keys().front().global_transform
+		_set_up_player(node)
 	elif node is Pickup:
 		node.area.collision_layer = CollisionLayers.ITEMS
 		node.area.collision_mask = CollisionLayers.CHARACTERS
