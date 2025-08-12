@@ -295,7 +295,11 @@ func _on_node_added(node: Node) -> void:
 		node.body.collision_layer = CollisionLayers.CHARACTERS
 		node.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
 	elif node is Player:
-		_set_up_player(node)
+		if _players.is_empty():
+			_set_up_player(node)
+		else:
+			print('wowaz')
+			node.global_transform = _players.keys().front().global_transform
 	elif node is Pickup:
 		node.area.collision_layer = CollisionLayers.ITEMS
 		node.area.collision_mask = CollisionLayers.CHARACTERS
