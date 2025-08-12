@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c72xlw5lbds70"
-path.s3tc="res://.godot/imported/CastleCourtyard_T_Brick_6_0_BaseColor.png-31ca1610554d279b853af73e5dd55e19.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleCourtyard_T_Brick_6_0_BaseColor.png-fcf54dc6b31183cb2d74fa4b6c6600b4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png"
-dest_files=["res://.godot/imported/CastleCourtyard_T_Brick_6_0_BaseColor.png-31ca1610554d279b853af73e5dd55e19.s3tc.ctex"]
+source_file="res://Meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png"
+dest_files=["res://.godot/imported/CastleCourtyard_T_Brick_6_0_BaseColor.png-fcf54dc6b31183cb2d74fa4b6c6600b4.s3tc.ctex"]
 
 [params]
 

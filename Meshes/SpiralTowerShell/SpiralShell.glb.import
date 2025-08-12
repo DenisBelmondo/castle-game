@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bar31iuh5amwa"
-path="res://.godot/imported/SpiralShell.glb-6d3a25a39c0e2eba9bf284c90ea3c829.scn"
+path="res://.godot/imported/SpiralShell.glb-5892379cc231f625439cb291422c0a90.scn"
 
 [deps]
 
-source_file="res://meshes/SpiralTowerShell/SpiralShell.glb"
-dest_files=["res://.godot/imported/SpiralShell.glb-6d3a25a39c0e2eba9bf284c90ea3c829.scn"]
+source_file="res://Meshes/SpiralTowerShell/SpiralShell.glb"
+dest_files=["res://.godot/imported/SpiralShell.glb-5892379cc231f625439cb291422c0a90.scn"]
 
 [params]
 

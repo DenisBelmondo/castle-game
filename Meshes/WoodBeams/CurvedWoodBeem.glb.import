@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://by8ck38s3oaq2"
-path="res://.godot/imported/CurvedWoodBeem.glb-80c9989d3883fd7cf2ad9392990b712b.scn"
+path="res://.godot/imported/CurvedWoodBeem.glb-902cc9985e3e948a45a2a014f07fffb0.scn"
 
 [deps]
 
-source_file="res://meshes/WoodBeams/CurvedWoodBeem.glb"
-dest_files=["res://.godot/imported/CurvedWoodBeem.glb-80c9989d3883fd7cf2ad9392990b712b.scn"]
+source_file="res://Meshes/WoodBeams/CurvedWoodBeem.glb"
+dest_files=["res://.godot/imported/CurvedWoodBeem.glb-902cc9985e3e948a45a2a014f07fffb0.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4jxvmm66o5is"
-path="res://.godot/imported/tree-shrub.glb-6bc1cf1c69d1bdd82dbe7bf1b41f3f57.scn"
+path="res://.godot/imported/tree-shrub.glb-a83a0991342f29f67ab8ac36dc519339.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/tree-shrub.glb"
-dest_files=["res://.godot/imported/tree-shrub.glb-6bc1cf1c69d1bdd82dbe7bf1b41f3f57.scn"]
+source_file="res://Meshes/GenericCastleAssets/tree-shrub.glb"
+dest_files=["res://.godot/imported/tree-shrub.glb-a83a0991342f29f67ab8ac36dc519339.scn"]
 
 [params]
 

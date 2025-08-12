@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2mordrfobldl"
-path="res://.godot/imported/Bench.glb-e35e57eb9fb15cea9016134a1ff2aaed.scn"
+path="res://.godot/imported/Bench.glb-d6e6198cef95ec481bef58d38d6f11dc.scn"
 
 [deps]
 
-source_file="res://meshes/Bench/Bench.glb"
-dest_files=["res://.godot/imported/Bench.glb-e35e57eb9fb15cea9016134a1ff2aaed.scn"]
+source_file="res://Meshes/Bench/Bench.glb"
+dest_files=["res://.godot/imported/Bench.glb-d6e6198cef95ec481bef58d38d6f11dc.scn"]
 
 [params]
 

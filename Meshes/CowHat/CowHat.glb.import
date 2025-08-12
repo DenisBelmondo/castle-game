@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://o1mjbelpsx5e"
-path="res://.godot/imported/CowHat.glb-85278916e08d204a7eefea69ea393200.scn"
+path="res://.godot/imported/CowHat.glb-ce8655b6d1cfa4dbd538ea056f25816d.scn"
 
 [deps]
 
-source_file="res://meshes/CowHat/CowHat.glb"
-dest_files=["res://.godot/imported/CowHat.glb-85278916e08d204a7eefea69ea393200.scn"]
+source_file="res://Meshes/CowHat/CowHat.glb"
+dest_files=["res://.godot/imported/CowHat.glb-ce8655b6d1cfa4dbd538ea056f25816d.scn"]
 
 [params]
 

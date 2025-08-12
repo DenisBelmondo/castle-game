@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyltcuxoyxj0b"
-path.s3tc="res://.godot/imported/FaceUvEmissive.png-32d9f9fec99b58cdd142b517e75b7cae.s3tc.ctex"
+path.s3tc="res://.godot/imported/FaceUvEmissive.png-df4d9502397115fedee5d92fee501a32.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/DontOpen/FaceUvEmissive.png"
-dest_files=["res://.godot/imported/FaceUvEmissive.png-32d9f9fec99b58cdd142b517e75b7cae.s3tc.ctex"]
+source_file="res://Meshes/DontOpen/FaceUvEmissive.png"
+dest_files=["res://.godot/imported/FaceUvEmissive.png-df4d9502397115fedee5d92fee501a32.s3tc.ctex"]
 
 [params]
 
