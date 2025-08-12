@@ -22,7 +22,7 @@ void vertex() {
 	UV.x = mix(UV.x, 1.0 - UV.x, float(flip_x));
 	UV.y = mix(UV.y, 1.0 - UV.y, float(flip_y));
 	uv = UV * uv_scale + uv_offset;
-	
+
 	// aspect ratio
 	VERTEX.xy *= _texture_size;
 	VERTEX.xy += offset;

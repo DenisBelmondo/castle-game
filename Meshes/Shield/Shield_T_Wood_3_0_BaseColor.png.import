@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvv05l3vsbk8s"
-path.s3tc="res://.godot/imported/Shield_T_Wood_3_0_BaseColor.png-c037c786094a8e2e6d72a3dace65fe3a.s3tc.ctex"
+uid="uid://ggvfhdurtnep"
+path="res://.godot/imported/Shield_T_Wood_3_0_BaseColor.png-c037c786094a8e2e6d72a3dace65fe3a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "b90fbcb64930676f52652c8d05a5b553"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Meshes/Shield/Shield_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/Shield_T_Wood_3_0_BaseColor.png-c037c786094a8e2e6d72a3dace65fe3a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Shield_T_Wood_3_0_BaseColor.png-c037c786094a8e2e6d72a3dace65fe3a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
