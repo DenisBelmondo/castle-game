@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddgiakwguyd00"]
+[gd_scene load_steps=11 format=3 uid="uid://ddgiakwguyd00"]
 
 [ext_resource type="PackedScene" uid="uid://7eo0cokhgq4w" path="res://scenes/view_weapons/castle_game_view_weapon.tscn" id="1_ugxho"]
 [ext_resource type="Texture2D" uid="uid://cy2ujls280cgo" path="res://textures/emre/PNG_image.png" id="2_q3xd5"]
@@ -6,7 +6,25 @@
 [ext_resource type="AudioStream" uid="uid://dxyomhag6py5k" path="res://audio/sounds/revolver.tres" id="4_n262q"]
 [ext_resource type="Texture2D" uid="uid://b30w647gxg3i" path="res://textures/emre/PNG_image_2.png" id="5_j5u33"]
 
+[sub_resource type="Animation" id="Animation_q3xd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RestTransform/BobTransform/ViewSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_j5u33")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n262q"]
+_data = {
+&"RESET": SubResource("Animation_q3xd5")
+}
 
 [sub_resource type="Animation" id="Animation_j5u33"]
 tracks/0/type = "value"
@@ -80,6 +98,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.0685, 0.1815, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RestTransform/BobTransform/ViewSprite:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_q3xd5")]
 }
 
 [sub_resource type="Animation" id="Animation_cggdb"]
@@ -206,12 +236,8 @@ pixel_size = 0.0019
 
 [node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0685, 0.1815, -1)
-visible = true
 texture = ExtResource("4_5g3r8")
 pixel_size = 0.0038
-
-[node name="MuzzleFlashLight" parent="SpringArm3D" index="0"]
-visible = true
 
 [node name="WeaponAudio" parent="." index="3"]
 stream = ExtResource("4_n262q")
@@ -222,3 +248,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_n262q"),
 &"revolver": SubResource("AnimationLibrary_q3xd5")
 }
+autoplay = "revolver/RESET"

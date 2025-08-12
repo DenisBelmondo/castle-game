@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca1wxh5od1473"]
+[gd_scene load_steps=7 format=3 uid="uid://ca1wxh5od1473"]
 
 [ext_resource type="Texture2D" uid="uid://xeft73sjarny" path="res://icon.svg" id="1_ybdod"]
 [ext_resource type="PackedScene" uid="uid://boigngi4wgtav" path="res://scenes/characters/player.tscn" id="2_2s55i"]
 [ext_resource type="PackedScene" uid="uid://b88nn33xdwklx" path="res://scenes/items/revolver.tscn" id="4_38prr"]
 [ext_resource type="PackedScene" uid="uid://dq81q0rsbnvg7" path="res://scenes/characters/zombie/zombie.tscn" id="5_a3b3n"]
+[ext_resource type="PackedScene" uid="uid://d3twir1l3e5ks" path="res://scenes/items/shotgun.tscn" id="5_qoqmi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s55i"]
 albedo_texture = ExtResource("1_ybdod")
@@ -85,3 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
 [node name="Zombie3" parent="." instance=ExtResource("5_a3b3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="Shotgun" parent="." instance=ExtResource("5_qoqmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -5)

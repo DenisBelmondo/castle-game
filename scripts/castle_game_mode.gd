@@ -185,6 +185,31 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.keycode == KEY_ESCAPE:
 			_toggle_mouse_mode()
 
+		if event.keycode == KEY_1:
+			var p: Player = _players.keys().front()
+			var pp: CastleGamePlayer = _players[p]
+
+			if 'revolver' in pp.inventory:
+				var w := V_REVOLVER_SCENE.instantiate()
+
+				if is_instance_valid(pp.view_weapon):
+					pp.view_weapon.queue_free()
+
+				pp.view_weapon = w
+				CastleGameUtil.attach_view_weapon_to_player(w, p)
+		elif event.keycode == KEY_2:
+			var p: Player = _players.keys().front()
+			var pp: CastleGamePlayer = _players[p]
+
+			if 'shotgun' in pp.inventory:
+				var w := V_SHOTGUN_SCENE.instantiate()
+
+				if is_instance_valid(pp.view_weapon):
+					pp.view_weapon.queue_free()
+
+				pp.view_weapon = w
+				CastleGameUtil.attach_view_weapon_to_player(w, p)
+
 
 func change_map(scene_root: Node) -> void:
 	if is_instance_valid(_current_scene):
@@ -231,8 +256,8 @@ func _set_up_player(player: Player) -> void:
 	CastleGameUtil.attach_interpolated(audio_listener, player.inner_head)
 
 	# give weapon
-	CastleGameUtil.attach_view_weapon_to_player(shotgun, player)
-	castle_game_player.view_weapon = shotgun
+	#CastleGameUtil.attach_view_weapon_to_player(shotgun, player)
+	#castle_game_player.view_weapon = shotgun
 
 	# bob shit
 	for bob: Bob in Util.find_children(player, func (c: Node) -> bool: return c is Bob):
@@ -273,6 +298,7 @@ func _on_node_added(node: Node) -> void:
 
 			if is_instance_valid(p):
 				p = p as CastleGamePlayer
+				p.inventory[node.hint] = 1
 				p.audio_ui.stream = preload('res://audio/sounds/pick_up_weapon.tres')
 				p.audio_ui.play()
 				node.queue_free())
@@ -290,6 +316,7 @@ func _on_node_added(node: Node) -> void:
 		node.sight_targets = _players.keys().map(func (t: Node3D) -> Node3D: return t.find_children('*', 'CharacterBody3D', true, false).front())
 		node.hitbox.collision_layer = 0
 		node.hitbox.collision_mask = CollisionLayers.CHARACTERS
+
 		node.poop.connect(func (thing: Node3D) -> void:
 			if thing.owner is Player and thing.owner in _players:
 				var p := thing.owner as Player
