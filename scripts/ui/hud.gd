@@ -5,7 +5,9 @@ extends Control
 const Health := preload('res://scripts/health.gd')
 
 var health: Health
+
 @onready var health_label: Label = %HealthLabel
+@onready var pickup_message: Label = %PickupMessage
 
 
 func _get_property_list() -> Array[Dictionary]:

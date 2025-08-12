@@ -95,6 +95,9 @@ func force_update_texture() -> void:
 
 	var texture_size := texture.get_size()
 
+	mesh.material[&'shader_parameter/uv_offset'] = Vector2.ZERO
+	mesh.material[&'shader_parameter/uv_scale'] = Vector2.ONE
+
 	if texture is AtlasTexture:
 		mesh.material[&'shader_parameter/uv_offset'] = texture.region.position / texture.atlas.get_size()
 		mesh.material[&'shader_parameter/uv_scale'] = texture.region.size / texture.atlas.get_size()
