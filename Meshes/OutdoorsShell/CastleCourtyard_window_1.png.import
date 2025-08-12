@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://02tfd88tac8r"
-path.s3tc="res://.godot/imported/CastleCourtyard_window_1.png-9833807ef929fe0c610668977f309698.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleCourtyard_window_1.png-a5c3c8b939dd9a6184baadcbf8cc7794.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/OutdoorsShell/CastleCourtyard_window_1.png"
-dest_files=["res://.godot/imported/CastleCourtyard_window_1.png-9833807ef929fe0c610668977f309698.s3tc.ctex"]
+source_file="res://Meshes/OutdoorsShell/CastleCourtyard_window_1.png"
+dest_files=["res://.godot/imported/CastleCourtyard_window_1.png-a5c3c8b939dd9a6184baadcbf8cc7794.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btpaj2woo3p2c"
-path.s3tc="res://.godot/imported/cobblestonePainted.png-9c839b0503918457262d7e37fd7417b7.s3tc.ctex"
+path.s3tc="res://.godot/imported/cobblestonePainted.png-0cb13bcd84369602f4d295bdc5b2910f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/Textures/cobblestonePainted.png"
-dest_files=["res://.godot/imported/cobblestonePainted.png-9c839b0503918457262d7e37fd7417b7.s3tc.ctex"]
+source_file="res://Meshes/GenericCastleAssets/Textures/cobblestonePainted.png"
+dest_files=["res://.godot/imported/cobblestonePainted.png-0cb13bcd84369602f4d295bdc5b2910f.s3tc.ctex"]
 
 [params]
 

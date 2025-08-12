@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://risbmi2f376o"
-path="res://.godot/imported/GenericDoor.glb-b7aa99e7e73ce1a01f8737dd655b648d.scn"
+path="res://.godot/imported/GenericDoor.glb-56b15505062f04057927df5cc99de2e1.scn"
 
 [deps]
 
-source_file="res://meshes/GenericDoor/GenericDoor.glb"
-dest_files=["res://.godot/imported/GenericDoor.glb-b7aa99e7e73ce1a01f8737dd655b648d.scn"]
+source_file="res://Meshes/GenericDoor/GenericDoor.glb"
+dest_files=["res://.godot/imported/GenericDoor.glb-56b15505062f04057927df5cc99de2e1.scn"]
 
 [params]
 

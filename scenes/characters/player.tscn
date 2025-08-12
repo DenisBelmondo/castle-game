@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://boigngi4wgtav"]
+[gd_scene load_steps=14 format=3 uid="uid://boigngi4wgtav"]
 
 [ext_resource type="Script" uid="uid://2vy5avxs45yj" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cwb7qufghffik" path="res://scenes/nodes/health.tscn" id="2_atpat"]
 [ext_resource type="PackedScene" uid="uid://41jv6sarns0x" path="res://scenes/nodes/character.tscn" id="3_atpat"]
 [ext_resource type="PackedScene" uid="uid://c4ng50o26w5vp" path="res://scenes/collision_shapes/character.tscn" id="4_atpat"]
-[ext_resource type="PackedScene" uid="uid://cpli8psni3vyd" path="res://scenes/ui/hud.tscn" id="4_dyp2m"]
 [ext_resource type="PackedScene" uid="uid://cnnl565mmb8bs" path="res://scenes/editor/in_editor_character.tscn" id="5_kqtwu"]
 [ext_resource type="AudioStream" uid="uid://nd402milcq30" path="res://audio/sounds/step.tres" id="6_6eyoc"]
 [ext_resource type="Script" uid="uid://b047ncohoudcu" path="res://scripts/bob.gd" id="6_eojnx"]
@@ -58,7 +57,6 @@ inner_head = NodePath("Character/OuterHead/InnerHead")
 walk_speed = 1.5
 
 [node name="Character" parent="." instance=ExtResource("3_atpat")]
-metadata/castle_game_ = {}
 
 [node name="Health" parent="Character" instance=ExtResource("2_atpat")]
 
@@ -93,6 +91,3 @@ parameters/blend_position = 0.0
 [node name="FootstepAudio" type="AudioStreamPlayer3D" parent="Character/Bob"]
 stream = ExtResource("6_6eyoc")
 volume_db = -35.0
-
-[node name="HUD" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_dyp2m")]
-health = NodePath("../Character/Health")

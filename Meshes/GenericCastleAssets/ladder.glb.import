@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cs6jg877adrpc"
-path="res://.godot/imported/ladder.glb-11df7f296b8833ae1eba88353a99ace7.scn"
+path="res://.godot/imported/ladder.glb-a4887b8935f93d269a18b1b6a4f930e9.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/ladder.glb"
-dest_files=["res://.godot/imported/ladder.glb-11df7f296b8833ae1eba88353a99ace7.scn"]
+source_file="res://Meshes/GenericCastleAssets/ladder.glb"
+dest_files=["res://.godot/imported/ladder.glb-a4887b8935f93d269a18b1b6a4f930e9.scn"]
 
 [params]
 

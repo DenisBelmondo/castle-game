@@ -18,11 +18,13 @@ var amount: float = 100:
 
 
 func _enter_tree() -> void:
-	CastleGameUtil.set_meta_on(get_parent(), Health, self)
+	if not Engine.is_editor_hint():
+		CastleGameUtil.set_meta_on(get_parent(), Health, self)
 
 
 func _exit_tree() -> void:
-	CastleGameUtil.remove_meta_from(get_parent(), Health)
+	if not Engine.is_editor_hint():
+		CastleGameUtil.remove_meta_from(get_parent(), Health)
 
 
 func heal(p_amount: float, user_data: Variant = null) -> void:

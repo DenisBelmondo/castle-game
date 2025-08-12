@@ -47,7 +47,7 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, screen_color.rgb + ALBEDO, float(blend_mode == 1));
 	ALBEDO = mix(ALBEDO, screen_color.rgb - ALBEDO, float(blend_mode == 2));
 	ALBEDO = mix(ALBEDO, screen_color.rgb * ALBEDO, float(blend_mode == 3));
-	
+
 	DEPTH = 1.0 - (1.0 - FRAGCOORD.z) * 0.7;
 }
 

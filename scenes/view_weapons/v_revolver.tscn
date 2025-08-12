@@ -1,12 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddgiakwguyd00"]
+[gd_scene load_steps=11 format=3 uid="uid://ddgiakwguyd00"]
 
 [ext_resource type="PackedScene" uid="uid://7eo0cokhgq4w" path="res://scenes/view_weapons/castle_game_view_weapon.tscn" id="1_ugxho"]
-[ext_resource type="Texture2D" uid="uid://b03w0ubg1ihuw" path="res://textures/v_revolver_0.png" id="2_cggdb"]
-[ext_resource type="Texture2D" uid="uid://pr5vq8pfxqoy" path="res://textures/v_revolver_1.png" id="3_p8m33"]
+[ext_resource type="Texture2D" uid="uid://cy2ujls280cgo" path="res://textures/emre/PNG_image.png" id="2_q3xd5"]
 [ext_resource type="Texture2D" uid="uid://be8w1lwt0ppyk" path="res://textures/v_muzzle_flash_0.png" id="4_5g3r8"]
 [ext_resource type="AudioStream" uid="uid://dxyomhag6py5k" path="res://audio/sounds/revolver.tres" id="4_n262q"]
+[ext_resource type="Texture2D" uid="uid://b30w647gxg3i" path="res://textures/emre/PNG_image_2.png" id="5_j5u33"]
+
+[sub_resource type="Animation" id="Animation_q3xd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RestTransform/BobTransform/ViewSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_j5u33")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n262q"]
+_data = {
+&"RESET": SubResource("Animation_q3xd5")
+}
 
 [sub_resource type="Animation" id="Animation_j5u33"]
 tracks/0/type = "value"
@@ -19,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0038]
+"values": [0.0019]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,6 +99,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(-0.0685, 0.1815, -1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RestTransform/BobTransform/ViewSprite:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_q3xd5")]
+}
 
 [sub_resource type="Animation" id="Animation_cggdb"]
 resource_name = "attack_primary"
@@ -108,7 +138,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_cggdb"), ExtResource("3_p8m33"), ExtResource("2_cggdb")]
+"values": [ExtResource("2_q3xd5"), ExtResource("5_j5u33"), ExtResource("2_q3xd5")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -172,6 +202,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [ExtResource("4_5g3r8")]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0999711),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"event", &"revolver_attack", null],
+"method": &"emit_signal"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3xd5"]
 _data = {
@@ -181,13 +225,14 @@ _data = {
 
 [node name="VRevolver" instance=ExtResource("1_ugxho")]
 attack_primary_animation_name = &"revolver/attack_primary"
+physics_exclude = Array[Object]([])
 
 [node name="RestTransform" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, -0.28, 0)
 
 [node name="ViewSprite" parent="RestTransform/BobTransform" index="0"]
-texture = ExtResource("2_cggdb")
-pixel_size = 0.0038
+texture = ExtResource("5_j5u33")
+pixel_size = 0.0019
 
 [node name="MuzzleFlashSprite" parent="RestTransform/BobTransform/ViewSprite" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0685, 0.1815, -1)
@@ -203,3 +248,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_n262q"),
 &"revolver": SubResource("AnimationLibrary_q3xd5")
 }
+autoplay = "revolver/RESET"

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8i88yuwcal4i"
-path="res://.godot/imported/fence.glb-e343b5f601cfd69cd4f0bf234a9b6289.scn"
+path="res://.godot/imported/fence.glb-485c47f9f511896d4cf022254db01d66.scn"
 
 [deps]
 
-source_file="res://meshes/GenericCastleAssets/fence.glb"
-dest_files=["res://.godot/imported/fence.glb-e343b5f601cfd69cd4f0bf234a9b6289.scn"]
+source_file="res://Meshes/GenericCastleAssets/fence.glb"
+dest_files=["res://.godot/imported/fence.glb-485c47f9f511896d4cf022254db01d66.scn"]
 
 [params]
 

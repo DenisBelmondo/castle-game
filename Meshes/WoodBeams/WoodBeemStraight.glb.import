@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bu2a3x2k2w4n2"
-path="res://.godot/imported/WoodBeemStraight.glb-86a7d3bc957ccab749b0219c381ae319.scn"
+path="res://.godot/imported/WoodBeemStraight.glb-aed54586077096693df7bc52aef6b707.scn"
 
 [deps]
 
-source_file="res://meshes/WoodBeams/WoodBeemStraight.glb"
-dest_files=["res://.godot/imported/WoodBeemStraight.glb-86a7d3bc957ccab749b0219c381ae319.scn"]
+source_file="res://Meshes/WoodBeams/WoodBeemStraight.glb"
+dest_files=["res://.godot/imported/WoodBeemStraight.glb-aed54586077096693df7bc52aef6b707.scn"]
 
 [params]
 

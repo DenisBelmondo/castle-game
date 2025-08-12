@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://desybm2u35rdv"
-path.s3tc="res://.godot/imported/CastleShell_window_2.png-cc2a09091aace2ac777ec428328912a7.s3tc.ctex"
+path.s3tc="res://.godot/imported/CastleShell_window_2.png-bf448b513ae896ecca7c00a545798845.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/CastleTest/CastleShell_window_2.png"
-dest_files=["res://.godot/imported/CastleShell_window_2.png-cc2a09091aace2ac777ec428328912a7.s3tc.ctex"]
+source_file="res://Meshes/CastleTest/CastleShell_window_2.png"
+dest_files=["res://.godot/imported/CastleShell_window_2.png-bf448b513ae896ecca7c00a545798845.s3tc.ctex"]
 
 [params]
 

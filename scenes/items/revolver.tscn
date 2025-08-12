@@ -13,6 +13,8 @@ shader_parameter/albedo_texture = ExtResource("3_ughn6")
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/offset = Vector2(0, 0)
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
 shader_parameter/billboard_mode = 1
 shader_parameter/pixel_size = 0.0078
 
@@ -26,6 +28,7 @@ size = Vector3(1, 0.25, 1)
 [node name="Revolver" type="Node3D" node_paths=PackedStringArray("area")]
 script = ExtResource("1_ughn6")
 area = NodePath("Area3D")
+hint = "revolver"
 
 [node name="Billboard3D" parent="." instance=ExtResource("1_ub3dv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.117, 0)

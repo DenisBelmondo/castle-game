@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1diabe2u6cug"
-path="res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-081f61c9f1990e8a9fbd56807cd9546c.ctex"
+path="res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-7751b2a549a49a3513b4f1d34565ab84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://meshes/Boxes/BoxLarge_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-081f61c9f1990e8a9fbd56807cd9546c.ctex"]
+source_file="res://Meshes/Boxes/BoxLarge_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/BoxLarge_T_Wood_3_0_BaseColor.png-7751b2a549a49a3513b4f1d34565ab84.ctex"]
 
 [params]
 

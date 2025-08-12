@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3auhbsrknoj"
-path.s3tc="res://.godot/imported/BoxLarge_T_Wood_2_0_BaseColor.png-d04cc617f70b1ecd63b8dde10eb1830a.s3tc.ctex"
+path.s3tc="res://.godot/imported/BoxLarge_T_Wood_2_0_BaseColor.png-9f326092eaaacac509c61f2d0205dd7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://meshes/Boxes/BoxLarge_T_Wood_2_0_BaseColor.png"
-dest_files=["res://.godot/imported/BoxLarge_T_Wood_2_0_BaseColor.png-d04cc617f70b1ecd63b8dde10eb1830a.s3tc.ctex"]
+source_file="res://Meshes/Boxes/BoxLarge_T_Wood_2_0_BaseColor.png"
+dest_files=["res://.godot/imported/BoxLarge_T_Wood_2_0_BaseColor.png-9f326092eaaacac509c61f2d0205dd7e.s3tc.ctex"]
 
 [params]
 
