@@ -18,3 +18,6 @@ func change_to_INDOOR_CASTLE():
 
 func change_to_STAIRS():
 	CastleGameMode.get_instance().change_map(STAIRS.instantiate())
+
+func quit_game():
+	get_tree().quit()
