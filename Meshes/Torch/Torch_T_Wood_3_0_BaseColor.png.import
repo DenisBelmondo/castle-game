@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ro3cc6g6wjm"
-path="res://.godot/imported/Torch_T_Wood_3_0_BaseColor.png-f6d07bc911a43a133f832eab488175f4.ctex"
+uid="uid://ng6barpys5jb"
+path.s3tc="res://.godot/imported/Torch_T_Wood_3_0_BaseColor.png-f6d07bc911a43a133f832eab488175f4.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b90fbcb64930676f52652c8d05a5b553"
 }
 
 [deps]
 
 source_file="res://Meshes/Torch/Torch_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/Torch_T_Wood_3_0_BaseColor.png-f6d07bc911a43a133f832eab488175f4.ctex"]
+dest_files=["res://.godot/imported/Torch_T_Wood_3_0_BaseColor.png-f6d07bc911a43a133f832eab488175f4.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

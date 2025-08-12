@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtv60u5i6oi4c"
-path="res://.godot/imported/Woodbox_T_Wood_3_0_BaseColor.png-6df6f0044bfefc6675e47a13571ee37e.ctex"
+uid="uid://bbs8hujtcjhd8"
+path.s3tc="res://.godot/imported/Woodbox_T_Wood_3_0_BaseColor.png-6df6f0044bfefc6675e47a13571ee37e.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b90fbcb64930676f52652c8d05a5b553"
 }
 
 [deps]
 
 source_file="res://Meshes/Boxes/Woodbox_T_Wood_3_0_BaseColor.png"
-dest_files=["res://.godot/imported/Woodbox_T_Wood_3_0_BaseColor.png-6df6f0044bfefc6675e47a13571ee37e.ctex"]
+dest_files=["res://.godot/imported/Woodbox_T_Wood_3_0_BaseColor.png-6df6f0044bfefc6675e47a13571ee37e.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

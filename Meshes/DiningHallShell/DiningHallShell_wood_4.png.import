@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4nbn47r3y0xt"
-path="res://.godot/imported/DiningHallShell_wood_4.png-e48b88c5119bf3d6e9abab844ee2fb36.ctex"
+uid="uid://07bnee1roosl"
+path.s3tc="res://.godot/imported/DiningHallShell_wood_4.png-e48b88c5119bf3d6e9abab844ee2fb36.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "5499d40e85822605ac561aca72272072"
 }
 
 [deps]
 
 source_file="res://Meshes/DiningHallShell/DiningHallShell_wood_4.png"
-dest_files=["res://.godot/imported/DiningHallShell_wood_4.png-e48b88c5119bf3d6e9abab844ee2fb36.ctex"]
+dest_files=["res://.godot/imported/DiningHallShell_wood_4.png-e48b88c5119bf3d6e9abab844ee2fb36.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
