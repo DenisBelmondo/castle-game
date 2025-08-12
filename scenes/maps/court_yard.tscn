@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://bdhyci7hg313a"]
+[gd_scene load_steps=126 format=4 uid="uid://bdhyci7hg313a"]
 
 [ext_resource type="Texture2D" uid="uid://c4m7sfdedgs76" path="res://Meshes/OutdoorsShell/CastleCourtyard_snow2C.png" id="1_3py8t"]
 [ext_resource type="Texture2D" uid="uid://c72xlw5lbds70" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png" id="2_0m3if"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://0vj52gqk3spf" path="res://Meshes/Well/Well_T_Metal_1_0_BaseColor.png" id="17_84nv5"]
 [ext_resource type="PackedScene" uid="uid://ddgf4qim3udwk" path="res://scenes/interaction_engine/buttons/button_timed.tscn" id="24_qxg5u"]
 [ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="25_eis5w"]
+[ext_resource type="Texture2D" uid="uid://dydcverwjy65x" path="res://textures/Particles/CircleSmall.png" id="26_lni4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj0eh"]
 resource_name = "Material"
@@ -1988,6 +1989,29 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_lni4b"]
 size = Vector3(3.7002, 3.99609, 0.601563)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6ktx"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("26_lni4b")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l8rx1"]
+emission_shape_scale = Vector3(10, 1, 10)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+scale_min = 0.05
+scale_max = 0.05
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ltwbt"]
+orientation = 2
+
 [node name="CourtYard" type="Node3D"]
 
 [node name="CastleCourtyard" type="Node3D" parent="."]
@@ -2330,6 +2354,14 @@ shape = SubResource("BoxShape3D_lni4b")
 
 [node name="Player" parent="." instance=ExtResource("10_eis5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.11405, 0)
+material_override = SubResource("StandardMaterial3D_w6ktx")
+amount = 64
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_l8rx1")
+draw_pass_1 = SubResource("PlaneMesh_ltwbt")
 
 [connection signal="pressed" from="WellUse" to="Well/AnimationPlayer" method="play" binds= [&"Use"]]
 [connection signal="pressed" from="WellUse" to="GetKey/AnimationPlayer" method="play" binds= [&"Unlock"]]
