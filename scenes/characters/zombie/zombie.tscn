@@ -1,206 +1,41 @@
-[gd_scene load_steps=22 format=3 uid="uid://dq81q0rsbnvg7"]
+[gd_scene load_steps=17 format=3 uid="uid://dq81q0rsbnvg7"]
 
 [ext_resource type="Script" uid="uid://ccd56jr3xstex" path="res://scripts/zombie.gd" id="1_ij7uc"]
-[ext_resource type="Shape3D" uid="uid://cacwabrj5ybwn" path="res://shape_3ds/character.tres" id="2_076y6"]
 [ext_resource type="PackedScene" uid="uid://41jv6sarns0x" path="res://scenes/nodes/character.tscn" id="2_ij7uc"]
 [ext_resource type="Script" uid="uid://bil4u701cleug" path="res://scripts/health.gd" id="3_ilqf0"]
+[ext_resource type="PackedScene" uid="uid://c4ng50o26w5vp" path="res://scenes/collision_shapes/character.tscn" id="4_076y6"]
 [ext_resource type="PackedScene" uid="uid://uldbcrld56it" path="res://scenes/characters/zombie/zombie_billboard.tscn" id="4_luamn"]
-[ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="5_ilqf0"]
-[ext_resource type="Texture2D" uid="uid://cnhqnds3oaxx2" path="res://textures/zombie_walk_1.tres" id="6_luamn"]
-[ext_resource type="Texture2D" uid="uid://bs3amnltoyom1" path="res://textures/zombie_die_0.tres" id="7_1fqab"]
-[ext_resource type="AudioStream" uid="uid://dka5r34wapy15" path="res://audio/sounds/zombie.wav" id="7_ij7uc"]
-[ext_resource type="Texture2D" uid="uid://b8ni5pwf25ybl" path="res://textures/zombie_die_1.tres" id="9_mbkyw"]
-[ext_resource type="Texture2D" uid="uid://3aw4cpppdvmw" path="res://textures/zombie_walk_0.tres" id="10_8ebu3"]
+[ext_resource type="PackedScene" uid="uid://b36bl4vj1mbch" path="res://scenes/editor/basis_gizmo.tscn" id="5_ilqf0"]
+[ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="6_ij7uc"]
+[ext_resource type="Texture2D" uid="uid://40rbhik4v2mc" path="res://textures/emre/PNG_image_3.png" id="7_1fqab"]
+[ext_resource type="AudioStream" uid="uid://dka5r34wapy15" path="res://audio/sounds/zombie.wav" id="9_1fqab"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dwsm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fqab"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mh23"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("5_ilqf0")
-shader_parameter/_texture_size = Vector2(46, 90)
-shader_parameter/albedo_texture = ExtResource("6_luamn")
-shader_parameter/uv_offset = Vector2(0.32882, 0.43299)
-shader_parameter/uv_scale = Vector2(0.0889749, 0.231959)
+shader = ExtResource("6_ij7uc")
+shader_parameter/_texture_size = Vector2(92, 180)
+shader_parameter/albedo_texture = ExtResource("7_1fqab")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/flip_x = false
 shader_parameter/flip_y = false
 shader_parameter/billboard_mode = 2
-shader_parameter/pixel_size = 0.0156
+shader_parameter/pixel_size = 0.0078
 
-[sub_resource type="QuadMesh" id="QuadMesh_ij7uc"]
+[sub_resource type="QuadMesh" id="QuadMesh_1mh23"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_8dwsm")
-
-[sub_resource type="Animation" id="Animation_2617o"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("./VerticalOffset/Billboard3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.016, 0.7, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("./VerticalOffset/Billboard3D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_luamn")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("./VerticalOffset/Billboard3D:pixel_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0156]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("./VerticalOffset/Billboard3D:flip_x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("./VerticalOffset:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("./VerticalOffset:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_nubx2"]
-resource_name = "die"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("./VerticalOffset/Billboard3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("7_1fqab"), ExtResource("9_mbkyw")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("./VerticalOffset:position")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.47, 0), Vector3(0, -0.53, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("./VerticalOffset:scale")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1.1, 0.9, 1), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_l34tr"]
-resource_name = "walk"
-length = 0.80001
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("./VerticalOffset/Billboard3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.581928),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("10_8ebu3"), ExtResource("6_luamn"), ExtResource("10_8ebu3"), ExtResource("6_luamn")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("./VerticalOffset/Billboard3D:flip_x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("./VerticalOffset:position")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.0312, 0), Vector3(0, 0, 0), Vector3(0, 0.0312, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l34tr"]
-resource_local_to_scene = true
-_data = {
-&"RESET": SubResource("Animation_2617o"),
-&"die": SubResource("Animation_nubx2"),
-&"walk": SubResource("Animation_l34tr")
-}
+material = SubResource("ShaderMaterial_1mh23")
 
 [sub_resource type="Animation" id="Animation_1fqab"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Heart/VoiceAudio:stream")
+tracks/0/path = NodePath("Character/Heart/VoiceAudio:stream")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -209,24 +44,14 @@ tracks/0/keys = {
 "update": 1,
 "values": [null]
 }
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ZombieBillboard/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": PackedStringArray("RESET"),
-"times": PackedFloat32Array(0)
-}
 
-[sub_resource type="Animation" id="Animation_luamn"]
+[sub_resource type="Animation" id="Animation_ij7uc"]
 resource_name = "die"
 step = 0.1
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ZombieBillboard/AnimationPlayer")
+tracks/0/path = NodePath("Character/ZombieBillboard/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -236,19 +61,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Heart/VoiceAudio:stream")
+tracks/1/path = NodePath("Character/Heart/VoiceAudio:stream")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_ij7uc")]
+"values": [ExtResource("9_1fqab")]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Heart/VoiceAudio")
+tracks/2/path = NodePath("Character/Heart/VoiceAudio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -260,7 +85,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ilqf0"]
+[sub_resource type="Animation" id="Animation_he21v"]
 resource_name = "walk"
 length = 0.80001
 loop_mode = 1
@@ -268,7 +93,7 @@ step = 0.1
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ZombieBillboard/AnimationPlayer")
+tracks/0/path = NodePath("Character/ZombieBillboard/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -276,12 +101,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_luamn"]
-resource_local_to_scene = true
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fqab"]
 _data = {
 &"RESET": SubResource("Animation_1fqab"),
-&"die": SubResource("Animation_luamn"),
-&"walk": SubResource("Animation_ilqf0")
+&"die": SubResource("Animation_ij7uc"),
+&"walk": SubResource("Animation_he21v")
 }
 
 [node name="Zombie" type="Node3D"]
@@ -289,17 +113,19 @@ script = ExtResource("1_ij7uc")
 
 [node name="Character" parent="." instance=ExtResource("2_ij7uc")]
 unique_name_in_owner = true
-metadata/castle_game_ = {
-ExtResource("3_ilqf0"): Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":ExtResource("3_ilqf0"),"amount":100.0)
 
-}
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
+[node name="CharacterCollisionShape" parent="Character" instance=ExtResource("4_076y6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = ExtResource("2_076y6")
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character/CollisionShape3D"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character/CharacterCollisionShape"]
 remote_path = NodePath("../../Heart")
+
+[node name="Hitbox" type="Area3D" parent="Character"]
+unique_name_in_owner = true
+
+[node name="CharacterCollisionShape" parent="Character/Hitbox" instance=ExtResource("4_076y6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_1fqab")
 
 [node name="Health" type="Node" parent="Character"]
 unique_name_in_owner = true
@@ -308,12 +134,12 @@ script = ExtResource("3_ilqf0")
 [node name="ZombieBillboard" parent="Character" instance=ExtResource("4_luamn")]
 
 [node name="Billboard3D" parent="Character/ZombieBillboard/VerticalOffset" index="0"]
-mesh = SubResource("QuadMesh_ij7uc")
+mesh = SubResource("QuadMesh_1mh23")
 
-[node name="AnimationPlayer" parent="Character/ZombieBillboard" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_l34tr")
-}
+[node name="EditorOnly" type="Node3D" parent="Character" groups=["only_visible_in_editor"]]
+
+[node name="BasisGizmo" parent="Character/EditorOnly" instance=ExtResource("5_ilqf0")]
+transform = Transform3D(0.0625, 0, 0, 0, -2.73196e-09, 0.0625, 0, -0.0625, -2.73196e-09, 0, 0.5, -0.4)
 
 [node name="Heart" type="Node3D" parent="Character"]
 unique_name_in_owner = true
@@ -321,10 +147,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="VoiceAudio" type="AudioStreamPlayer3D" parent="Character/Heart"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
-unique_name_in_owner = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_luamn")
+&"": SubResource("AnimationLibrary_1fqab")
 }
 autoplay = "walk"
 

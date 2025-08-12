@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3twir1l3e5ks"]
+
+[ext_resource type="Script" uid="uid://bss0otg5bpjb3" path="res://scripts/pickup.gd" id="1_idu3l"]
+[ext_resource type="PackedScene" uid="uid://0qla75g25iuh" path="res://scenes/nodes/billboard_3d.tscn" id="2_erejx"]
+[ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="3_p5l8e"]
+[ext_resource type="Texture2D" uid="uid://cutcjdpnmfn5v" path="res://textures/w_shotgun.png" id="4_idu3l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dwsm"]
+render_priority = 0
+shader = ExtResource("3_p5l8e")
+shader_parameter/_texture_size = Vector2(362, 64)
+shader_parameter/albedo_texture = ExtResource("4_idu3l")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/billboard_mode = 1
+shader_parameter/pixel_size = 0.0038
+
+[sub_resource type="QuadMesh" id="QuadMesh_e6vhn"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_8dwsm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ub3dv"]
+size = Vector3(1, 0.25, 1)
+
+[node name="Shotgun" type="Node3D" node_paths=PackedStringArray("area")]
+script = ExtResource("1_idu3l")
+area = NodePath("Area3D")
+hint = "shotgun"
+
+[node name="Billboard3D" parent="." instance=ExtResource("2_erejx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.117, 0)
+mesh = SubResource("QuadMesh_e6vhn")
+texture = ExtResource("4_idu3l")
+pixel_size = 0.0038
+billboard_mode = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("BoxShape3D_ub3dv")

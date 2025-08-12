@@ -13,6 +13,7 @@ const RemoteInterpolatedTransformer := preload('res://scripts/remote_interpolate
 const Sandbag := preload('res://scripts/characters/sandbag.gd')
 const Util := preload('res://scripts/util.gd')
 const ViewWeapon := preload('res://scripts/view_weapons/view_weapon.gd')
+const Zombie := preload('res://scripts/zombie.gd')
 
 const FX_BLOOD := preload('res://scenes/effects/blood_spurt.tscn')
 const FX_PUFF := preload('res://scenes/effects/spark_puff.tscn')
@@ -42,16 +43,16 @@ static func attach_view_weapon_to_player(view_weapon: ViewWeapon, player: Player
 	# [TODO]: loll?
 	if view_weapon is CastleGameViewWeapon:
 		view_weapon.get_bob_strength_function = (func () -> float:
-				return (
-					player.character.linear_velocity.slide(player.character.global_basis.y).length_squared()
-							* float(player.character.movement_result.is_on_floor)))
+			return (
+				player.character.linear_velocity.slide(player.character.global_basis.y).length_squared()
+						* float(player.character.movement_result.is_on_floor)))
 
 	attach_interpolated(view_weapon, player.inner_head)
 	view_weapon.set_deferred(&'owner', player)
 
 
 static func get_impact_effect_for_node(node: Node) -> PackedScene:
-	if node is Sandbag:
+	if node is Sandbag or node is Zombie:
 		return FX_BLOOD
 
 	return FX_PUFF

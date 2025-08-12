@@ -27,3 +27,17 @@ offset_right = 67.936
 text = "100"
 label_settings = SubResource("LabelSettings_wh2we")
 metadata/_edit_use_anchors_ = true
+
+[node name="PickupMessage" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 31.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_wh2we")
+horizontal_alignment = 2
