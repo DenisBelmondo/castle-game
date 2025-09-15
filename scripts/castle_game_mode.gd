@@ -26,7 +26,7 @@ class CastleGamePlayer:
 	var view_weapon: ViewWeapon
 	var camera: Camera3D
 	var hud: HUD
-	var inventory: Dictionary
+	var inventory: Dictionary # inventory
 	var id: int
 
 
@@ -192,7 +192,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var p: Player = _players.keys().front()
 			var pp: CastleGamePlayer = _players[p]
 
-			if 'revolver' in pp.inventory:
+			if 'revolver' in pp.inventory: # inventory
 				var w := V_REVOLVER_SCENE.instantiate()
 
 				if is_instance_valid(pp.view_weapon):
@@ -204,7 +204,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var p: Player = _players.keys().front()
 			var pp: CastleGamePlayer = _players[p]
 
-			if 'shotgun' in pp.inventory:
+			if 'shotgun' in pp.inventory: #inventory
 				var w := V_SHOTGUN_SCENE.instantiate()
 
 				if is_instance_valid(pp.view_weapon):
