@@ -69,7 +69,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
 			if collider_health is Health:
-				collider_health.damage(randi_range(1, 3) * 10)
+				collider_health.damage(randi_range(1, 5) * 20)
 
 			var collider_owner = collider.owner
 
@@ -123,7 +123,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
 			if collider_health is Health:
-				collider_health.damage(randi_range(1, 3) * 5)
+				collider_health.damage(randi_range(1, 5) * 10)
 
 			var collider_owner = collider.owner
 
