@@ -7,6 +7,7 @@ const Health := preload('res://scripts/health.gd')
 var health: Health
 
 @onready var health_label: Label = %HealthLabel
+@onready var ammo_label: Label = %AmmoLabel
 @onready var pickup_message: Label = %PickupMessage
 
 

@@ -1,4 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbcmqdqvmob4a"]
+[gd_scene load_steps=18 format=3 uid="uid://dbcmqdqvmob4a"]
+
+[ext_resource type="AudioStream" uid="uid://vkectea4mnie" path="res://audio/sounds/bullet_impact.wav" id="1_02r1l"]
+[ext_resource type="Texture2D" uid="uid://daffotlbk488h" path="res://textures/Particles/blood1.png" id="1_5khrp"]
 
 [sub_resource type="Curve" id="Curve_s7wuf"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
@@ -26,14 +29,40 @@ collision_mode = 2
 cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("1_5khrp")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+use_particle_trails = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_6jwa3"]
+material = SubResource("StandardMaterial3D_pqrpb")
+size = Vector2(0.015, 0.015)
+
+[sub_resource type="Curve" id="Curve_5khrp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_02r1l"]
+curve = SubResource("Curve_5khrp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5khrp"]
+initial_velocity_max = 4.0
+gravity = Vector3(0, -4.9, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_02r1l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5khrp"]
+transparency = 1
+albedo_texture = ExtResource("1_5khrp")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_6jwa3"]
-material = SubResource("StandardMaterial3D_pqrpb")
-size = Vector2(0.015, 0.015)
+[sub_resource type="QuadMesh" id="QuadMesh_02r1l"]
+material = SubResource("StandardMaterial3D_5khrp")
 
 [sub_resource type="Animation" id="Animation_kvjf0"]
 resource_name = "spurt"
@@ -51,13 +80,73 @@ tracks/0/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DropParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoopParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5khrp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DropParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoopParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5khrp"]
 _data = {
+&"RESET": SubResource("Animation_5khrp"),
 &"spurt": SubResource("Animation_kvjf0")
 }
 
-[node name="BloodSpurt" type="GPUParticles3D"]
+[node name="BloodSpurt" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_02r1l")
+volume_db = -20.0
+unit_size = 100.0
+autoplay = true
+
+[node name="DropParticles" type="GPUParticles3D" parent="."]
 cast_shadow = 0
 emitting = false
 amount = 4
@@ -67,6 +156,14 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_jenyr")
 draw_pass_1 = SubResource("QuadMesh_6jwa3")
+
+[node name="GoopParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 2
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_5khrp")
+draw_pass_1 = SubResource("QuadMesh_02r1l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
