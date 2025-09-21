@@ -43,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		await get_tree().physics_frame
 
 		if character.movement_result.is_on_floor:
-			character.linear_velocity += character.body.global_basis.y * jump_force
+			character.linear_velocity = character.body.global_basis.y * jump_force
 
 
 static func basic_player_look(event: InputEvent, p_outer_head: Node3D, p_inner_head: Node3D, p_vertical_look_clamp: Vector2 = Vector2(-90, 90)) -> void:

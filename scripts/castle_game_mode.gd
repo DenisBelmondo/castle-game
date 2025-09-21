@@ -43,7 +43,7 @@ static var _instance: CastleGameMode
 @export var current_scene: PackedScene
 
 var _weapon_attacks: Dictionary[StringName, Callable] = {
-	&'revolver_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
+	&'revolver_attack': (func (weapon: ViewWeapon, _user_data: Variant) -> void:
 			var p := PhysicsRayQueryParameters3D.create(
 				weapon.global_position,
 				weapon.global_position
@@ -69,7 +69,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
 			if collider_health is Health:
-				collider_health.damage(randi_range(1, 5) * 20)
+				collider_health.damage(randi_range(1, 5) * 30)
 
 			var collider_owner = collider.owner
 
@@ -90,13 +90,13 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 				if position is Vector3:
 					impact_fx.set_deferred(&'global_position', first_result.position)
-					impact_fx.set_deferred(&'emitting', true)
+					#impact_fx.set_deferred(&'emitting', true)
 
 					if normal is Vector3:
 						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
 						impact_fx.look_at.call_deferred(first_result.position + first_result.normal)),
 	# [TODO]: refactor
-	&'shotgun_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
+	&'shotgun_attack': (func (weapon: ViewWeapon, _user_data: Variant) -> void:
 		for i in 7:
 			var p := PhysicsRayQueryParameters3D.create(
 				weapon.global_position,
@@ -144,7 +144,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 				if position is Vector3:
 					impact_fx.set_deferred(&'global_position', first_result.position)
-					impact_fx.set_deferred(&'emitting', true)
+					#impact_fx.set_deferred(&'emitting', true)
 
 					if normal is Vector3:
 						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
@@ -319,7 +319,11 @@ func _on_node_added(node: Node) -> void:
 
 			if is_instance_valid(p):
 				p = p as CastleGamePlayer
-				p.inventory[node.hint] = 1
+
+				if not p.inventory.has(node.hint):
+					p.inventory[node.hint] = 0
+
+				p.inventory[node.hint] += 1
 				p.audio_ui.stream = preload('res://audio/sounds/pick_up_weapon.tres')
 				p.audio_ui.play()
 				node.queue_free())

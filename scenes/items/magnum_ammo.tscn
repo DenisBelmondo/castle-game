@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm5uucvpbc6n4"]
+
+[ext_resource type="Script" uid="uid://bss0otg5bpjb3" path="res://scripts/pickup.gd" id="1_qu0an"]
+[ext_resource type="PackedScene" uid="uid://0qla75g25iuh" path="res://scenes/nodes/billboard_3d.tscn" id="2_wjdsm"]
+[ext_resource type="Shader" uid="uid://d3b0ltrc6twrd" path="res://shaders/billboard_3d.gdshader" id="3_mredd"]
+[ext_resource type="Texture2D" uid="uid://ci5mbrum71r1l" path="res://textures/magnum-ammo-pickup.png" id="4_wjdsm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dwsm"]
+render_priority = 0
+shader = ExtResource("3_mredd")
+shader_parameter/_texture_size = Vector2(15, 7)
+shader_parameter/albedo_texture = ExtResource("4_wjdsm")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/billboard_mode = 1
+shader_parameter/pixel_size = 0.0156
+
+[sub_resource type="QuadMesh" id="QuadMesh_ahmmd"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_8dwsm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0i34"]
+size = Vector3(1, 0.25, 1)
+
+[node name="MagnumAmmo" type="Node3D" node_paths=PackedStringArray("area")]
+script = ExtResource("1_qu0an")
+area = NodePath("Area3D")
+hint = "magnum_ammo"
+amount = 4
+
+[node name="Billboard3D" parent="." instance=ExtResource("2_wjdsm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05542262, 0)
+mesh = SubResource("QuadMesh_ahmmd")
+texture = ExtResource("4_wjdsm")
+pixel_size = 0.0156
+billboard_mode = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("BoxShape3D_f0i34")
