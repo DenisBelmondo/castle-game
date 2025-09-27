@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u2yqafjyn3yk"
-path.s3tc="res://.godot/imported/fence.png-1afed33552576ef18f2980047420b2f7.s3tc.ctex"
+uid="uid://byluffr88d7x5"
+path="res://.godot/imported/fence.png-1afed33552576ef18f2980047420b2f7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Meshes/GenericCastleAssets/Textures/fence.png"
-dest_files=["res://.godot/imported/fence.png-1afed33552576ef18f2980047420b2f7.s3tc.ctex"]
+dest_files=["res://.godot/imported/fence.png-1afed33552576ef18f2980047420b2f7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -26,7 +26,8 @@ class CastleGamePlayer:
 	var view_weapon: ViewWeapon
 	var camera: Camera3D
 	var hud: HUD
-	var inventory: Dictionary
+	var inventory: Dictionary # inventory
+	var id: int
 
 
 const PLAYER_CAMERA_SCENE := preload('res://scenes/nodes/player_camera.tscn')
@@ -42,7 +43,7 @@ static var _instance: CastleGameMode
 @export var current_scene: PackedScene
 
 var _weapon_attacks: Dictionary[StringName, Callable] = {
-	&'revolver_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
+	&'revolver_attack': (func (weapon: ViewWeapon, _user_data: Variant) -> void:
 			var p := PhysicsRayQueryParameters3D.create(
 				weapon.global_position,
 				weapon.global_position
@@ -68,7 +69,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
 			if collider_health is Health:
-				collider_health.damage(randi_range(1, 3) * 10)
+				collider_health.damage(randi_range(1, 5) * 30)
 
 			var collider_owner = collider.owner
 
@@ -89,13 +90,13 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 				if position is Vector3:
 					impact_fx.set_deferred(&'global_position', first_result.position)
-					impact_fx.set_deferred(&'emitting', true)
+					#impact_fx.set_deferred(&'emitting', true)
 
 					if normal is Vector3:
 						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
 						impact_fx.look_at.call_deferred(first_result.position + first_result.normal)),
 	# [TODO]: refactor
-	&'shotgun_attack': (func (weapon: ViewWeapon, user_data: Variant) -> void:
+	&'shotgun_attack': (func (weapon: ViewWeapon, _user_data: Variant) -> void:
 		for i in 7:
 			var p := PhysicsRayQueryParameters3D.create(
 				weapon.global_position,
@@ -122,7 +123,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 			var collider_health = CastleGameUtil.get_meta_from(collider, Health)
 
 			if collider_health is Health:
-				collider_health.damage(randi_range(1, 3) * 5)
+				collider_health.damage(randi_range(1, 5) * 10)
 
 			var collider_owner = collider.owner
 
@@ -143,7 +144,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 
 				if position is Vector3:
 					impact_fx.set_deferred(&'global_position', first_result.position)
-					impact_fx.set_deferred(&'emitting', true)
+					#impact_fx.set_deferred(&'emitting', true)
 
 					if normal is Vector3:
 						impact_fx.set_deferred(&'global_position', first_result.position + first_result.normal / 10.0)
@@ -151,6 +152,7 @@ var _weapon_attacks: Dictionary[StringName, Callable] = {
 }
 
 var _current_scene: Node
+var _old_players: Dictionary[Player, CastleGamePlayer]
 var _players: Dictionary[Player, CastleGamePlayer]
 
 @onready var _viewport: SubViewport = %GameViewport
@@ -190,7 +192,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var p: Player = _players.keys().front()
 			var pp: CastleGamePlayer = _players[p]
 
-			if 'revolver' in pp.inventory:
+			if 'revolver' in pp.inventory: # inventory
 				var w := V_REVOLVER_SCENE.instantiate()
 
 				if is_instance_valid(pp.view_weapon):
@@ -202,7 +204,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var p: Player = _players.keys().front()
 			var pp: CastleGamePlayer = _players[p]
 
-			if 'shotgun' in pp.inventory:
+			if 'shotgun' in pp.inventory: #inventory
 				var w := V_SHOTGUN_SCENE.instantiate()
 
 				if is_instance_valid(pp.view_weapon):
@@ -216,19 +218,18 @@ func change_map(scene_root: Node, preserve_players: bool = false) -> void:
 	if is_instance_valid(_current_scene):
 		_current_scene.queue_free()
 
-	if not preserve_players:
-		_players.clear()
+	_old_players = _players
 
+	if not preserve_players:
+		_old_players = {}
+
+	_players = {}
 	Util.reparent_or_add_child.call_deferred(scene_root, _viewport)
 	set_deferred(&'_current_scene', scene_root)
 
 
 func restart_map() -> void:
 	var sf := _current_scene.scene_file_path
-	_current_scene.queue_free()
-
-	await get_tree().process_frame
-
 	change_map(load(sf).instantiate())
 
 
@@ -237,6 +238,18 @@ func restart_game() -> void:
 
 
 func _set_up_player(player: Player) -> void:
+	"""
+	var id := _players.size()
+	var cgps: Array[CastleGamePlayer] = _old_players.values().filter(func (cgp: CastleGamePlayer) -> bool: return cgp.id == id)
+
+	if not cgps.is_empty():
+		var old_player: CastleGamePlayer = _old_players.values().filter(func (cgp: CastleGamePlayer) -> bool: return cgp.id == id).front()
+
+		if is_instance_valid(old_player):
+			print('yes')
+
+		return
+	"""
 	player.character.body.collision_layer = CollisionLayers.CHARACTERS
 	player.character.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
 
@@ -247,6 +260,7 @@ func _set_up_player(player: Player) -> void:
 
 	var castle_game_player := CastleGamePlayer.new()
 
+	#castle_game_player.id = id
 	castle_game_player.audio_ui = AudioStreamPlayer3D.new()
 	_players[player] = castle_game_player
 	camera.add_child.call_deferred(castle_game_player.audio_ui)
@@ -295,11 +309,7 @@ func _on_node_added(node: Node) -> void:
 		node.body.collision_layer = CollisionLayers.CHARACTERS
 		node.body.collision_mask = CollisionLayers.WORLD | CollisionLayers.CHARACTERS | CollisionLayers.ITEMS
 	elif node is Player:
-		if _players.is_empty():
-			_set_up_player(node)
-		else:
-			print('wowaz')
-			node.global_transform = _players.keys().front().global_transform
+		_set_up_player(node)
 	elif node is Pickup:
 		node.area.collision_layer = CollisionLayers.ITEMS
 		node.area.collision_mask = CollisionLayers.CHARACTERS
@@ -309,7 +319,11 @@ func _on_node_added(node: Node) -> void:
 
 			if is_instance_valid(p):
 				p = p as CastleGamePlayer
-				p.inventory[node.hint] = 1
+
+				if not p.inventory.has(node.hint):
+					p.inventory[node.hint] = 0
+
+				p.inventory[node.hint] += 1
 				p.audio_ui.stream = preload('res://audio/sounds/pick_up_weapon.tres')
 				p.audio_ui.play()
 				node.queue_free())

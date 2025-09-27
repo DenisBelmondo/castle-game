@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtod64imklky"
-path.s3tc="res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.s3tc.ctex"
+uid="uid://dlwtdjcd5a3pj"
+path="res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "d0afce4a08cd22f0d2fc3b6beb6a1200"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Meshes/Torch/WallTorch_T_Metal_1_0_BaseColor.png"
-dest_files=["res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.s3tc.ctex"]
+dest_files=["res://.godot/imported/WallTorch_T_Metal_1_0_BaseColor.png-08fe91e7b6106ca6014980b867f7b51a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

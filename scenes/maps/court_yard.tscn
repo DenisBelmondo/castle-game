@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://bdhyci7hg313a"]
+[gd_scene load_steps=123 format=4 uid="uid://bdhyci7hg313a"]
 
 [ext_resource type="Texture2D" uid="uid://c4m7sfdedgs76" path="res://Meshes/OutdoorsShell/CastleCourtyard_snow2C.png" id="1_3py8t"]
 [ext_resource type="Texture2D" uid="uid://c72xlw5lbds70" path="res://Meshes/OutdoorsShell/CastleCourtyard_T_Brick_6_0_BaseColor.png" id="2_0m3if"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://0vj52gqk3spf" path="res://Meshes/Well/Well_T_Metal_1_0_BaseColor.png" id="17_84nv5"]
 [ext_resource type="PackedScene" uid="uid://ddgf4qim3udwk" path="res://scenes/interaction_engine/buttons/button_timed.tscn" id="24_qxg5u"]
 [ext_resource type="Script" uid="uid://b5mdrv4nnxv4y" path="res://scripts/BADSceneChange.gd" id="25_eis5w"]
+[ext_resource type="PackedScene" uid="uid://bm5uucvpbc6n4" path="res://scenes/items/magnum_ammo.tscn" id="26_lni4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj0eh"]
 resource_name = "Material"
@@ -2330,6 +2331,15 @@ shape = SubResource("BoxShape3D_lni4b")
 
 [node name="Player" parent="." instance=ExtResource("10_eis5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MagnumAmmo" parent="." instance=ExtResource("26_lni4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
+
+[node name="MagnumAmmo2" parent="." instance=ExtResource("26_lni4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1.7)
+
+[node name="MagnumAmmo3" parent="." instance=ExtResource("26_lni4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.8, 1.7)
 
 [connection signal="pressed" from="WellUse" to="Well/AnimationPlayer" method="play" binds= [&"Use"]]
 [connection signal="pressed" from="WellUse" to="GetKey/AnimationPlayer" method="play" binds= [&"Unlock"]]

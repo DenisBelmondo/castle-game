@@ -7,6 +7,7 @@ const ViewWeapon := preload('res://scripts/view_weapons/view_weapon.gd')
 @export var animation_player: AnimationPlayer
 @export var bob_animation_tree: AnimationTree
 @export var attack_primary_animation_name: StringName = &'attack_primary'
+@export var can_shoot_again: bool
 
 var get_bob_strength_function: Callable
 
@@ -24,4 +25,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func attack_primary() -> void:
-	animation_player.play(attack_primary_animation_name)
+	if can_shoot_again:
+		animation_player.stop()
+		animation_player.play(attack_primary_animation_name)
