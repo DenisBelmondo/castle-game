@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c0jasfjylr860"]
+
+[ext_resource type="Texture2D" uid="uid://bdrc6olks3hmw" path="res://Meshes/DontOpen/Head_FaceUv.png" id="1_7tvrq"]
+[ext_resource type="Texture2D" uid="uid://dyltcuxoyxj0b" path="res://Meshes/DontOpen/FaceUvEmissive.png" id="2_jjh3d"]
+
+[resource]
+resource_name = "Face"
+cull_mode = 2
+albedo_texture = ExtResource("1_7tvrq")
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("2_jjh3d")

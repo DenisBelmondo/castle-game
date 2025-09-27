@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://sbtqk2ywun6v"
+path.s3tc="res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-dd4fca2f33b456418cb93e483bac14c5.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b90fbcb64930676f52652c8d05a5b553"
+}
+
+[deps]
+
+source_file="res://Meshes/WoodBeams/WoodBeemStraight_T_Wood_3_0_BaseColor.png"
+dest_files=["res://.godot/imported/WoodBeemStraight_T_Wood_3_0_BaseColor.png-dd4fca2f33b456418cb93e483bac14c5.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

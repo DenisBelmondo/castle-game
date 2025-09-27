@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnnl565mmb8bs"]
+
+[ext_resource type="PackedScene" uid="uid://b36bl4vj1mbch" path="res://scenes/editor/basis_gizmo.tscn" id="1_3hwsj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3vyb7"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[node name="InEditorCharacter" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3vyb7")
+skeleton = NodePath("")
+
+[node name="BasisGizmo" parent="." instance=ExtResource("1_3hwsj")]
+transform = Transform3D(0.0625, 0, 0, 0, -2.73196e-09, 0.0625, 0, -0.0625, -2.73196e-09, 0, 0.5, -0.3)

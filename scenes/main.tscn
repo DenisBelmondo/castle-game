@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwuhc7g3383rw"]
+
+[ext_resource type="Script" uid="uid://ci6tnyfj0bl86" path="res://scripts/castle_game_mode.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cr8o6onuryta2" path="res://scenes/maps/main_menu.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node"]
+
+[node name="CastleGameMode" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_o5qli")
+current_scene = ExtResource("2_0wfyh")
+
+[node name="Control" type="Control" parent="CastleGameMode"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CastleGameMode/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="CastleGameMode/Control/SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ng50o26w5vp"]
+
+[ext_resource type="Shape3D" uid="uid://cacwabrj5ybwn" path="res://shape_3ds/character.tres" id="1_cbjfg"]
+
+[node name="CharacterCollisionShape" type="CollisionShape3D"]
+shape = ExtResource("1_cbjfg")

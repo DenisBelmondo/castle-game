@@ -1,0 +1,26 @@
+extends Node
+
+const CastleGameMode := preload('res://scripts/castle_game_mode.gd')
+
+const R_LEVEL_1 = preload("res://scenes/maps/r_level_1.tscn")
+
+
+const COURT_YARD = preload("res://scenes/maps/court_yard.tscn")
+const DINING_HALL = preload("res://scenes/maps/dining_hall.tscn")
+const INDOOR_CASTLE = preload("res://scenes/maps/indoor_castle.tscn")
+const STAIRS = preload("res://scenes/maps/stairs.tscn")
+
+func change_to_COURT_YARD():
+	CastleGameMode.get_instance().change_map(R_LEVEL_1.instantiate(), true)
+
+func change_to_DINING_HALL():
+	CastleGameMode.get_instance().change_map(DINING_HALL.instantiate(), true)
+
+func change_to_INDOOR_CASTLE():
+	CastleGameMode.get_instance().change_map(INDOOR_CASTLE.instantiate(), true)
+
+func change_to_STAIRS():
+	CastleGameMode.get_instance().change_map(STAIRS.instantiate(), true)
+
+func quit_game():
+	get_tree().quit()
